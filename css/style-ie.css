@@ -1,0 +1,2 @@
+/*** Clearfix for IE ***/
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */

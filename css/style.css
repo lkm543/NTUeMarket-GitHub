@@ -1,0 +1,132 @@
+/*
+Theme Name: Dilasag
+Description: Free html and css light colored template
+Version: 1 
+*/
+
+/*** Reset ***/
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td { background: transparent; border: 0; font-size: 100%; margin: 0; outline: 0; padding: 0; vertical-align: baseline; }
+ol,ul { list-style: none; }
+blockquote,q { quotes: none; }
+blockquote:before,blockquote:after,q:before,q:after { content: ''; content: none; }
+:focus { outline: 0; }
+img { vertical-align: bottom; }
+ins { text-decoration: none; }
+del { text-decoration: line-through; }
+table { border-collapse: collapse; border-spacing: 0; }
+
+/*** item_box ***/
+.item_box {
+  margin: 10px;
+  float: left;
+  font-size: 16px;
+}
+/*** Clearfix ***/
+.clearfix:after { visibility: hidden; display: block; font-size: 0; content: "."; clear: both; height: 0; }
+.clear { clear: both; }
+
+/*** Positioning and Alignment ***/
+.fl { float: left; }
+.fr { float: right; }
+.txt-left { text-align: left; }
+.txt-right { text-align: right; }
+.txt-center { text-align: center; }
+
+/*** General Settings ***/
+html, body { height: 100%; }
+body { background: #f0f0f0; color: #5f5f5f; font-family: Arial, Helvetica, sans-serif; font-size: 14px; }
+h1,h2,h3,h4,h5,h6 { font-weight: normal; margin-bottom: 15px; }
+p { margin: 0 0 15px 0; }
+a { color: #70a3b4; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+#wrapper { height: auto !important; margin-bottom: -18px;  min-height: 100%; }
+
+.container { margin: 0px auto; width: 960px; }
+
+/*** Header ***/
+#header { background: #e4e4e4; border-bottom: 1px solid #d9d9d9; border-top: 5px solid #cccccc; height: 60px; }
+#header h1 { float: left; margin: 15px 0px 0px; }
+#header h1 a { color: #5f5f5f; font-family: Century Gothic, sans-serif; font-size: 22px; font-weight: bold; text-decoration: none; }
+
+ul.menu { margin: 28px 0px 0px; }
+ul.menu li { float: left; margin: 0px 0px 0px 25px; }
+ul.menu li a { color: #5f5f5f; font-family: Georgia, Serif; font-size: 14px; }
+ul.menu li a:hover, ul.menu li.active a { color: #70a3b4; text-decoration: none; }
+
+/*** Main ***/
+#main { padding: 25px 0px 40px; }
+
+/*** Slideshow ***/
+#slideshow { background: #cccccc; height: 380px!important; margin: 0px 10px 50px; position: relative; width: 940px; -moz-box-shadow: 0 0 5px #888; -webkit-box-shadow: 0 0 5px#888; box-shadow: 0 0 5px #888; }
+#slideshow .nivo-controlNav { bottom: -40px; left: 50%; margin-left: -30px; position: absolute;  }
+#slideshow .nivo-controlNav .nivo-control { background: url(../images/bullets.png) no-repeat; display: block; float: left; height: 20px; text-indent: -9999px; width: 22px; }
+#slideshow .nivo-controlNav .nivo-control.active { background: url(../images/bullets.png) no-repeat scroll 0 -22px; }
+
+
+.intro { margin: 0px 10px 20px; }
+.intro p { font-size: 22px; text-align: center; }
+
+.next{padding-bottom:15px;}
+
+#about { margin: 0px 10px 30px; }
+#about .column { float: left; margin-right: 40px; width: 200px; }
+#about .column.last { margin-right: 0px; }
+#about .column .image { background: #cccccc; height: 120px; margin-bottom: 15px; width: 200px; -moz-box-shadow: 0 0 5px #888; -webkit-box-shadow: 0 0 5px#888; box-shadow: 0 0 5px #888; }
+#about .column h2 { color: #000000; font-family: Georgia, Serif; font-size: 16px; }
+
+/*** Footer ***/
+#footer { background: #e4e4e4; border-top: 1px solid #d9d9d9;  }
+#footer .container { height: 46px; overflow: hidden; }
+#footer, .pust { height: 46px; }
+#footer p { float: right; font-size: 12px; margin: 15px 0px 0px; }
+#footer ul.menu { margin-top: 15px; }
+#footer ul.menu li { margin: 0px 25px 0px 0px; }
+
+/*** Content ***/
+.content {  }
+.content h1 { font-family: Georgia, Serif; font-size: 26px; }
+.content h2 { font-family: Georgia, Serif; font-size: 20px; }
+.content h3 { font-family: Georgia, Serif; font-size: 16px; }
+.content ul { line-height: 22px; list-style: disc; margin-bottom: 15px; padding-left: 45px; }
+.content ol { line-height: 22px; list-style: decimal; margin-bottom: 15px; padding-left: 45px; }
+.content p { line-height: 22px; margin: 0 0 15px 0; }
+.content .image { border: 5px solid #ffffff; }
+.content .image.fl { margin: 0px 20px 15px 0px; }
+.content .image.fr { margin: 0px 0px 15px 20px; }
+
+#content { float: left; width: 660px; }
+#sidebar { float: right; width: 200px; }
+
+
+/*** Gallery ***/
+#gallery {  }
+#gallery .item { background: #cccccc; border: 5px solid #ffffff; float: left; height: 180px; margin: 0px 20px 40px 20px; width: 180px; }
+
+/*** Blog ***/
+#blog {}
+#blog .post { margin-bottom: 20px; overflow: hidden; }
+#blog .post h2 { margin-bottom: 0px; }
+#blog .post .date { border-bottom: 1px solid #ccc; font-size: 12px; margin-bottom: 10px; padding-bottom: 10px; }
+
+
+/*** Widget ***/
+.widget { margin-bottom: 25px; }
+.widget h3 { border-bottom: 1px solid #ccc; font-family: Georgia,Serif; font-size: 18px; margin-bottom: 10px; padding-bottom: 10px; }
+
+.widget .search {  }
+.widget .search .input-txt { height: 14px; padding: 5px; }
+.widget .search .input-btn { cursor: pointer; height: 28px; padding: 0px; width: 40px; }
+
+
+.widget .menu { list-style: square; margin: 0px; }
+.widget .menu li { float: none; line-height: 20px; }
+
+/*** Contact ***/
+#contact-form { float: left; margin-right: 30px; width: 500px; }
+#contact-form p { margin-bottom: 20px; overflow: hidden; }
+#contact-form label { float: left; width: 100px; }
+#contact-form .input-txt { height: 20px; width: 200px; }
+#contact-form .input-btn { margin-left: 100px; }
+
+#contact-map { float: left; width: 300px; }

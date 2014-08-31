@@ -8,7 +8,7 @@
     <link href="css/style.css" rel="stylesheet" type="text/css" />	
 	<link href="css/nivo-slider.css" rel="stylesheet" type="text/css" />
     <!--[if IE]><link href="css/style-ie.css" rel="stylesheet" type="text/css" /><![endif]-->
-	<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="js/jquery.nivo.slider.js"></script>
 	<script type="text/javascript">
 		$(window).load(function() {

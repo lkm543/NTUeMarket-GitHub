@@ -1,33 +1,37 @@
 {
-    "name": "phpmailer/phpmailer",
-    "type": "library",
-    "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
-    "authors": [
-        {
-            "name": "Marcus Bointon",
-            "email": "phpmailer@synchromedia.co.uk"
-        },
-        {
-            "name": "Jim Jagielski",
-            "email": "jimjag@gmail.com"
-        },
-        {
-            "name": "Andy Prevost",
-            "email": "codeworxtech@users.sourceforge.net"
-        },
-        {
-            "name": "Brent R. Matzelle"
-        }
-    ],
-    "require": {
-        "php": ">=5.0.0"
+  "name": "twbs/bootstrap",
+  "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
+  "keywords": [
+    "css",
+    "js",
+    "less",
+    "mobile-first",
+    "responsive",
+    "front-end",
+    "framework",
+    "web"
+  ],
+  "homepage": "http://getbootstrap.com",
+  "authors": [
+    {
+      "name": "Mark Otto",
+      "email": "markdotto@gmail.com"
     },
-    "require-dev": {
-        "phpdocumentor/phpdocumentor": "*",
-        "phpunit/phpunit": "4.1.*"
-    },
-    "autoload": {
-        "classmap": ["class.phpmailer.php", "class.pop3.php", "class.smtp.php"]
-    },
-    "license": "LGPL-2.1"
+    {
+      "name": "Jacob Thornton",
+      "email": "jacobthornton@gmail.com"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/twbs/bootstrap/issues"
+  },
+  "license": "MIT",
+  "extra": {
+    "branch-alias": {
+      "dev-master": "3.2.x-dev"
+    }
+  },
+  "replace": {
+    "twitter/bootstrap": "self.version"
+  }
 }

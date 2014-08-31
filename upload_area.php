@@ -8,7 +8,7 @@
     <link href="css/style.css" rel="stylesheet" type="text/css" />	
 	<link href="css/nivo-slider.css" rel="stylesheet" type="text/css" />
     <!--[if IE]><link href="css/style-ie.css" rel="stylesheet" type="text/css" /><![endif]-->
-	<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="js/jquery.nivo.slider.js"></script>
 	<script type="text/javascript">
 		$(window).load(function() {
@@ -28,6 +28,10 @@
     <script src="//code.jquery.com/jquery.js"></script>
     <!-- 在下面加入所有已編譯外掛，或是當需要時加入獨立檔案 -->
     <script src="js/bootstrap.min.js"></script>
+        
+        <!-- Fileinput plugin -->
+    <link href="css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="js/fileinput.min.js" type="text/javascript"></script>
 </head>
 
 <body>

@@ -73,7 +73,25 @@ if($row[message]==2)
 </tr>
     <tr>
       <td>圖片</td>
-      <td><input type="file" name="file" id="file" class="form-control"></td>
+      <td><input id="input-1" type="file" multiple="true" accept="image/*" >
+       
+       <script> 
+       $("#input-1").fileinput({
+        previewFileType: "image",
+        browseClass: "btn btn-success",
+        browseLabel: "Pick Image",
+        browseIcon: '<i class="glyphicon glyphicon-picture"></i>',
+        removeClass: "btn btn-danger",
+        removeLabel: "Delete",
+        removeIcon: '<i class="glyphicon glyphicon-trash"></i>',
+        uploadClass: "btn btn-info",
+        uploadLabel: "Upload",
+        uploadIcon: '<i class="glyphicon glyphicon-upload"></i>',
+        overwriteInitial: false,
+        initialCaption: "上傳圖片預覽:"
+      });
+      </script>
+</td>
     </tr>
     <tr>
       <td>&nbsp;</td>

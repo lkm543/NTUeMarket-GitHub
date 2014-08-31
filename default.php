@@ -11,7 +11,7 @@
     <!-- jQuery (使用Bootstrap的JavaScript外掛) -->
     <script src="//code.jquery.com/jquery.js"></script>
     <!-- jQuery (使用Bootstrap的JavaScript外掛) -->
-	<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="js/jquery.nivo.slider.js"></script>
 	<script type="text/javascript">
 		$(window).load(function() {

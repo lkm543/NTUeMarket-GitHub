@@ -69,12 +69,12 @@ for($k = 0; $k < $totalCount; $k ++) {
         if($k%4 == 0) { echo '<tr>'; }
 
         if($row = mysqli_fetch_array($result2)) {
-                echo '<td style="width:230px">'.$row[goods_name].
+                echo '<td style="width:230px" >'.$row[goods_name].
                      '<br>$'.$row[price].
                      '<br>'.$row["date"].
 					 '<br>'.
 					 '<a href="show_item_detail.php?id='
-					 .$row['id'].'"><img src="Picture/'.$row[filename].'" width="216" height="162" class="img-rounded"></a><br></td>';
+					 .$row['id'].'"><img src="Picture/'.$row[filename].'" width="216" height="162" class="img-rounded"></a><br><br></td>';
         }
         else {
                 echo '<td style="width:230px"></td>';

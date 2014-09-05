@@ -178,7 +178,7 @@ for($k = 0; $k < $totalCount; $k ++) {
 					 .$row['id'].'">'.$row[name].'</a>'.'<br>'.$row[detail].
                      '<br>$'.$row[price].'<br>'.$row[method].
                      '<br>'.$row["date"].
-					 '<br>'.
+					 '<br><br>'.
 					 '</td>';
         }
         else {

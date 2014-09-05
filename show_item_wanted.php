@@ -158,7 +158,7 @@ $sql2 = "select * from goods_wanted where sort='$sort' and status=1 ORDER BY id 
 $result2 = mysqli_query($link,$sql2); // 執行SQL查詢
 }
 if($sort!=null&$keyword!=null){
-$sql2 = "select * from goods_wanted where ((name like '%$keyword%' or detail like '%$keyword%') and sort='$sort') and status=1ORDER BY id DESC  limit ".$start.",".$per;
+$sql2 = "select * from goods_wanted where ((name like '%$keyword%' or detail like '%$keyword%') and sort='$sort') and status=1 ORDER BY id DESC  limit ".$start.",".$per;
 $result2 = mysqli_query($link,$sql2); // 執行SQL查詢
 }
 
@@ -174,7 +174,8 @@ for($k = 0; $k < $totalCount; $k ++) {
         if($k%4 == 0) { echo '<tr>'; }
 
         if($row = mysqli_fetch_array($result2)) {
-                echo '<td style="width:230px">'.$row[name].'<br>'.$row[detail].
+                echo '<td style="width:230px"><a href="show_wanted_detail.php?id='
+					 .$row['id'].'">'.$row[name].'</a>'.'<br>'.$row[detail].
                      '<br>$'.$row[price].'<br>'.$row[method].
                      '<br>'.$row["date"].
 					 '<br>'.

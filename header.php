@@ -9,7 +9,7 @@
                  <li><a href="show_item.php">商品總覽</a></li>
                  <li><a href="show_item_wanted.php">需求總覽</a></li>
                  <li class="dropdown" id="twohandedmenu">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="show_item.php">會員專區<b class="caret"></b></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="show_item.php">會員註冊/登入<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                        
 <?php //已經登入

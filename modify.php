@@ -51,8 +51,9 @@ $row = mysqli_fetch_array($result);
 ?>
 <div class="row">
 <div class="col-md-6 col-md-offset-3">
+<center><div style="margin:20px 0px 5px 0px"><font color="#FF0000" size="5"><?php echo $notice;?></font></div></center>
 <form action="modify_database.php" method="post">
-<table class="table table-striped" style="margin:45px 0px 5px 0px">
+<table class="table table-striped" style="margin:25px 0px 5px 0px">
 <tr><th colspan="2">帳戶基本資料</th></tr>
 <tr>
 <td>帳號</td>
@@ -74,18 +75,18 @@ if($row[active]==0){echo "<font color=\"red\">尚未啟用，請收取驗證信�
 </tr>
 <tr>
 <td>
-重設新密碼
+重設新密碼(5-15字)
 </td>
 <td>
-<input type="password" name="password1" value="" /> 
+<input type="password" name="password1" pattern=".{5,15}" value="" /> 
 </td>
 </tr>
 <tr>
 <td>
-新密碼確認
+新密碼確認(5-15字)
 </td>
 <td>
-<input type="password" name="password2" value=""/> 
+<input type="password" name="password2" pattern=".{5,15}" value=""/> 
 </td>
 </tr>
 </table>

@@ -39,7 +39,7 @@
 <file name=".gitignore" server="b98502030.uphero.com//public_html/" local="130492745808057255" remote="130523734200000000" Dst="0" />
 <file name="member_new.php" server="b98502030.uphero.com//public_html/" local="130501781279544402" remote="130523734200000000" Dst="0" />
 <file name="registration.php" server="b98502030.uphero.com//public_html/" local="130528543014860454" remote="130528260000000000" Dst="0" />
-<file name="modify.php" server="b98502030.uphero.com//public_html/" local="130537251664741291" remote="130536819600000000" Dst="0" />
+<file name="modify.php" server="b98502030.uphero.com//public_html/" local="130543983652948630" remote="130543551600000000" Dst="0" />
 <file name="management.php" server="b98502030.uphero.com//public_html/" local="130537202500538759" remote="130536771600000000" Dst="0" />
 <file name="login.php" server="b98502030.uphero.com//public_html/" local="130528540005698661" remote="130528107600000000" Dst="0" />
 <file name="message.php" server="b98502030.uphero.com//public_html/" local="130524208061177227" remote="130523776800000000" Dst="0" />
@@ -48,7 +48,7 @@
 <file name="login_check.php" server="b98502030.uphero.com//public_html/" local="130528537503048175" remote="130528105800000000" Dst="0" />
 <file name="show_item_owner.php" server="b98502030.uphero.com//public_html/" local="130530296999523273" remote="130529866200000000" Dst="0" />
 <file name="upload_area.php" server="b98502030.uphero.com//public_html/" local="130528544316136460" remote="130528114800000000" Dst="0" />
-<file name="modify_database.php" server="b98502030.uphero.com//public_html/" local="130537248898982092" remote="130536816600000000" Dst="0" />
+<file name="modify_database.php" server="b98502030.uphero.com//public_html/" local="130543980367798629" remote="130543548600000000" Dst="0" />
 <file name="member_license.php" server="b98502030.uphero.com//public_html/" local="130527614781513913" remote="130527182400000000" Dst="0" />
 <file name="license_email.php" server="b98502030.uphero.com//public_html/" local="130527571847339810" remote="130527139800000000" Dst="0" />
 <file name="class.pop3.php" server="b98502030.uphero.com//public_html/" local="130523420060000000" remote="130527194400000000" Dst="0" />
@@ -73,8 +73,8 @@
 <file name="management_wanted.php" server="b98502030.uphero.com//public_html/" local="130537201873955845" remote="130536771600000000" Dst="0" />
 <file name="management_wanted_database.php" server="b98502030.uphero.com//public_html/" local="130529368717488223" remote="130528936200000000" Dst="0" />
 <file name="message_area.php" server="b98502030.uphero.com//public_html/" local="130537135776991895" remote="130536703800000000" Dst="0" />
-<file name="send_message.php" server="b98502030.uphero.com//public_html/" local="130537136003222703" remote="130536703800000000" Dst="0" />
-<file name="send_message_database.php" server="b98502030.uphero.com//public_html/" local="130530365565068064" remote="130529933400000000" Dst="0" />
+<file name="send_message.php" server="b98502030.uphero.com//public_html/" local="130543994848934766" remote="130543563000000000" Dst="0" />
+<file name="send_message_database.php" server="b98502030.uphero.com//public_html/" local="130543994002228629" remote="130543563000000000" Dst="0" />
 <file name="delete_wanted.php" server="b98502030.uphero.com//public_html/" local="130530332963967145" remote="130529901600000000" Dst="0" />
 <file name="add_interested.php" server="b98502030.uphero.com//public_html/" local="130529436039131779" remote="130529910000000000" Dst="0" />
 <file name="garbage_message_area.php" server="b98502030.uphero.com//public_html/" local="130537275320689692" remote="130536843000000000" Dst="0" />
@@ -86,4 +86,6 @@
 <file name="management_removed.php" server="b98502030.uphero.com//public_html/" local="130537226662450604" remote="130536794400000000" Dst="0" />
 <file name="management_idle.php" server="b98502030.uphero.com//public_html/" local="130537246465719449" remote="130536814200000000" Dst="0" />
 <file name="recover_item.php" server="b98502030.uphero.com//public_html/" local="130537219054121474" remote="130536786600000000" Dst="0" />
+<file name="modify.php" server="b98502030.uphero.com" local="130543976829764200" remote="130543545000000000" Dst="0" />
+<file name="modify_database.php" server="b98502030.uphero.com" local="130543973574703002" remote="130543543800000000" Dst="0" />
 </dwsync>

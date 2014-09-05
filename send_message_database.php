@@ -13,12 +13,16 @@ $result = mysqli_query($link,$sql); // 執行SQL查詢
 $row = mysqli_fetch_array($result);
 $id_old=$row['id'];
 $id=$row['id']+1;
-mysqli_query ($link,"insert into `Message` (`From`,`To`,`subject`,`Message`,`date`,`id`) values('$username','$_POST[receiver]','$_POST[subject]','$_POST[content]','$currtimestr','$id')");
-mysqli_query ($link,"update backend set id='$id' where id='$id_old'");?>
-<script type="text/javascript" language="javascript">
-alert("Succeed!");
-</script>
-<?php
-//echo $username.$_POST[receiver].$_POST[subject].$_POST[content].$currtimestr.$id;
-echo '<meta http-equiv=REFRESH CONTENT=2;url=message_area.php>';
+//檢查收件人是否存在
+$result = mysqli_query($link,"select * from member where username='$_POST[receiver]'"); // 執行SQL查詢
+$number= mysqli_num_rows($result);
+if($number!=0)
+{
+mysqli_query ($link,"insert into `Message` (`From`,`To`,`subject`,`Message`,`date`,`id`) values('$username','$_POST[receive2r]','$_POST[subject2]','$_POST[content2]','$currtimestr','$id')");
+mysqli_query ($link,"update backend set id='$id' where id='$id_old'");
+echo '<meta http-equiv=REFRESH CONTENT=2;url=message_area.php>';}
+else{
+	$notice="查無此收件者";
+	include_once("send_message.php");
+	}
 ?>

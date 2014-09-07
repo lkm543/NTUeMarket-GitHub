@@ -164,7 +164,7 @@ $result2 = mysqli_query($link,$sql2); // 執行SQL查詢
 
 
 ?>
-
+<center><div style="margin:20px 0px 5px 0px"><font color="#FF0000" size="5"><?php echo $notice;?></font></div></center>
 <table>
 <?php
 $number_of_row=mysqli_num_rows($result2);

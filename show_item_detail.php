@@ -107,7 +107,7 @@ if($row['message']==2)
 <td colspan="2"><center><?php echo '<img src="Picture/'.$row[filename].'"width="432" height="324" class="img-rounded">';?></center></td>
 </tr>
 <tr><td colspan="2">
-<form action="send_message.php" method="post"><input type="hidden" name="receiver" value="<?php echo $row[owner];?>"><input type="hidden" name="subject" value="<?php echo "商品：".$row[goods_name];?>">
+<form action="send_message.php" method="post"><input type="hidden" name="receiver" value="<?php echo $row[owner];?>"><input type="hidden" name="id" value="<?php echo $row['id'];?>"><input type="hidden" name="subject" value="<?php echo "商品：".$row[goods_name];?>"><input type="hidden" name="id" value="<?php echo$row[id];?>">
 <input type="hidden" name="content" value="<?php echo "商品名稱:".$row[goods_name]."\n商品描述:".nl2br($row['detail'])."\n商品價格:".$row['price']."\n交易方式:".$row[method]."\n聯絡email:".$row['contact_email']."\n手機:".$row['phone'];?>">
 <center><input type="submit" value="加到興趣清單" formaction="add_interested.php">&nbsp;&nbsp;<input type="submit" value="丟私人訊息">&nbsp;&nbsp;<input type="submit" value="回報已成交">&nbsp;&nbsp;<input type="submit" value="回上一頁"></center></form></td></tr>
 </table></div></div><center>

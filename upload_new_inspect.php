@@ -73,25 +73,25 @@ if($row[message]==2)
 </tr>
     <tr>
       <td>圖片</td>
-      <td><input id="input-1" type="file" multiple="true" accept="image/*" >
-       
-       <script> 
-       $("#input-1").fileinput({
-        previewFileType: "image",
-        browseClass: "btn btn-success",
-        browseLabel: "Pick Image",
-        browseIcon: '<i class="glyphicon glyphicon-picture"></i>',
-        removeClass: "btn btn-danger",
-        removeLabel: "Delete",
-        removeIcon: '<i class="glyphicon glyphicon-trash"></i>',
-        uploadClass: "btn btn-info",
-        uploadLabel: "Upload",
-        uploadIcon: '<i class="glyphicon glyphicon-upload"></i>',
-        overwriteInitial: false,
-        initialCaption: "上傳圖片預覽:"
-      });
-      </script>
-</td>
+      <td><input id="input-1" name="files[]" type="file" multiple="true" accept="image/*" >
+        <!-- add multiple="true" to input tag attribute for uploading more than 1 file-->
+
+         <script> 
+         $("#input-1").fileinput({
+          previewFileType: "image",
+          showUpload: false,
+          browseClass: "btn btn-success",
+          browseLabel: "瀏覽",
+          browseIcon: '<i class="glyphicon glyphicon-picture"></i>',
+          removeClass: "btn btn-danger",
+          removeLabel: "刪除",
+          removeIcon: '<i class="glyphicon glyphicon-trash"></i>',
+          overwriteInitial: false,
+          maxFileSize: 1024,
+          initialCaption: "選擇商品圖片"
+        });
+        </script>
+      </td>
     </tr>
     <tr>
       <td>&nbsp;</td>

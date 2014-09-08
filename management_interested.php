@@ -60,7 +60,7 @@ $mysql_password="s0894206";
 $link=mysqli_connect ("$mysql_host","$mysql_user","$mysql_password")or die ('Error connecting to mysql');
 mysqli_query($link,'SET NAMES utf8');
 mysqli_select_db ($link,"a4904409_goods");
-$sql = "select * from goods_wanted where owner='$username'"; //在test資料表中選擇所有欄位
+$sql = "select * from member where username='$username'"; //在test資料表中選擇所有欄位
 $result = mysqli_query($link,$sql); // 執行SQL查詢
 $total_fields=mysqli_num_fields($result); // 取得欄位數
 $total_records=mysqli_num_rows($result);  // 取得記錄數
@@ -88,7 +88,7 @@ echo '<tr><td>&nbsp;&nbsp;分類&nbsp;&nbsp;&nbsp;</td><td>
           <option value="else" <?php if ($row['sort']=="else") echo 'selected="selected"';?>>其他</option>
 <?php 
 echo '</select></td></tr>';	
-echo '<tr><td colspan="2"><center><input type="submit">&nbsp;&nbsp;<input type="submit" value="下架" formaction="delete_item.php""></center></td></tr></table></form></td>';
+echo '<tr><td colspan="2"><center><input type="submit" value="移除" formaction="delete_item.php""></center></td></tr></table></form></td>';
         }
 
         if($k%4 == 3) { echo '</tr>'; }

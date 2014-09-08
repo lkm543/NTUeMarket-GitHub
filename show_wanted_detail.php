@@ -56,7 +56,7 @@ $mysql_password="s0894206";
 $link=mysqli_connect ("$mysql_host","$mysql_user","$mysql_password")or die ('Error connecting to mysql');
 mysqli_query($link,'SET NAMES utf8');
 mysqli_select_db ($link,"a4904409_goods");
-$sql = "select * from goods_test where id='$id'";
+$sql = "select * from goods_wanted where id='$id'";
 $result = mysqli_query($link,$sql); // 執行SQL查詢
 $row = mysqli_fetch_array($result);
 			?><center>
@@ -68,15 +68,15 @@ $row = mysqli_fetch_array($result);
 <td width="150"><?php echo $row['owner'];?></td>
 </tr>
 <tr>
-<td>商品名稱</td>
-<td><?php echo $row['goods_name'];?></td>
+<td>需求名稱</td>
+<td><?php echo $row['name'];?></td>
 </tr>
 <tr>
-<td>商品描述</td>
+<td>需求描述</td>
 <td><?php echo nl2br($row['detail']);?></td>
 </tr>
 <tr>
-<td>商品價格</td>
+<td>徵求價格</td>
 <td><?php echo '$'.$row['price'];?></td>
 </tr>
 <tr>
@@ -100,15 +100,14 @@ if($row['message']==2)
 {echo "不常用，以其他聯絡方式為主";}?></td>
 </tr>
 <tr>
-<td>上架日期</td>
+<td>徵求日期</td>
 <td><?php echo $row['date'];?></td>
 </tr>
 <tr>
-<td colspan="2"><center><?php echo '<img src="Picture/'.$row[filename].'"width="432" height="324" class="img-rounded">';?></center></td>
 </tr>
 <tr><td colspan="2">
-<form action="send_message.php" method="post"><input type="hidden" name="receiver" value="<?php echo $row[owner];?>"><input type="hidden" name="id" value="<?php echo $row['id'];?>"><input type="hidden" name="subject" value="<?php echo "商品：".$row[goods_name];?>"><input type="hidden" name="id" value="<?php echo$row[id];?>">
-<input type="hidden" name="content" value="<?php echo "商品名稱:".$row[goods_name]."\n商品描述:".nl2br($row['detail'])."\n商品價格:".$row['price']."\n交易方式:".$row[method]."\n聯絡email:".$row['contact_email']."\n手機:".$row['phone'];?>">
+<form action="send_message.php" method="post"><input type="hidden" name="receiver" value="<?php echo $row[owner];?>"><input type="hidden" name="id" value="<?php echo $row['id'];?>"><input type="hidden" name="subject" value="<?php echo "商品：".$row[name];?>"><input type="hidden" name="id" value="<?php echo$row[id];?>">
+<input type="hidden" name="content" value="<?php echo "需求名稱:".$row[name]."\n需求描述:".nl2br($row['detail'])."\n徵求價格:".$row['price']."\n交易方式:".$row[method]."\n聯絡email:".$row['contact_email']."\n手機:".$row['phone'];?>">
 <center><input type="submit" value="加到興趣清單" formaction="add_interested.php">&nbsp;&nbsp;<input type="submit" value="丟私人訊息">&nbsp;&nbsp;<input type="submit" value="回報已成交">&nbsp;&nbsp;<input type="submit" value="回上一頁"></center></form></td></tr>
 </table></div></div><center>
             </div>

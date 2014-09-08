@@ -56,6 +56,9 @@ if (isset($_SESSION['MM_Username'])){
   			<div class="col-md-7">
             <?php 
 			$Subject=$_POST['subject'];
+			$Subject2=$_POST['subject2'];
+			$Receiver2=$_POST['receiver2'];
+			$Content2=$_POST['content2'];
 			if($Subject!=NULL){
 				$Subject="Re-".$Subject;
 				}
@@ -63,13 +66,14 @@ if (isset($_SESSION['MM_Username'])){
 			$Content=$_POST['content'];
 			echo $Message;?>
 			<form action="send_message_database.php" method="POST">
+            <center><div style="margin:20px 0px 5px 0px"><font color="#FF0000" size="5"><?php echo $notice;?></font></div></center>
             <table>
-            <tr><td>收件人</td><td width="90%"><input type="text" name="receiver" class="form-control" value="<?php echo $Receiver;?>"/></td></tr>
-            <tr><td>主旨</td><td><input type="text" name="subject" class="form-control" value="<?php echo $Subject;?>"/></td></tr>
-            <tr><td>內容</td><td><textarea class="form-control" rows="10" name="content" value=><?php 
+            <tr><td>收件人</td><td width="90%"><input type="text" name="receiver2" class="form-control" value="<?php echo $Receiver.$Receiver2;?>"/></td></tr>
+            <tr><td>主旨</td><td><input type="text" name="subject2" class="form-control" value="<?php echo $Subject.$Subject2;?>"/></td></tr>
+            <tr><td>內容</td><td><textarea class="form-control" rows="10" name="content2" value=><?php 
 			if ($Content!=NULL){
 			echo "\nRe:\n-------------------------------------------------------------------\n".$Content;
-			}?></textarea></td></tr>
+			} echo $Content2;?></textarea></td></tr>
             <tr><td></td><td><center><input type="submit" name="submit" class="form-control"/></center></td></tr>
             </table>
             </form>

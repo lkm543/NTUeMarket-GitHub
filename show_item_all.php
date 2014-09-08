@@ -59,7 +59,7 @@ $result2 = mysqli_query($link,$sql2); // 執行SQL查詢
 //}
 
 ?>
-
+<center><div style="margin:20px 0px 5px 0px"><font color="#FF0000" size="5"><?php echo $notice;?></font></div></center>
 <table>
 <?php
 $number_of_row=mysqli_num_rows($result2);
@@ -69,12 +69,12 @@ for($k = 0; $k < $totalCount; $k ++) {
         if($k%4 == 0) { echo '<tr>'; }
 
         if($row = mysqli_fetch_array($result2)) {
-                echo '<td style="width:230px">'.$row[goods_name].
+                echo '<td style="width:230px" >'.$row[goods_name].
                      '<br>$'.$row[price].
                      '<br>'.$row["date"].
 					 '<br>'.
 					 '<a href="show_item_detail.php?id='
-					 .$row['id'].'"><img src="Picture/'.$row[filename].'" width="216" height="162" class="img-rounded"></a><br></td>';
+					 .$row['id'].'"><img src="Picture/'.$row[filename].'" width="216" height="162" class="img-rounded"></a><br><br></td>';
         }
         else {
                 echo '<td style="width:230px"></td>';

@@ -73,8 +73,8 @@ for($k = 0; $k < $totalCount; $k ++) {
         if($row = mysqli_fetch_array($result)) {
                 echo '<td><table><form action="recover_item.php" method="post"><tr><td style="width:230px">'.$row[goods_name].
                      '</td></tr><tr><td>'.$row[price].
-                     '</td><tr><td>'.$row["date"].
-					 '</td><tr><td><img src="Picture/'.$row[filename].'" width="216" height="162" class="img-rounded"></td><tr><td><center><input type="submit" value="恢復上架"><input type="hidden" name="id" value="'.$row['id'].'"/></center></td></tr></form></table></td>';
+                     '</td></tr><tr><td>'.$row["date"].
+					 '</td></tr><tr><td><img src="Picture/'.$row[filename].'" width="216" height="162" class="img-rounded"></td></tr><tr><td><center><input type="submit" value="恢復上架"><input type="hidden" name="id" value="'.$row['id'].'"/></center></td></tr></form></table></td>';
         }
         else {
                 echo '<td style="width:230px"></td>';

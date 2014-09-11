@@ -5,21 +5,21 @@
     <meta name="description" content="我們試圖建立一個屬於台大人的二手交換電子商務平台，你可能會有想要買/賣/贈送的二手教科書，要搬家出清的家具、用不到的衣服雜物。你可以藉由社群成員具有需求同質性高、地利之便的優勢，很快找到買/賣家、很方便遞交/接收物品，最重要的是能讓物盡其用，每一分資源都不被浪費。" />
     <meta name="keywords" content="台大,二手物,交換平台,電子商務" />
     <title>NTUeMarket</title>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />	
-	<link href="css/nivo-slider.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />  
+  <link href="css/nivo-slider.css" rel="stylesheet" type="text/css" />
     <!--[if IE]><link href="css/style-ie.css" rel="stylesheet" type="text/css" /><![endif]-->
     <!-- jQuery (使用Bootstrap的JavaScript外掛) -->
     <script src="//code.jquery.com/jquery.js"></script>
     <!-- jQuery (使用Bootstrap的JavaScript外掛) -->
-	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-	<script type="text/javascript" src="js/jquery.nivo.slider.js"></script>
-	<script type="text/javascript">
-		$(window).load(function() {
-			$('#slideshow').nivoSlider({
-				directionNav: false
-			});
-		});
-	</script>
+  <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="js/jquery.nivo.slider.js"></script>
+  <script type="text/javascript">
+    $(window).load(function() {
+      $('#slideshow').nivoSlider({
+        directionNav: false
+      });
+    });
+  </script>
         <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="css/style-ie.css" rel="stylesheet" type="text/css" />
@@ -36,13 +36,13 @@
 
 <div id="wrapper">
 <? include("header.php");?>
-	<div id="main">
+  <div id="main">
     <center>
         <div class="row">
             <div class="col-md-1">
-       		   </div>
+             </div>
             <div class="col-md-2" align="left">
-<table class="table table-hover">
+                <table class="table table-hover">
 <tr><td class="success" onClick="location.href='management_interested.php'"><center>&nbsp;興趣清單&nbsp;</center></td></tr>
 <tr><td onClick="location.href='management.php'"><center>&nbsp;我的商品&nbsp;</center></td></tr>
 <tr><td onClick="location.href='management_wanted.php'"><center>&nbsp;我的需求&nbsp;</center></td></tr>
@@ -50,8 +50,8 @@
 <tr><td onClick="location.href='management_idle.php'"><center>&nbsp;閒置商品/需求&nbsp;</center></td></tr>
 </table>     
             </div>
-  			<div class="col-md-9">
-			<?php //MySQL
+        <div class="col-md-9">
+            <?php 
 session_start();
 $username=$_SESSION['MM_Username']; 
 $mysql_host="mysql16.000webhost.com";
@@ -59,49 +59,95 @@ $mysql_user="a4904409_public";
 $mysql_password="s0894206";
 $link=mysqli_connect ("$mysql_host","$mysql_user","$mysql_password")or die ('Error connecting to mysql');
 mysqli_query($link,'SET NAMES utf8');
-mysqli_select_db ($link,"a4904409_goods");
-$sql = "select * from member where username='$username'"; //在test資料表中選擇所有欄位
+mysqli_select_db ($link,"a4904409_goods");  
+$result2=mysqli_query($link,"select * from member where username='$username'");
+$row2 = mysqli_fetch_array($result2);
+$interested_array=array();
+$interested_array=unserialize($row2['interested']);
+//echo implode(",",$interested_array)."<br>";
+if ($interested_array!=NULL){
+$sql = "select * from goods_test where status=1 and `id` in (".implode(",",$interested_array).")"; //在test資料表中選擇所有欄位
+//test用
+//echo implode(",",$interested_array);
 $result = mysqli_query($link,$sql); // 執行SQL查詢
 $total_fields=mysqli_num_fields($result); // 取得欄位數
-$total_records=mysqli_num_rows($result);  // 取得記錄數
-$totalCount = ceil($total_records/4)*4;
-echo '<table align=left>';
+$number_of_row=mysqli_num_rows($result); // 取得記錄數
+$totalCount = ceil($number_of_row/4)*4;
+if ($totalCount==0){
+	echo "您目前沒有追蹤任何商品";
+	}
+else{
+echo "<table><tr><th colspan=\"4\">商品</th></tr>";
+
 for($k = 0; $k < $totalCount; $k ++) {
 
         if($k%4 == 0) { echo '<tr>'; }
 
         if($row = mysqli_fetch_array($result)) {
-echo '<td><form action="management_wanted_database.php" method="post"><table style="margin: 10px 10px 10px 10px">';
-echo '<tr><td>&nbsp;&nbsp;名稱&nbsp;&nbsp;&nbsp;</td><td><input type="text" name="name" class="form-control" value="'. $row[name].'"><input type="hidden" name="id" value="'.$row['id'].'"/></td></tr>';
-echo '<tr><td>&nbsp;&nbsp;描述&nbsp;&nbsp;&nbsp;</td><td><textarea name="detail" id="detail" pattern=".{0,100}" class="form-control" rows="3">'.$row[detail].'</textarea></td></tr>';   
-echo '<tr><td>&nbsp;&nbsp;價格&nbsp;&nbsp;&nbsp;</td><td><input type="text" name="price" class="form-control" value="'.$row[price].'"></td></tr>';  
-echo '<tr><td>&nbsp;&nbsp;方式&nbsp;&nbsp;&nbsp;</td><td><input type="text" name="method" class="form-control" value="'.$row[method].'"></td></tr>';  
-echo '<tr><td>&nbsp;&nbsp;分類&nbsp;&nbsp;&nbsp;</td><td>
-		  <select name="sort" id="sort" class="form-control">'; ?>
-          <option value="life" <?php if ($row['sort']=="life") echo 'selected="selected"';?>>生活用品</option>
-          <option value="stationary" <?php if ($row['sort']=="stationary") echo 'selected="selected"';?>>文具</option>
-          <option value="clothes" <?php if ($row['sort']=="clothes") echo 'selected="selected"';?>>衣物</option>
-          <option value="3c" <?php if ($row['sort']=="3c") echo 'selected="selected"';?>>3c產品</option>
-          <option value="bike" <?php if ($row['sort']=="bike") echo 'selected="selected"';?>>腳踏車</option>
-          <option value="book" <?php if ($row['sort']=="book") echo 'selected="selected"';?>>課外讀物</option>
-          <option value="textbook" <?php if ($row['sort']=="textbook") echo 'selected="selected"';?>>教科書</option>
-          <option value="else" <?php if ($row['sort']=="else") echo 'selected="selected"';?>>其他</option>
-<?php 
-echo '</select></td></tr>';	
-echo '<tr><td colspan="2"><center><input type="submit" value="移除" formaction="delete_item.php""></center></td></tr></table></form></td>';
+                echo '<td><table><form action="delete_interested.php" method="post"><tr><td style="width:230px" onClick="location.href="show_item_detail.php?id='.$row[id].'"">'.$row[goods_name].
+                     '</td></tr><tr><td>'.$row[price].
+                     '</td></tr><tr><td>'.$row["method"].
+                     '</td></tr><tr><td>'.$row["phone"].
+                     '</td></tr><tr><td>'.$row["contact_email"].
+                     '</td></tr><tr><td>'.$row["date"].
+           '</td></tr><tr><td><img src="Picture/'.$row[filename].'" width="216" height="162" class="img-rounded"></td></tr><tr><td><center><input type="submit" value="取消追蹤"><input type="hidden" name="id" value="'.$row['id'].'"/></center></td></tr></form></table></td>';
+        }
+        else {
+                echo '<td style="width:230px"></td>';
         }
 
         if($k%4 == 3) { echo '</tr>'; }
 
 }
-echo '</table>';
-   
-            
-            ?>
+echo "</table>";}
+
+$link=mysqli_connect ("$mysql_host","$mysql_user","$mysql_password")or die ('Error connecting to mysql');
+mysqli_query($link,'SET NAMES utf8');
+mysqli_select_db ($link,"a4904409_goods");  
+$result2=mysqli_query($link,"select * from member where username='$username'");
+$row2 = mysqli_fetch_array($result2);
+$interested_array=array();
+$interested_array=unserialize($row2['interested']);
+$sql = "select * from goods_wanted where status=1 and `id` in (".implode(",",$interested_array).")"; //在test資料表中選擇所有欄位
+$result = mysqli_query($link,$sql); // 執行SQL查詢
+$total_fields=mysqli_num_fields($result); // 取得欄位數
+$number_of_row=mysqli_num_rows($result); // 取得記錄數
+$totalCount = ceil($number_of_row/4)*4;
+if ($totalCount==0){
+	echo "<tr colspan=\"4\">您目前沒有追蹤任何需求</tr></table>";
+	}
+else{
+echo "<table><tr><th colspan=\"4\">需求</th></tr>";
+for($k = 0; $k < $totalCount; $k ++) {
+
+        if($k%4 == 0) { echo '<tr>'; }
+
+        if($row = mysqli_fetch_array($result)) {
+                echo '<td><table><form action="delete_interested.php" method="post"><tr><td style="width:230px" onClick="location.href="show_wanted_detail.php?id='.$row[id].'"">'.$row[name].
+                     '</td></tr><tr><td>'.$row[detail].'</td></tr><tr><td>'.$row[price].
+                     '</td></tr><tr><td>'.$row["method"].
+                     '</td></tr><tr><td>'.$row["phone"].
+                     '</td></tr><tr><td>'.$row["contact_email"].
+                     '</td></tr><tr><td>'.$row["date"].
+           '</td></tr><tr><td><center><input type="submit" value="取消追蹤"><input type="hidden" name="id" value="'.$row['id'].'"/></center></td></tr></form></table></td>';
+        }
+        else {
+                echo '<td style="width:230px"></td>';
+        }
+
+        if($k%4 == 3) { echo '</tr>'; }
+
+}
+echo "</table>";}}
+else{
+	echo "您目前沒有追蹤任何商品或需求。";
+	}
+
+?>
             </div>
         </div>
        </center>
-	</div><!-- // end #main -->
+  </div><!-- // end #main -->
 </div>
 <? include("footer.php");?>
 </body>

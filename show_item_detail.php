@@ -49,7 +49,10 @@
   			<div class="col-md-9">
 			<?php 
 			session_start();
-			$id=$_GET['id'];
+      //若無，則為加入興趣清單時未登入的回傳
+      if($_GET['id']!=NULL){
+			$id=$_GET['id'];}
+
 			$mysql_host="mysql16.000webhost.com";
 $mysql_user="a4904409_public";
 $mysql_password="s0894206";
@@ -62,6 +65,7 @@ $row = mysqli_fetch_array($result);
 			?><center>
             <div class="row">
 <div class="col-md-6 col-md-offset-3">
+<center><div style="margin:20px 0px 5px 0px"><font color="#FF0000" size="5"><?php echo $notice;?></font></div></center>
             <table class="table table-striped">
 <tr>
 <td width="70">帳號</td>

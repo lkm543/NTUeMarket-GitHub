@@ -9,7 +9,7 @@ $row = mysqli_fetch_array($result);
 <div class="row">
 <div class="col-md-6 col-md-offset-3">
 <center><div style="margin:20px 0px 5px 0px"><font color="#FF0000" size="5"><?php echo $notice;?></font></div></center>
-<form action="modify_database.php" method="post">
+<form action="function/modify_database.php" method="post">
 <table class="table table-striped" style="margin:25px 0px 5px 0px">
 <tr><th colspan="2">帳戶基本資料</th></tr>
 <tr>

@@ -24,7 +24,7 @@ $interested_array=array();
 $interested_array=unserialize($row2['interested']);
 //echo implode(",",$interested_array)."<br>";
 if ($interested_array!=NULL){
-$sql = "select * from goods_test where status=1 and `id` in (".implode(",",$interested_array).")"; //在test資料表中選擇所有欄位
+$sql = "select * from item_forsell where status=1 and `id` in (".implode(",",$interested_array).")"; //在test資料表中選擇所有欄位
 //test用
 //echo implode(",",$interested_array);
 $result = mysqli_query($link,$sql); // 執行SQL查詢
@@ -42,7 +42,7 @@ for($k = 0; $k < $totalCount; $k ++) {
         if($k%4 == 0) { echo '<tr>'; }
 
         if($row = mysqli_fetch_array($result)) {
-                echo '<td><table><form action="delete_interested.php" method="post"><tr><td style="width:230px" onClick="location.href="show_item_detail.php?id='.$row[id].'"">'.$row[goods_name].
+                echo '<td><table><form action="function/delete_interested.php" method="post"><tr><td style="width:230px" onClick="location.href="show_item_detail.php?id='.$row[id].'"">'.$row[goods_name].
                      '</td></tr><tr><td>'.$row[price].
                      '</td></tr><tr><td>'.$row["method"].
                      '</td></tr><tr><td>'.$row["phone"].
@@ -64,7 +64,7 @@ $result2=mysqli_query($link,"select * from member where username='$username'");
 $row2 = mysqli_fetch_array($result2);
 $interested_array=array();
 $interested_array=unserialize($row2['interested']);
-$sql = "select * from goods_wanted where status=1 and `id` in (".implode(",",$interested_array).")"; //在test資料表中選擇所有欄位
+$sql = "select * from item_wanted where status=1 and `id` in (".implode(",",$interested_array).")"; //在test資料表中選擇所有欄位
 $result = mysqli_query($link,$sql); // 執行SQL查詢
 $total_fields=mysqli_num_fields($result); // 取得欄位數
 $number_of_row=mysqli_num_rows($result); // 取得記錄數
@@ -79,7 +79,7 @@ for($k = 0; $k < $totalCount; $k ++) {
         if($k%4 == 0) { echo '<tr>'; }
 
         if($row = mysqli_fetch_array($result)) {
-                echo '<td><table><form action="delete_interested.php" method="post"><tr><td style="width:230px" onClick="location.href="show_wanted_detail.php?id='.$row[id].'"">'.$row[name].
+                echo '<td><table><form action="function/delete_interested.php" method="post"><tr><td style="width:230px" onClick="location.href="show_wanted_detail.php?id='.$row[id].'"">'.$row[name].
                      '</td></tr><tr><td>'.$row[detail].'</td></tr><tr><td>'.$row[price].
                      '</td></tr><tr><td>'.$row["method"].
                      '</td></tr><tr><td>'.$row["phone"].

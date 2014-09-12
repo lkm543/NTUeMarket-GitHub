@@ -31,7 +31,7 @@ $id=$_GET["id"];
 $number_of_row=mysqli_num_rows($result);
 for($k = 0; $k < $number_of_row; $k ++) {
 	if($row = mysqli_fetch_array($result)){
-    echo '<tr onClick="location.href=\'sent_message_area.php?id='.$row[id].'\'"><form action="delete_message.php" method="post"><td>'.$row[To].'</td><td>'.$row[subject].'</td><td width="100" align="right"><input type="submit" value=刪除><input type="hidden" value='.$row[id].' name=id></td></form><tr>';
+    echo '<tr onClick="location.href=\'sent_message_area.php?id='.$row[id].'\'"><form action="function/delete_message.php" method="post"><td>'.$row[To].'</td><td>'.$row[subject].'</td><td width="100" align="right"><input type="submit" value=刪除><input type="hidden" value='.$row[id].' name=id></td></form><tr>';
 	if($id==$row[id]){
 		echo '<tr class="info"><td></td><td>'.nl2br($row[Message]).'</td><td></td></tr>';
 		

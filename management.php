@@ -20,7 +20,7 @@
         <?php 
 $username=$_SESSION['MM_Username']; 
 include_once("function/mysql_info.php");
-$sql = "select * from goods_test where owner='$username' and status=1 order by id desc"; 
+$sql = "select * from item_forsell where owner='$username' and status=1 order by id desc"; 
 $result = mysqli_query($link,$sql); 
 $total_fields=mysqli_num_fields($result); // 取得欄位數
 $total_records=mysqli_num_rows($result);  // 取得記錄數
@@ -36,7 +36,7 @@ for($k = 0; $k < $totalCount; $k ++) {
         if($k%4 == 0) { echo '<tr>'; }
 
         if($row = mysqli_fetch_array($result)) {
-echo '<td><form action="management_database.php" method="post"><table style="margin: 10px 10px 10px 10px">';
+echo '<td><form action="function/management_database.php" method="post"><table style="margin: 10px 10px 10px 10px">';
 echo '<tr><td>&nbsp;&nbsp;名稱&nbsp;&nbsp;&nbsp;</td><td><input type="text" name="name" class="form-control" value="'. $row[goods_name].'"><input type="hidden" name="id" value="'.$row['id'].'"/></td></tr>';
 echo '<tr><td>&nbsp;&nbsp;描述&nbsp;&nbsp;&nbsp;</td><td><textarea name="detail" id="detail" pattern=".{0,100}" class="form-control" rows="3">'.$row[detail].'</textarea></td></tr>';   
 echo '<tr><td>&nbsp;&nbsp;價格&nbsp;&nbsp;&nbsp;</td><td><input type="text" name="price" class="form-control" value="'.$row[price].'"></td></tr>';  
@@ -55,7 +55,7 @@ echo '<tr><td>&nbsp;&nbsp;分類&nbsp;&nbsp;&nbsp;</td><td>
 echo '</select></td></tr>'; 
 echo '<tr><td colspan="2"><center><img src="Picture/'.$row[filename].'"width="200" height="150" class="img-rounded"></center></td></tr>';
 //echo '<tr><td>&nbsp;&nbsp;圖片&nbsp;&nbsp;&nbsp;</td><td><input type="file" name="file" id="file" style="width:180px" class="form-control"></td></tr>';
-echo '<tr><td colspan="2"><center><input type="submit" value="修改">&nbsp;&nbsp;<input type="submit" value="下架" formaction="delete_item.php""></center></td></tr></table></form></td>';
+echo '<tr><td colspan="2"><center><input type="submit" value="修改">&nbsp;&nbsp;<input type="submit" value="下架" formaction="function/delete_item.php""></center></td></tr></table></form></td>';
         }
 
         if($k%4 == 3) { echo '</tr>'; }

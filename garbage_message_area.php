@@ -32,7 +32,7 @@ $id=$_GET['id'];
 $number_of_row=mysqli_num_rows($result)+1;
 for($k = 0; $k < $number_of_row; $k ++) {
 	if($row = mysqli_fetch_array($result)){
-    echo '<tr onClick="location.href=\'garbage_message_area.php?id='.$row[id].'\'"><form action="delete_message.php" method="post"><td>'.$row['From']."</td><td>".$row['To']."</td><td>".$row[subject].'</td><td width="230" align="right"><input type="submit" value=刪除>'.'  '.'<input type="submit" value=還原 formaction="function/recover_message.php"><input type="hidden" value='.$row[id].' name=id></td></form><tr>';
+    echo '<tr onClick="location.href=\'garbage_message_area.php?id='.$row[id].'\'"><form action="function/delete_message.php" method="post"><td>'.$row['From']."</td><td>".$row['To']."</td><td>".$row[subject].'</td><td width="230" align="right"><input type="submit" value=刪除>'.'  '.'<input type="submit" value=還原 formaction="function/recover_message.php"><input type="hidden" value='.$row[id].' name=id></td></form><tr>';
 	if($id==$row[id]){
 		echo '<tr class="info"><td colspan="2"></td><td>'.nl2br($row[Message]).'</td><td></td></tr>';
 	}}}?></table>    

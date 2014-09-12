@@ -17,7 +17,7 @@
             <?php 
 $username=$_SESSION['MM_Username']; 
 include_once("function/mysql_info.php");
-$sql = "select * from goods_test where owner='$username' and status=2 order by id desc"; //在test資料表中選擇所有欄位
+$sql = "select * from item_forsell where owner='$username' and status=2 order by id desc"; //在test資料表中選擇所有欄位
 $result = mysqli_query($link,$sql); // 執行SQL查詢
 $total_fields=mysqli_num_fields($result); // 取得欄位數
 $number_of_row=mysqli_num_rows($result); // 取得記錄數
@@ -28,7 +28,7 @@ for($k = 0; $k < $totalCount; $k ++) {
         if($k%4 == 0) { echo '<tr>'; }
 
         if($row = mysqli_fetch_array($result)) {
-                echo '<td><table><form action="recover_item.php" method="post"><tr><td style="width:230px">'.$row[goods_name].
+                echo '<td><table><form action="function/recover_item.php" method="post"><tr><td style="width:230px">'.$row[goods_name].
                      '</td></tr><tr><td>'.$row[price].
                      '</td></tr><tr><td>'.$row["date"].
 					 '</td></tr><tr><td><img src="Picture/'.$row[filename].'" width="216" height="162" class="img-rounded"></td></tr><tr><td><center><input type="submit" value="恢復上架"><input type="hidden" name="id" value="'.$row['id'].'"/></center></td></tr></form></table></td>';
@@ -47,7 +47,7 @@ for($k = 0; $k < $totalCount; $k ++) {
         if($k%4 == 0) { echo '<tr>'; }
 
         if($row = mysqli_fetch_array($result)) {
-                echo '<td><table><form action="recover_item.php" method="post"><tr><td style="width:230px">'.$row[goods_name].
+                echo '<td><table><form action="function/recover_item.php" method="post"><tr><td style="width:230px">'.$row[goods_name].
                      '</td></tr><tr><td>'.$row[price].
                      '</td></tr><tr><td>'.$row["date"].
 					 '</td></tr><tr><td><img src="Picture/'.$row[filename].'" width="216" height="162" class="img-rounded"></td></tr><tr><td><center><input type="submit" value="恢復上架"><input type="hidden" name="id" value="'.$row['id'].'"/></center></td></tr></form></table></td>';
@@ -64,7 +64,7 @@ echo "</table>";
 $link=mysqli_connect ("$mysql_host","$mysql_user","$mysql_password")or die ('Error connecting to mysql');
 mysqli_query($link,'SET NAMES utf8');
 mysqli_select_db ($link,"a4904409_goods");  
-$sql = "select * from goods_wanted where owner='$username' and status=2 order by id desc"; //在test資料表中選擇所有欄位
+$sql = "select * from item_forsell for where owner='$username' and status=2 order by id desc"; //在test資料表中選擇所有欄位
 $result = mysqli_query($link,$sql); // 執行SQL查詢
 $total_fields=mysqli_num_fields($result); // 取得欄位數
 $number_of_row=mysqli_num_rows($result); // 取得記錄數
@@ -75,7 +75,7 @@ for($k = 0; $k < $totalCount; $k ++) {
         if($k%4 == 0) { echo '<tr>'; }
 
         if($row = mysqli_fetch_array($result)) {
-                echo '<td><table><form action="recover_item.php" method="post"><tr><td style="width:230px">'.$row[name].
+                echo '<td><table><form action="function/recover_item.php" method="post"><tr><td style="width:230px">'.$row[name].
                      '</td></tr><tr><td>'.$row[detail].'</td></tr><tr><td>'.$row[price].
                      '</td></tr><tr><td>'.$row["date"].
 					 '</td></tr><tr><td><center><input type="submit" value="繼續徵求"><input type="hidden" name="id" value="'.$row['id'].'"/></center></td></tr></form></table></td>';

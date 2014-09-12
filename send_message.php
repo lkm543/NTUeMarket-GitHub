@@ -27,7 +27,7 @@ if (isset($_SESSION['MM_Username'])){
 			$Receiver=$_POST['receiver'];
 			$Content=$_POST['content'];
 			echo $Message;?>
-			<form action="send_message_database.php" method="POST">
+			<form action="function/send_message_database.php" method="POST">
             <center><div style="margin:20px 0px 5px 0px"><font color="#FF0000" size="5"><?php echo $notice;?></font></div></center>
             <table>
             <tr><td>收件人</td><td width="90%"><input type="text" name="receiver2" class="form-control" value="<?php echo $Receiver.$Receiver2;?>"/></td></tr>

@@ -39,7 +39,7 @@ $result = mysqli_query($link,$sql); // 執行SQL查詢引
 $number_of_row=mysqli_num_rows($result)+1;
 for($k = 0; $k < $number_of_row; $k ++) {
 	if($row = mysqli_fetch_array($result)){
-    echo '<tr onClick="location.href=\'read_message.php?id='.$row[id].'"">><form action="delete_message.php"><td>'.$row[From].'</td><td>'.$row[subject].'</td><td width="100" align="right"><input type="submit" value=刪除><input type="hidden" value="$row[id]" name=id></td></form><tr>';
+    echo '<tr onClick="location.href=\'read_message.php?id='.$row[id].'"">><form action="function/delete_message.php"><td>'.$row[From].'</td><td>'.$row[subject].'</td><td width="100" align="right"><input type="submit" value=刪除><input type="hidden" value="$row[id]" name=id></td></form><tr>';
 	if($id==$row[id]){
 		echo '<tr><td></td><td>'.$row[content].'</td><td></td></tr>';
 		

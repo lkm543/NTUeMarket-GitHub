@@ -27,7 +27,7 @@ $sql = "select * from member where username = '$username'"; //在資料表中選
 $result = mysqli_query($link,$sql); // 執行SQL查詢
 $row = mysqli_fetch_array($result);
 ?>
-<form action="upload_wanted_database.php" method="post" enctype="multipart/form-data" name="form1">
+<form action="function/upload_wanted_database.php" method="post" enctype="multipart/form-data" name="form1">
   <p class="center"><strong>商品資料</strong></p>
   <table border="0">
     <tr>
@@ -99,7 +99,7 @@ if($row[message]==2)
 else{
 	echo '<center><p style="color:red">您尚未登入，請先註冊或登入。</p></center>';?>
 	<center>
-<form action="Add_Member_Database.php" method="post" name="form1">
+<form action="function/Add_Member_Database.php" method="post" name="form1">
   <strong>註冊個人資料</strong>
   <table border="0">
       <tr>

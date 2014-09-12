@@ -72,16 +72,16 @@ $page=$_GET['page'];
 $keyword=$_GET['keyword'];
 include_once("function/mysql_info.php");
 if($sort==null&$keyword==null){
-$sql = "select * from goods_test where status=1";
+$sql = "select * from item_forsell where status=1";
 }
 if($sort==null&$keyword!=null){
-$sql = "select * from goods_test where (goods_name like '%$keyword%' or detail like '%$keyword%') and status=1";
+$sql = "select * from item_forsell where (goods_name like '%$keyword%' or detail like '%$keyword%') and status=1";
 }
 if($sort!=null&$keyword==null){
-$sql = "select * from goods_test where sort='$sort' and status=1";
+$sql = "select * from item_forsell where sort='$sort' and status=1";
 }
 if($sort!=null&$keyword!=null){
-$sql = "select * from goods_test where ((goods_name like '%$keyword%' or detail like '%$keyword%') and sort='$sort') and status=1";
+$sql = "select * from item_forsell where ((goods_name like '%$keyword%' or detail like '%$keyword%') and sort='$sort') and status=1";
 }
 $result = mysqli_query($link,$sql); // 執行SQL查詢引
 $total_records=mysqli_num_rows($result);  // 取得記錄數
@@ -99,19 +99,19 @@ $start = ($page-1)*$per;
 //for test
 //echo $start.$per; 
 if($sort==null&$keyword==null){
-$sql2 = "select * from goods_test where status=1 ORDER BY id DESC limit ".$start.",".$per;
+$sql2 = "select * from item_forsell where status=1 ORDER BY id DESC limit ".$start.",".$per;
 $result2 = mysqli_query($link,$sql2); // 執行SQL查詢
 }
 if($sort==null&$keyword!=null){
-$sql2 = "select * from goods_test where (goods_name like '%$keyword%' or detail like '%$keyword%') and status=1 order by id desc limit ".$start.",".$per;
+$sql2 = "select * from item_forsell where (goods_name like '%$keyword%' or detail like '%$keyword%') and status=1 order by id desc limit ".$start.",".$per;
 $result2 = mysqli_query($link,$sql2); // 執行SQL查詢
 }
 if($sort!=null&$keyword==null){
-$sql2 = "select * from goods_test where sort='$sort' and status=1 ORDER BY id DESC limit ".$start.",".$per;
+$sql2 = "select * from item_forsell where sort='$sort' and status=1 ORDER BY id DESC limit ".$start.",".$per;
 $result2 = mysqli_query($link,$sql2); // 執行SQL查詢
 }
 if($sort!=null&$keyword!=null){
-$sql2 = "select * from goods_test where ((goods_name like '%$keyword%' or detail like '%$keyword%') and sort='$sort') and status=1 ORDER BY id DESC limit ".$start.",".$per;
+$sql2 = "select * from item_forsell where ((goods_name like '%$keyword%' or detail like '%$keyword%') and sort='$sort') and status=1 ORDER BY id DESC limit ".$start.",".$per;
 $result2 = mysqli_query($link,$sql2); // 執行SQL查詢
 }
 

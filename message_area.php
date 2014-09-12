@@ -33,7 +33,7 @@ $id=$_GET["id"];
 $number_of_row=mysqli_num_rows($result);
 for($k = 0; $k < $number_of_row; $k ++) {
 	if($row = mysqli_fetch_array($result)){
-    echo '<tr onClick="location.href=\'message_area.php?id='.$row[id].'\'"><form action="delete_message.php" method="post"><td>'.$row[From].'</td><td>'.$row[subject].'</td><td width="200" align="right"><input type="submit" value=回覆 formaction="send_message.php">'.'  '.'<input type="submit" value=刪除><input type="hidden" value='.$row[id].' name=id><input type="hidden" value="'.$row[Message].'" name=content><input type="hidden" value='.$row[From].' name=receiver><input type="hidden" value='.$row[subject].' name=subject></td></form><tr>';
+    echo '<tr onClick="location.href=\'message_area.php?id='.$row[id].'\'"><form action="function/delete_message.php" method="post"><td>'.$row[From].'</td><td>'.$row[subject].'</td><td width="200" align="right"><input type="submit" value=回覆 formaction="send_message.php">'.'  '.'<input type="submit" value=刪除><input type="hidden" value='.$row[id].' name=id><input type="hidden" value="'.$row[Message].'" name=content><input type="hidden" value='.$row[From].' name=receiver><input type="hidden" value='.$row[subject].' name=subject></td></form><tr>';
 	if($id==$row[id]){
 		echo '<tr class="info"><td></td><td>'.nl2br($row[Message]).'</td><td></td></tr>';
 		

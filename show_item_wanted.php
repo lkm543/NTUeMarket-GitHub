@@ -77,16 +77,16 @@ $page=$_GET['page'];
 $keyword=$_GET['keyword'];
 include_once("function/mysql_info.php");
 if($sort==null&$keyword==null){
-$sql = "select * from goods_wanted where status=1";
+$sql = "select * from item_wanted where status=1";
 }
 if($sort==null&$keyword!=null){
-$sql = "select * from goods_wanted where (name like '%$keyword%' or detail like '%$keyword%') and status=1";
+$sql = "select * from item_wanted where (name like '%$keyword%' or detail like '%$keyword%') and status=1";
 }
 if($sort!=null&$keyword==null){
-$sql = "select * from goods_wanted where sort='$sort' and status=1";
+$sql = "select * from item_wanted where sort='$sort' and status=1";
 }
 if($sort!=null&$keyword!=null){
-$sql = "select * from goods_wanted where ((name like '%$keyword%' or detail like '%$keyword%') and sort='$sort') and status=1)";
+$sql = "select * from item_wanted where ((name like '%$keyword%' or detail like '%$keyword%') and sort='$sort') and status=1)";
 }
 $result = mysqli_query($link,$sql); // 執行SQL查詢引
 $total_records=mysqli_num_rows($result);  // 取得記錄數
@@ -104,19 +104,19 @@ $start = ($page-1)*$per;
 //for test
 //echo $start.$per; 
 if($sort==null&$keyword==null){
-$sql2 = "select * from goods_wanted where status=1 ORDER BY id DESC limit ".$start.",".$per;
+$sql2 = "select * from item_wanted where status=1 ORDER BY id DESC limit ".$start.",".$per;
 $result2 = mysqli_query($link,$sql2); // 執行SQL查詢
 }
 if($sort==null&$keyword!=null){
-$sql2 = "select * from goods_wanted where (name like '%$keyword%' or detail like '%$keyword%') and status=1 ORDER BY id DESC limit ".$start.",".$per;
+$sql2 = "select * from item_wanted where (name like '%$keyword%' or detail like '%$keyword%') and status=1 ORDER BY id DESC limit ".$start.",".$per;
 $result2 = mysqli_query($link,$sql2); // 執行SQL查詢
 }
 if($sort!=null&$keyword==null){
-$sql2 = "select * from goods_wanted where sort='$sort' and status=1 ORDER BY id DESC  limit ".$start.",".$per;
+$sql2 = "select * from item_wanted where sort='$sort' and status=1 ORDER BY id DESC  limit ".$start.",".$per;
 $result2 = mysqli_query($link,$sql2); // 執行SQL查詢
 }
 if($sort!=null&$keyword!=null){
-$sql2 = "select * from goods_wanted where ((name like '%$keyword%' or detail like '%$keyword%') and sort='$sort') and status=1 ORDER BY id DESC  limit ".$start.",".$per;
+$sql2 = "select * from item_wanted where ((name like '%$keyword%' or detail like '%$keyword%') and sort='$sort') and status=1 ORDER BY id DESC  limit ".$start.",".$per;
 $result2 = mysqli_query($link,$sql2); // 執行SQL查詢
 }
 
@@ -151,7 +151,7 @@ for($k = 0; $k < $totalCount; $k ++) {
 
 </table>
 <?php for($i=1;$i<=$pages;$i++) { 
-    echo '<a href="http://b98502030.uphero.com/show_item.php?';?>
+    echo '<a href="http://collegebazaar.tw/show_item.php?';?>
     <?php 
 if($sort==null&$keyword!=null){
 echo 'keyword='.$keyword;

@@ -1,27 +1,9 @@
 <?php 
 session_start();
 $username=$_SESSION['MM_Username']; 
-//mysqli為主 非mysql
-//header('Content-type:text/html; charset=utf-8');
-$mysql_host="mysql16.000webhost.com";
-$mysql_user="a4904409_public";
-$mysql_password="s0894206";
-//mysqli_query("SET NAMES 'utf8'"); 
-//mysqli_query("set character set utf8",$link);
-$link=mysqli_connect ("$mysql_host","$mysql_user","$mysql_password")or die ('Error connecting to mysql');
-mysqli_query($link,'SET NAMES utf8');
-//mysqli_query("set character set utf8",$link);
-//$mysqli->query("SET NAMES 'utf8'");
-mysqli_select_db ($link,"a4904409_goods");  
-//mysqli_query("set character set utf8",$link);
-//mysql_query("SET NAMES 'utf8'");  
-//mysqli_query("SET NAMES 'utf8'");  
-$sql = "select * from goods_test where owner='$username' and status=1 order by id desc"; //在test資料表中選擇所有欄位
-//mysqli_query($link, "SET CHARACTER SET utf8");// 送出Big5編碼的MySQL指令
-//mysqli_query($link, "SET collation_connection ='utf8_general_ci'");
-$result = mysqli_query($link,$sql); // 執行SQL查詢
-//$row = mysqli_fetch_array($result); //將陣列以欄位名索引
-//$row = mysqli_fetch_row($result); //將陣列以數字排列索引
+include_once("function/mysql_info.php");
+$sql = "select * from goods_test where owner='$username' and status=1 order by id desc"; 
+$result = mysqli_query($link,$sql); 
 $total_fields=mysqli_num_fields($result); // 取得欄位數
 $total_records=mysqli_num_rows($result);  // 取得記錄數
 ?>

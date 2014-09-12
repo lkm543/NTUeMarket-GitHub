@@ -6,9 +6,10 @@
                  <li><a href="show_item.php">商品總覽</a></li>
                  <li><a href="show_item_wanted.php">需求總覽</a></li>
                 <li><a href="modify.php">會員專區</a></li>
-				<!--<li><a href="contact-us.php">聯絡我們</a></li>!-->
-                <li><a href="mailto:b98502030@ntu.edu.tw">聯絡我們</a></li>
-		</ul>
-		<p>&copy; NTUeMarket | <a href="http://b98502030.uphero.com">b98502030.uphero.com</a></p>
+				<li><a href="contact-us.php">聯絡我們</a></li>
+        </ul>
+		<p>&copy; CollegeBazaar | <a href="http://collegebazaar.tw/">collegebazaar.tw</a></p>
 	</div>
 </div>
+</body>
+</html>

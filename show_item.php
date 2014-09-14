@@ -12,7 +12,7 @@ $sort=$_GET['sort'];
 <form role="form" action="show_item.php" method="get">
   <div class="form-group">
     <label for="InputKeyword">關鍵字搜尋</label>
-   <input type="text" class="form-control" placeholder="關鍵字" size="10" name="keyword">  
+   <input type="text" class="form-control" placeholder="關鍵字" size="10" name="keyword" value="<?php echo $_GET['keyword'];?>">  
    <input type="hidden" name="sort" value="<?php echo $sort;?>">  
   </div>
   <p><button type="submit" class="btn btn-default">Submit</button></p>
@@ -70,18 +70,18 @@ $sort=$_GET['sort'];
 $sort=$_GET['sort'];
 $page=$_GET['page'];
 $keyword=$_GET['keyword'];
-include_once("function/mysql_info.php");
+include_once("mysql_info.php");
 if($sort==null&$keyword==null){
 $sql = "select * from item_forsell where status=1";
 }
 if($sort==null&$keyword!=null){
-$sql = "select * from item_forsell where (goods_name like '%$keyword%' or detail like '%$keyword%') and status=1";
+$sql = "select * from item_forsell where (name like '%$keyword%' or detail like '%$keyword%') and status=1";
 }
 if($sort!=null&$keyword==null){
 $sql = "select * from item_forsell where sort='$sort' and status=1";
 }
 if($sort!=null&$keyword!=null){
-$sql = "select * from item_forsell where ((goods_name like '%$keyword%' or detail like '%$keyword%') and sort='$sort') and status=1";
+$sql = "select * from item_forsell where ((name like '%$keyword%' or detail like '%$keyword%') and sort='$sort') and status=1";
 }
 $result = mysqli_query($link,$sql); // 執行SQL查詢引
 $total_records=mysqli_num_rows($result);  // 取得記錄數
@@ -103,7 +103,7 @@ $sql2 = "select * from item_forsell where status=1 ORDER BY id DESC limit ".$sta
 $result2 = mysqli_query($link,$sql2); // 執行SQL查詢
 }
 if($sort==null&$keyword!=null){
-$sql2 = "select * from item_forsell where (goods_name like '%$keyword%' or detail like '%$keyword%') and status=1 order by id desc limit ".$start.",".$per;
+$sql2 = "select * from item_forsell where (name like '%$keyword%' or detail like '%$keyword%') and status=1 order by id desc limit ".$start.",".$per;
 $result2 = mysqli_query($link,$sql2); // 執行SQL查詢
 }
 if($sort!=null&$keyword==null){
@@ -111,7 +111,7 @@ $sql2 = "select * from item_forsell where sort='$sort' and status=1 ORDER BY id 
 $result2 = mysqli_query($link,$sql2); // 執行SQL查詢
 }
 if($sort!=null&$keyword!=null){
-$sql2 = "select * from item_forsell where ((goods_name like '%$keyword%' or detail like '%$keyword%') and sort='$sort') and status=1 ORDER BY id DESC limit ".$start.",".$per;
+$sql2 = "select * from item_forsell where ((name like '%$keyword%' or detail like '%$keyword%') and sort='$sort') and status=1 ORDER BY id DESC limit ".$start.",".$per;
 $result2 = mysqli_query($link,$sql2); // 執行SQL查詢
 }
 
@@ -132,7 +132,7 @@ for($k = 0; $k < $totalCount; $k ++) {
         if($k%4 == 0) { echo '<tr>'; }
 
         if($row = mysqli_fetch_array($result2)) {
-                echo '<td style="width:230px" >'.$row[goods_name].
+                echo '<td style="width:230px" >'.$row[name].
                      '<br>$'.$row[price].
                      '<br>'.$row["date"].
            '<br>'.

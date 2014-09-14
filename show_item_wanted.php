@@ -14,7 +14,7 @@ $sort=$_GET['sort'];
 <form role="form" action="show_item_wanted.php" method="get">
   <div class="form-group">
     <label for="InputKeyword">關鍵字搜尋</label>
-   <input type="text" class="form-control" placeholder="關鍵字" size="10" name="keyword">  
+   <input type="text" class="form-control" placeholder="關鍵字" size="10" name="keyword" value="<?php echo $_GET['keyword'];?>">  
    <input type="hidden" name="sort" value="<?php echo $sort;?>">  
   </div>
   <p><button type="submit" class="btn btn-default">Submit</button></p>
@@ -68,14 +68,11 @@ $sort=$_GET['sort'];
        		   </div>
             </div>
   			<div class="col-md-9">
-<!-- MySQL 連線!-->
 <?php 
-//mysqli為主 非mysql
-//header('Content-type:text/html; charset=utf-8');
 $sort=$_GET['sort'];
 $page=$_GET['page'];
 $keyword=$_GET['keyword'];
-include_once("function/mysql_info.php");
+include_once("mysql_info.php");
 if($sort==null&$keyword==null){
 $sql = "select * from item_wanted where status=1";
 }

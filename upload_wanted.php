@@ -1,35 +1,35 @@
 <?php include("header.php");?>
 	<div id="main">
-    <center>
-        <div class="row">
+
+        <div id="procedure" class="row">
             <div class="col-md-1"></div>
             <div class="col-md-2" align="reft">
           	<?php //已經登入
 			if (isset($_SESSION['MM_Username'])){
-            echo '<p>註冊或登入</p>';
-            echo '<p class="bg-success">上傳需求</p>';
-            echo '<p>靜候佳音</p>';
-            echo '<p>回報或下架</p>';}
+            echo '<p>Step1. 註冊或登入</p>';
+            echo '<p class="bg-success" style="font-weight:bold;">Step2. 上傳需求</p>';
+            echo '<p>Step3. 靜候佳音</p>';
+            echo '<p>Step4. 回報或下架</p>';}
 			else{
-            echo '<p class="bg-success">註冊或登入</p>';
-            echo '<p>上傳商品</p>';
-            echo '<p>靜候佳音</p>';
-            echo '<p>回報或下架</p>';}
+            echo '<p class="bg-success" style="font-weight:bold;">Step1. 註冊或登入</p>';
+            echo '<p>Step2. 上傳需求</p>';
+            echo '<p>Step3. 靜候佳音</p>';
+            echo '<p>Step4. 回報或下架</p>';}
 			
 			?>
-            </div>
+            </div>    <center>
   			<div class="col-md-7">
 <?php //已經登入
 if (isset($_SESSION['MM_Username'])){
 $username=$_SESSION['MM_Username'];
-include_once("function/mysql_info.php");  
+include_once("mysql_info.php");  
 $sql = "select * from member where username = '$username'"; //在資料表中選擇所有欄位
 $result = mysqli_query($link,$sql); // 執行SQL查詢
 $row = mysqli_fetch_array($result);
 ?>
-<form action="function/upload_wanted_database.php" method="post" enctype="multipart/form-data" name="form1">
-  <p class="center"><strong>商品資料</strong></p>
-  <table border="0">
+<form action="upload_wanted_database.php" method="post" enctype="multipart/form-data" name="form1">
+  <p class="center" style="font-size:20px;"><strong>需求資料</strong></p>
+  <table border="0" id="upload_table">
     <tr>
       <td>需求商品名稱</td>
       <td width="300"><input type="text" pattern=".{1,15}" name="name" id="name" class="form-control"></td>
@@ -37,7 +37,7 @@ $row = mysqli_fetch_array($result);
     </tr>
     <tr>
       <td>描述</td>
-      <td><textarea name="detail" id="detail" pattern=".{0,100}" class="form-control" rows="5"></textarea></td>
+      <td><textarea name="detail" id="detail" pattern=".{0,100}" class="form-control" rows="3"></textarea></td>
       <td>(100字內)</td>
     </tr>
     <tr>
@@ -89,8 +89,8 @@ if($row[message]==2)
         <tr>
       <td>&nbsp;</td>
       <td>
-        <input type="submit" name="submit" id="submit" value="送出">
-        <input type="reset" name="reload" id="reload" value="重設">
+        <input type="submit" name="submit" id="submit" value="送出" class="btn btn-success">
+        <input type="reset" name="reload" id="reload" value="重設" class="btn btn-warning">
       </td>
     </tr>
 </table>
@@ -98,32 +98,19 @@ if($row[message]==2)
 <?php }
 else{
 	echo '<center><p style="color:red">您尚未登入，請先註冊或登入。</p></center>';?>
-	<center>
-<form action="function/Add_Member_Database.php" method="post" name="form1">
-  <strong>註冊個人資料</strong>
-  <table border="0">
-      <tr>
-      <td>用戶帳號</td>
-      <td><input type="text" name="username" id="username" class="form-control"></td>
-    </tr>
-    <tr>
-      <td>電子郵件信箱</td>
-      <td><input type="email" name="email" id="email" class="form-control"></td>
-    </tr>
-    <tr>
-      <td>用戶密碼</td>
-      <td><input type="password" name="password" id="password" class="form-control"></td>
-    </tr>
-        <tr>
-      <td>&nbsp;</td>
-      <td>
-        <input type="submit" name="submit" id="submit" value="送出">
-        <input type="reset" name="reload" id="reload" value="重設">
-      </td>
-    </tr>
-</table>
+  <div class="col-md-5 col-md-offset-4" style="text-align:left; margin-top:30px;">
+<form action="login_check.php" method="post" name="registration" >
+  <div class="form-group">
+    <label for="Account">帳戶名稱</label>
+    <input type="text" class="form-control" name="username" placeholder="請輸入帳戶名稱">
+  </div>
+  <div class="form-group">
+    <label for="password">用戶密碼</label>
+    <input type="password" class="form-control" name="password" placeholder="請輸入用戶密碼">
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
 </form>
-</center>
+</div>
 <?php 
 }
 ?></div>

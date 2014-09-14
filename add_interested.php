@@ -5,7 +5,7 @@ $currtimestr=date("Y-m-d h:i:s");
 $username=$_SESSION['MM_Username'];
 $id=$_POST['id'];
 include_once("mysql_info.php");
-$result=mysqli_query($link,"select * from goods_test where id='$id'");
+$result=mysqli_query($link,"select * from item_forsell where id='$id'");
 $number= mysqli_num_rows($result);
 //檢查登入
 if($username!=NULL){
@@ -27,7 +27,7 @@ array_push($tempt,$id);//增加
 $tempt=serialize($tempt);
 mysqli_query ($link,"update member set interested='$tempt' where username='$username'");}}
 
-$notice="已加入興趣清單，可至會員專區頁面查看";
+$notice='已加入興趣清單，可至<a href="http://collegebazaar.tw/management_interested.php">會員專區</a>查看';
 
 if($number==1){//商品
 include_once("show_item.php");
@@ -42,5 +42,5 @@ else{
 else
 {
 	$notice="請登入以啟用此功能";
-	include_once("show_item_detail.php");}
+	include_once("login.php");}
 ?>  

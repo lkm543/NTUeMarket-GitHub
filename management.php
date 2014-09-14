@@ -6,7 +6,6 @@
        		   </div>
             <div class="col-md-2" align="left">
        		      <table class="table table-hover">
-<tr><td onClick="location.href='management_interested.php'"><center>&nbsp;興趣清單&nbsp;</center></td></tr>
 <tr><td class="success" onClick="location.href='management.php'"><center>&nbsp;我的商品&nbsp;</center></td></tr>
 <tr><td onClick="location.href='management_wanted.php'"><center>&nbsp;我的需求&nbsp;</center></td></tr>
 <tr><td onClick="location.href='management_removed.php'"><center>已下架商品/需求</center></td></tr>
@@ -19,7 +18,7 @@
 
         <?php 
 $username=$_SESSION['MM_Username']; 
-include_once("function/mysql_info.php");
+include_once("mysql_info.php");
 $sql = "select * from item_forsell where owner='$username' and status=1 order by id desc"; 
 $result = mysqli_query($link,$sql); 
 $total_fields=mysqli_num_fields($result); // 取得欄位數
@@ -36,8 +35,8 @@ for($k = 0; $k < $totalCount; $k ++) {
         if($k%4 == 0) { echo '<tr>'; }
 
         if($row = mysqli_fetch_array($result)) {
-echo '<td><form action="function/management_database.php" method="post"><table style="margin: 10px 10px 10px 10px">';
-echo '<tr><td>&nbsp;&nbsp;名稱&nbsp;&nbsp;&nbsp;</td><td><input type="text" name="name" class="form-control" value="'. $row[goods_name].'"><input type="hidden" name="id" value="'.$row['id'].'"/></td></tr>';
+echo '<td><form action="management_database.php" method="post"><table style="margin: 10px 10px 10px 10px">';
+echo '<tr><td>&nbsp;&nbsp;名稱&nbsp;&nbsp;&nbsp;</td><td><input type="text" name="name" class="form-control" value="'. $row[name].'"><input type="hidden" name="id" value="'.$row['id'].'"/></td></tr>';
 echo '<tr><td>&nbsp;&nbsp;描述&nbsp;&nbsp;&nbsp;</td><td><textarea name="detail" id="detail" pattern=".{0,100}" class="form-control" rows="3">'.$row[detail].'</textarea></td></tr>';   
 echo '<tr><td>&nbsp;&nbsp;價格&nbsp;&nbsp;&nbsp;</td><td><input type="text" name="price" class="form-control" value="'.$row[price].'"></td></tr>';  
 echo '<tr><td>&nbsp;&nbsp;方式&nbsp;&nbsp;&nbsp;</td><td><input type="text" name="method" class="form-control" value="'.$row[method].'"></td></tr>';  
@@ -55,7 +54,7 @@ echo '<tr><td>&nbsp;&nbsp;分類&nbsp;&nbsp;&nbsp;</td><td>
 echo '</select></td></tr>'; 
 echo '<tr><td colspan="2"><center><img src="Picture/'.$row[filename].'"width="200" height="150" class="img-rounded"></center></td></tr>';
 //echo '<tr><td>&nbsp;&nbsp;圖片&nbsp;&nbsp;&nbsp;</td><td><input type="file" name="file" id="file" style="width:180px" class="form-control"></td></tr>';
-echo '<tr><td colspan="2"><center><input type="submit" value="修改">&nbsp;&nbsp;<input type="submit" value="下架" formaction="function/delete_item.php""></center></td></tr></table></form></td>';
+echo '<tr><td colspan="2"><center><input type="submit" value="修改" class="btn btn-default">&nbsp;&nbsp;<input type="submit" value="下架" class="btn btn-default" formaction="delete_item.php""></center></td></tr></table></form></td>';
         }
 
         if($k%4 == 3) { echo '</tr>'; }

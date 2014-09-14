@@ -3,8 +3,6 @@
 /*echo "<pre>";
 print_r($_FILES); 
 echo "</pre>";*/
-include('ImageResize.php');
-
 $valid_formats = array("jpg", "png", "gif");
 $max_file_size = 1024*100; //100 kb
 $resized_img_width = 700; //700px
@@ -109,23 +107,24 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
 		session_start();
 		$username=$_SESSION['MM_Username'];
 		$currtimestr=date("Y-m-d h:i:s"); 
-		$mysql_host="mysql16.000webhost.com";
-		$mysql_user="a4904409_public";
-		$mysql_password="s0894206";
-		//mysqli_query($link, "SET collation_connection ='utf8_general_ci'");
-		$link=mysqli_connect ("$mysql_host","$mysql_user","$mysql_password")or die ('Error connecting to mysql');
-		mysqli_select_db ($link,"a4904409_goods"); 
-		mysqli_query($link,"SET NAMES 'utf8'");  
-		$sucess = mysqli_query ($link,"insert into goods_test(goods_name,detail,price,method,sort,filename,img_count,date,owner,message,phone,contact_email)
-			values('$_POST[name]','$_POST[detail]','$_POST[price]','$_POST[method]','$_POST[sort]','$file_name','$count','$currtimestr','$username','$_POST[message]','$_POST[phone]','$_POST[contact_email]')");
-		//mysqli_query ($link,"update backend set id='$id' where id='$id_old'");
+		include_once("mysql_info.php");
+		$result=mysqli_query ($link,"select * from backen");
+		$sql="select * from backend";
+		$result = mysqli_query($link,$sql); // 執行SQL查詢
+		$row = mysqli_fetch_array($result);
+		$id_old=$row['id'];
+		$id=$row['id']+1;
+		mysqli_query ($link,"update backend set id='$id' where id='$id_old'");
+		$sucess = mysqli_query ($link,"insert into item_forsell(name,detail,price,method,sort,filename,img_count,date,owner,message,phone,contact_email,id)
+			values('$_POST[name]','$_POST[detail]','$_POST[price]','$_POST[method]','$_POST[sort]','$file_name','$count','$currtimestr','$username','$_POST[message]','$_POST[phone]','$_POST[contact_email]','$id')");
+
 		if(!$sucess){
 			echo '<pre>';
 			printf("Failed to insert into database.");
 			echo '</pre>';
 		}
 
-		include_once('show_item.php');
+		include_once("upload_item_succeed.php");
 	}
 	//錯誤,無法上傳
 	else{

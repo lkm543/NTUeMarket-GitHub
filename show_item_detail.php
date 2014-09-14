@@ -70,7 +70,7 @@ $sort=$_GET['sort'];
       if($_GET['id']!=NULL){
 			$id=$_GET['id'];}
 
-			include_once("function/mysql_info.php");
+			include_once("mysql_info.php");
 $sql = "select * from item_forsell where id='$id'";
 $result = mysqli_query($link,$sql); // 執行SQL查詢
 $row = mysqli_fetch_array($result);
@@ -85,7 +85,7 @@ $row = mysqli_fetch_array($result);
 </tr>
 <tr>
 <td>商品名稱</td>
-<td><?php echo $row['goods_name'];?></td>
+<td><?php echo $row['name'];?></td>
 </tr>
 <tr>
 <td>商品描述</td>
@@ -124,8 +124,8 @@ if($row['message']==2)
 </tr>
 <tr><td colspan="2">
 <form action="send_message.php" method="post"><input type="hidden" name="receiver" value="<?php echo $row[owner];?>"><input type="hidden" name="id" value="<?php echo $row['id'];?>"><input type="hidden" name="subject" value="<?php echo "商品：".$row[goods_name];?>"><input type="hidden" name="id" value="<?php echo$row[id];?>">
-<input type="hidden" name="content" value="<?php echo "商品名稱:".$row[goods_name]."\n商品描述:".nl2br($row['detail'])."\n商品價格:".$row['price']."\n交易方式:".$row[method]."\n聯絡email:".$row['contact_email']."\n手機:".$row['phone'];?>">
-<center><input type="submit" value="加到興趣清單" formaction="function/add_interested.php">&nbsp;&nbsp;<input type="submit" value="丟私人訊息">&nbsp;&nbsp;<input type="submit" value="回報已成交">&nbsp;&nbsp;<input type="submit" value="回上一頁"></center></form></td></tr>
+<input type="hidden" name="content" value="<?php echo "商品名稱:".$row[name]."\n商品描述:".nl2br($row['detail'])."\n商品價格:".$row['price']."\n交易方式:".$row[method]."\n聯絡email:".$row['contact_email']."\n手機:".$row['phone'];?>">
+<center><input type="submit" value="加到興趣清單" class="btn btn-default" formaction="add_interested.php">&nbsp;&nbsp;<input type="submit" value="丟私人訊息" class="btn btn-default"></center></form></td></tr>
 </table></div></div><center>
             </div>
         </div>

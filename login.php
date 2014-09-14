@@ -19,7 +19,7 @@ include("modify.php");
     <label for="password">用戶密碼</label>
     <input type="password" class="form-control" name="password" placeholder="請輸入用戶密碼">
   </div>
-  <button type="submit" class="btn btn-default">Submit</button>
+  <button type="submit" class="btn btn-default">登入</button>
 </form>
 </div>
 </div>

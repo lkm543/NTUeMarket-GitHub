@@ -3,7 +3,7 @@
 	<div id="main">
     
 		<div class="container">
-			<div id="slideshow">
+			<div id="slideshow" style="width:940px">
 				<img src="images_index/slideshow/slideshow-1.jpg" alt="Slideshow Image" />
 				<img src="images_index/slideshow/slideshow-2.jpg" alt="Slideshow Image" />
 				<img src="images_index/slideshow/slideshow-3.jpg" alt="Slideshow Image" />

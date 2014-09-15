@@ -31,6 +31,7 @@ include_once("mysql_info.php");
 $sql = "select * from member where username = '$username'"; //在資料表中選擇所有欄位
 $result = mysqli_query($link,$sql); // 執行SQL查詢
 $row = mysqli_fetch_array($result);
+if($row[active]==1){
 ?>
 <form action="upload.php" method="post" enctype="multipart/form-data" name="form1">
   <p class="center" style="font-size:20px;"><strong>商品資料</strong></p>
@@ -122,7 +123,10 @@ if($row[message]==2)
     </tr>
 </table>
 </form>            <div class="col-md-2"></div>
-<?php }?>
+<?php }
+else{
+  echo "<center>您的帳號尚未啟用，請至信箱收取驗證信。</center>";
+}}?>
 
 
 

@@ -21,11 +21,13 @@
   			<div class="col-md-7">
 <?php //已經登入
 if (isset($_SESSION['MM_Username'])){
+
 $username=$_SESSION['MM_Username'];
 include_once("mysql_info.php");  
 $sql = "select * from member where username = '$username'"; //在資料表中選擇所有欄位
 $result = mysqli_query($link,$sql); // 執行SQL查詢
 $row = mysqli_fetch_array($result);
+if($row[active]==1){
 ?>
 <form action="upload_wanted_database.php" method="post" enctype="multipart/form-data" name="form1">
   <p class="center" style="font-size:20px;"><strong>需求資料</strong></p>
@@ -97,6 +99,10 @@ if($row[message]==2)
 </form>
 <?php }
 else{
+  echo "<center>您的帳號尚未啟用，請至信箱收取驗證信。</center>";
+}
+}
+else{
 	echo '<center><p style="color:red">您尚未登入，請先註冊或登入。</p></center>';?>
   <div class="col-md-5 col-md-offset-4" style="text-align:left; margin-top:30px;">
 <form action="login_check.php" method="post" name="registration" >
@@ -113,6 +119,7 @@ else{
 </div>
 <?php 
 }
+
 ?></div>
             <div class="col-md-2"></div>
         </div>

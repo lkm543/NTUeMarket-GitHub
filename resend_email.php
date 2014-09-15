@@ -18,8 +18,6 @@ $chkno = strtoupper(substr("$no",$rat,8));
 
 //產生信中快速認證連結(請自行修改)
 
-	$chklink = "<a href=http://collegebazaar.tw/member_license.php?email=$email&license_code=$chkno>http://collegebazaar.tw/member_license.php?email=$email&liences_code=$chkno</a>";
-
 //修改 mysql 資料
 
 include_once("mysql_info.php");
@@ -34,6 +32,10 @@ $result = mysqli_query($link,$sql); // 執行SQL查詢
 $row = mysqli_fetch_array($result);
 
 $email=$row[email];
+
+
+	$chklink = "<a href=http://collegebazaar.tw/member_license.php?email=$email&license_code=$chkno>http://collegebazaar.tw/member_license.php?email=$email&liences_code=$chkno</a>";
+
 	//寄出認證信
 
 	$inputime=date("Y-m-d H:i:s");
@@ -83,6 +85,6 @@ $email=$row[email];
 	$mail->Send();
 	$notice="已寄出驗證信，請至註冊信箱收取";
 
-	include_once("modify.php");
+	include_once("index.php");
 
 ?>

@@ -21,7 +21,7 @@ if (isset($_SESSION['MM_Username'])){
 session_start();
 $username=$_SESSION['MM_Username']; 
 include_once("mysql_info.php");  
-//0 未讀 1已讀 2刪除
+//0 未讀 1已讀 2刪除age
 $sql = "select * from `message` where `To`='$username' and (receiver_status=0 or receiver_status=1) order by `id` desc"; //在test資料表中選擇所有欄位
 $result = mysqli_query($link,$sql); // 執行SQL查詢引
 $id=$_GET["id"];

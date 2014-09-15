@@ -15,15 +15,15 @@
             <table>
             <tr><td width="350px" align="center">   
 				<div class="column">
-					<div class="image"><img src="images_index/article/article-thumb-1.jpg" alt="Article Image" width="250px" class="img-circle" /></div>
+					<div class="image"><img src="images_index/article/article-thumb-1.jpg" width="250px" class="img-circle" /></div>
 				</div>
             </td><td width="350px" align="center">
 				<div class="column">
-					<div class="image"><img src="images_index/article/article-thumb-2.jpg" alt="Article Image" width="250px" class="img-circle" /></div>
+					<div class="image"><img src="images_index/article/article-thumb-2.jpg" width="250px" class="img-circle" /></div>
 				</div>
             </td><td width="350px" align="center">
                 <div class="column">
-					<div class="image"><img src="images_index/article/article-thumb-3.jpg" alt="Article Image" /></div>
+					<div class="image"><img src="images_index/article/article-thumb-3.jpg" width="250px" class="img-circle" /></div>
 				</div>
             </td></tr></table>
 			

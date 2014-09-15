@@ -24,6 +24,7 @@ session_start();
     <link href="bootstrap/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
     <script src="bootstrap/js/fileinput.min.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+    <script src="js/signup_validator.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		$(window).load(function() {
 			$('#slideshow').nivoSlider({

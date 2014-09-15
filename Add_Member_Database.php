@@ -53,7 +53,7 @@ if($sucess){
 	$mail->AddAddress($email, $username); //設定收件者郵件及名稱 
 	if($mail->Send()){
 		?><script type="text/javascript" language="javascript">
-		alert("感謝您! 驗證信已寄發到註冊的Email地址：\n$email\n請檢查是否有收到驗證信並啟用帳號。");
+		alert("感謝您! 驗證信已寄發到註冊的Email地址：\n <?php echo $email; ?> \n請檢查是否有收到驗證信並啟用帳號。");
 		</script><?php
 	}else{
 		?><script type="text/javascript" language="javascript">

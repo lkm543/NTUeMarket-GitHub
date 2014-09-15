@@ -14,7 +14,7 @@ $result2 = mysqli_query($link,"select * from member where username='$receiver'")
 $number= mysqli_num_rows($result2);
 if($number!=0)
 {
-mysqli_query ($link,"insert into `message` (`From`,`To`,`subject`,`message`,`date`,`id`) values('$username','$_POST[receiver2]','$_POST[subject2]','$_POST[content2]','$currtimestr','$id')");
+mysqli_query ($link,"insert into `Message` (`From`,`To`,`subject`,`Message`,`date`,`id`) values('$username','$_POST[receiver2]','$_POST[subject2]','$_POST[content2]','$currtimestr','$id')");
 mysqli_query ($link,"update backend set id='$id' where id='$id_old'");
 echo '<meta http-equiv=REFRESH CONTENT=2;url=message_area.php>';}
 else{

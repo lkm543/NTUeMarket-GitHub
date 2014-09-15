@@ -32,6 +32,7 @@ $encrypt_pass = md5($_POST['password']);
 
 //MySQL連接
 
+
 //檢查帳號重複
 
 $search_username="select * from member where username='$username'";

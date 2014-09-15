@@ -50,6 +50,8 @@ session_start();
 
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
 
+    <script src="js/signup_validator.js" type="text/javascript"></script>
+
 	<script type="text/javascript">
 
 		$(window).load(function() {

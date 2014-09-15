@@ -16,8 +16,13 @@ $password1=$_POST['password1'];
 $password2=$_POST['password2'];
 if ($password1!=null&$password1==$password2)
 {
-	mysqli_query ($link,"update member set password=$password1 where username=$username");
-	$notice="密碼修改成功";
+	$password = md5($password1);
+	$sucess = mysqli_query ($link,"update member set password=$password where username=$username");
+	if($sucess){
+		$notice="密碼修改成功";
+	}else{
+		$notice="密碼修改失敗";
+	}
 	include_once("modify.php");
 }
 elseif($password1!=$password2){

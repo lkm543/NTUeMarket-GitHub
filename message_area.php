@@ -21,8 +21,8 @@ if (isset($_SESSION['MM_Username'])){
 session_start();
 $username=$_SESSION['MM_Username']; 
 include_once("mysql_info.php");  
-//0 未讀 1已讀 2刪除
-$sql = "select * from `Message` where `To`='$username' and (receiver_status=0 or receiver_status=1) order by `id` desc"; //在test資料表中選擇所有欄位
+//0 未讀 1已讀 2刪除age
+$sql = "select * from `message` where `To`='$username' and (receiver_status=0 or receiver_status=1) order by `id` desc"; //在test資料表中選擇所有欄位
 $result = mysqli_query($link,$sql); // 執行SQL查詢引
 $id=$_GET["id"];
 //$row = mysqli_fetch_array($result);
@@ -44,7 +44,7 @@ echo '<tr style="font-weight: bold; font-size:16px; text-decoration: underline;"
     if($id==$row[id]){
         echo '<tr class="success" onClick="location.href=\'message_area.php\'"><form action="delete_message_re.php" method="post"><td>'.$row[From].'</td><td>'.$row[subject].'</td><td width="100" align="right"><input type="submit" value="刪除" class="btn btn-danger"><input type="hidden" value="'.$row[id].'" name=id></td></form><tr>';
     
-    mysqli_query ($link,"update Message set receiver_status= 1 where id='$id'");
+    mysqli_query ($link,"update message set receiver_status= 1 where id='$id'");
 		echo '<tr class="info"><td></td><td>'.nl2br($row[Message]).'</td><td></td></tr>';
 		
 	}}}?></table><div class="col-md-1"></div>

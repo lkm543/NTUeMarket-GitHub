@@ -21,7 +21,7 @@ $username=$_SESSION['MM_Username'];
 include_once("mysql_info.php");  
 $id=$_GET["id"];
 //1 普通 2 刪除
-$sql = "select * from `Message` where (`From`='$username' and sender_status=2) or (`To`='$username' and receiver_status=2) order by `id` desc";
+$sql = "select * from `message` where (`From`='$username' and sender_status=2) or (`To`='$username' and receiver_status=2) order by `id` desc";
 $result = mysqli_query($link,$sql); // 執行SQL查詢引
 $id=$_GET['id'];
 //$row = mysqli_fetch_array($result);

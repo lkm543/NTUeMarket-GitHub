@@ -19,7 +19,7 @@ $row = mysqli_fetch_array($result);
 <tr>
 <td>啟用</td>
 <td><?php 
-if($row[active]!=0){echo "<font color=\"red\">尚未啟用，請收取驗證信以啟用帳號</font>";} else {echo "已啟用";}?></td>
+if($row[active]!=1){echo "<font color=\"red\">尚未啟用，請收取驗證信以啟用帳號</font>";} else {echo "已啟用";}?></td>
 </tr>
 <tr>
 <td>註冊email</td>

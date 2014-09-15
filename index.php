@@ -3,7 +3,7 @@
 	<div id="main">
     
 		<div class="container">
-			<div id="slideshow" style="width:940px">
+			<div id="slideshow" style="width:940px;">
 				<img src="images_index/slideshow/slideshow-1.jpg" alt="Slideshow Image" />
 				<img src="images_index/slideshow/slideshow-2.jpg" alt="Slideshow Image" />
 				<img src="images_index/slideshow/slideshow-3.jpg" alt="Slideshow Image" />
@@ -23,7 +23,7 @@
 				</div>
             </td><td width="350px" align="center">
                 <div class="column">
-					<div class="image"><img src="images_index/article/article-thumb-3.jpg" width="250px" class="img-circle" /></div>
+					<div class="image"><img src="images_index/article/article-thumb-3.jpg" width="250px" height="250px" class="img-circle" /></div>
 				</div>
             </td></tr></table>
 			

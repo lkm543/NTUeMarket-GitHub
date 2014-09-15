@@ -35,7 +35,7 @@ if($row[active]==1){
 ?>
 <form action="upload.php" method="post" enctype="multipart/form-data" name="form1">
   <p class="center" style="font-size:20px;"><strong>商品資料</strong></p>
-  <table border="0" id="upload_table">
+  <table id="upload_table">
     <tr>
       <td>商品名稱</td>
       <td width="300"><input type="text" pattern=".{3,15}" name="name" id="name" class="form-control"></td>

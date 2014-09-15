@@ -19,9 +19,7 @@ echo "您已經登入!";
   <textarea cols="60" rows="10" readonly="readonly" style="margin-bottom:10px">親愛的 用戶您好：
 
 
-
 在你正式使用CollegeBazaar(以下簡稱本站)前，請先詳閱本使用者服務條款（以下稱為「本服務條款」）
-
 
 
 本條款之目的，在於盡力保護會員在使用本站服務時的權益，並確認本站與會員之間的權利義務關係，
@@ -74,35 +72,32 @@ echo "您已經登入!";
 
 <div class="col-md-4 col-md-offset-4" style="text-align:left;">
 
-<form action="Add_Member_Database.php" method="post" name="form1" >
-
+<form action="Add_Member_Database.php" method="post" id="signup_form" name="signup_form" >
     <div class="form-group">
-
     <label for="account">用戶帳號(5-15個英文字母或數字)</label>
-
-    <input type="text" class="form-control" name="username" placeholder="請輸入帳戶名稱">
-
+    <input type="text" class="form-control" id="signup_user" name="username" placeholder="請輸入帳戶名稱" onBlur="validate('user_alert', this.value)">
+    <div id="user_alert" class="alert_msg"></div>
   </div>
 
     <div class="form-group">
 
     <label for="email">電子郵件信箱</label>
 
-    <input type="email" class="form-control" name="email" placeholder="請輸入電子郵件">
-
+    <input type="email" class="form-control" id="signup_email" name="email" placeholder="請輸入電子郵件"  onBlur="validate('email_alert', this.value)">
+    <div id="email_alert" class="alert_msg"></div>
   </div>
 
   <div class="form-group">
 
     <label for="password">用戶密碼(5-15字)</label>
 
-    <input type="password" class="form-control" name="password" placeholder="請輸入用戶密碼">
-
+    <input type="password" class="form-control" id="signup_pass" name="password" placeholder="請輸入用戶密碼" onBlur="validate('pass_alert', this.value)">
+    <div id="pass_alert" class="alert_msg"></div>
   </div>
 
   <center>
 
-  <button type="submit" class="btn btn-default">&nbsp;&nbsp;註冊&nbsp;&nbsp;</button>&nbsp;&nbsp;
+  <button onclick="checkForm()" type="button" value="Submit" class="btn btn-default">&nbsp;&nbsp;註冊&nbsp;&nbsp;</button>&nbsp;&nbsp;
 
   <button type="reset" class="btn btn-default">重新輸入</button>
 

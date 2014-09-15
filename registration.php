@@ -72,7 +72,7 @@ echo "您已經登入!";
 
 <div class="col-md-4 col-md-offset-4" style="text-align:left;">
 
-<form action="Add_Member_Database.php" method="post" id="signup_form" name="signup_form" >
+<form action="add_member_database.php" method="post" id="signup_form" name="signup_form" >
     <div class="form-group">
     <label for="account">用戶帳號(5-15個英文字母或數字)</label>
     <input type="text" class="form-control" id="signup_user" name="username" placeholder="請輸入帳戶名稱" onBlur="validate('user_alert', this.value)">

@@ -38,7 +38,7 @@ if (isset($_SESSION['MM_Username'])){?>
 if (!isset($_SESSION['MM_Username'])){
 	echo '<center><p style="color:red">您尚未登入，請先註冊或登入。</p></center>';?>
 	<center>
-<form action="Add_Member_Database.php" method="post" name="form1">
+<form action="add_member_database.php" method="post" name="form1">
   <strong>註冊個人資料</strong>
   <table border="0">
       <tr>

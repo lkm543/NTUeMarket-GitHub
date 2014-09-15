@@ -12,6 +12,8 @@ $no = md5(uniqid(rand()));
 $ed = strlen($no)-8;
 $rat = rand(0,$ed);
 $chkno = strtoupper(substr("$no",$rat,8));
+//密碼加密
+$password=md5($_POST['password']);
 //MySQL連接
 //檢查帳號重複
 $search_username="select * from member where username='$username'";

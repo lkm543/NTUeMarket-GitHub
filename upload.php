@@ -108,7 +108,6 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
 		$username=$_SESSION['MM_Username'];
 		$currtimestr=date("Y-m-d h:i:s"); 
 		include_once("mysql_info.php");
-		$result=mysqli_query ($link,"select * from backen");
 		$sql="select * from backend";
 		$result = mysqli_query($link,$sql); // 執行SQL查詢
 		$row = mysqli_fetch_array($result);

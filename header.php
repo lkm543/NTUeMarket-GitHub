@@ -51,7 +51,7 @@ if (isset($_SESSION['MM_Username'])){ ?>
 <a class="dropdown-toggle" data-toggle="dropdown" href="show_item.php">會員專區<?php
 include_once("mysql_info.php");
 $username=$_SESSION['MM_Username'];
-$result=mysqli_query ($link,"select * from Message where `To`='$username' and receiver_status='0'");
+$result=mysqli_query ($link,"select * from message where `To`='$username' and receiver_status='0'");
 $number_unread=mysqli_num_rows($result);
 if($number_unread!=0){
     echo '<a href=message_area.php><img src="images/message.jpg" width=20px></a>';

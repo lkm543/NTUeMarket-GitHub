@@ -21,7 +21,7 @@ if (isset($_SESSION['MM_Username'])){
 $username=$_SESSION['MM_Username']; 
 include_once("mysql_info.php");
 //1 普通 2 刪除
-$sql = "select * from `Message` where `From`='$username' and `sender_status`=1 order by `id` desc"; //在test資料表中選擇所有欄位
+$sql = "select * from `message` where `From`='$username' and `sender_status`=1 order by `id` desc"; //在test資料表中選擇所有欄位
 $result = mysqli_query($link,$sql); // 執行SQL查詢引
 $id=$_GET["id"];
 ?>

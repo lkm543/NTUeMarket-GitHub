@@ -12,7 +12,7 @@ $valid_formats = array("jpg", "png", "gif");
 
 $max_file_size = 1024*100; //100 kb
 
-$resized_img_width = 700; //700px
+$resized_img_width = 432; //700px
 
 $folderPath = "Picture/"; // Upload directory
 

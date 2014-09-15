@@ -58,7 +58,7 @@ ul.menu li a:hover, ul.menu li.active a { color: #70a3b4; text-decoration: none;
 #main { padding: 27px 0px 40px; }
 
 /*** Slideshow ***/
-#slideshow { background: #cccccc; height: 380px!important; margin: 0px 10px 50px; position: relative; -moz-box-shadow: 0 0 5px #888; -webkit-box-shadow: 0 0 5px#888; box-shadow: 0 0 5px #888; }
+#slideshow { background: #cccccc; margin: 0px 10px 50px; position: relative; -moz-box-shadow: 0 0 5px #888; -webkit-box-shadow: 0 0 5px#888; box-shadow: 0 0 5px #888; }
 #slideshow .nivo-controlNav { bottom: -40px; left: 50%; margin-left: -30px; position: absolute;  }
 #slideshow .nivo-controlNav .nivo-control { background: url(../../images_index/bullets.png) no-repeat; display: block; float: left; height: 20px; text-indent: -9999px; width: 22px; }
 #slideshow .nivo-controlNav .nivo-control.active { background: url(../../images_index/bullets.png) no-repeat scroll 0 -22px; }

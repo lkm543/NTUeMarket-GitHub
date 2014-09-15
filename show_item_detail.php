@@ -244,7 +244,7 @@ $row = mysqli_fetch_array($result);
           
           <td colspan="2"> 
           <center> 
-          <div id="slideshow" style="margin-bottom:40px;height:300px;">
+          <div id="slideshow" style="margin-bottom:40px;">
             <?php 
             $number=$row[img_count];
             $next=1;

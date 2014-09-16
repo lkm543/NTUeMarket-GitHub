@@ -54,11 +54,9 @@ if (isset($_SESSION['MM_Username'])){
 
           $Content=$_POST['content'];
 
-          echo $notice;
-
           $username=$_SESSION['MM_Username'];
           include_once("mysql_info.php");
-$sql = "select * from member where username = '$username'"; //在資料表中選擇所有欄位
+$sql = "select active from member where username = '$username'"; //在資料表中選擇所有欄位
 $result = mysqli_query($link,$sql); // 執行SQL查詢
 $row = mysqli_fetch_array($result);
 if($row[active]==1){
@@ -70,9 +68,9 @@ if($row[active]==1){
 
     <table id="upload_table">
 
-      <tr><td>收件人</td><td width="90%"><input type="text" name="receiver2" class="form-control" value="<?php echo $Receiver.$Receiver2;?>"/></td></tr>
+      <tr><td>收件人</td><td width="90%"><input type="text" name="receiver2" class="form-control" value="<?php echo $Receiver;?>"/></td></tr>
 
-      <tr><td>主旨</td><td><input type="text" name="subject2" class="form-control" value="<?php echo $Subject.$Subject2;?>"/></td></tr>
+      <tr><td>主旨</td><td><input type="text" name="subject2" class="form-control" value="<?php echo $Subject;?>"/></td></tr>
 
       <tr><td>內容</td><td><textarea class="form-control" rows="10" name="content2" value=><?php 
 

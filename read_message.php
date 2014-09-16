@@ -53,14 +53,15 @@ if (isset($_SESSION['MM_Username'])){
 session_start();
 
 $username=$_SESSION['MM_Username']; 
+$user_id=$_SESSION['MM_UserID'];
 
-include_once("function/mysql_info.php");
+include_once("mysql_info.php");
 
 $id=$_GET["id"];
 
 //0未讀 1 已讀 2 刪除
 
-$sql = "select * from `message` where `to`='$username' and (sender_status=1 or sender_status=0) order by `id` desc"; //在test資料表中選擇所有欄位
+$sql = "select ms.username as sender, mr.username as reciever, msg.* from member ms, member mr, message msg where mr.id = msg.to and ms.id = msg.from and mr.id='$user_id' and msg.receiver_status in (0,1) order by msg.id desc";
 
 $result = mysqli_query($link,$sql); // 執行SQL查詢引
 
@@ -80,7 +81,7 @@ for($k = 0; $k < $number_of_row; $k ++) {
 
 	if($row = mysqli_fetch_array($result)){
 
-    echo '<tr onClick="location.href=\'read_message.php?id='.$row[id].'"">><form action="function/delete_message.php"><td>'.$row[from].'</td><td>'.$row[subject].'</td><td width="100" align="right"><input type="submit" value=刪除><input type="hidden" value="$row[id]" name=id></td></form><tr>';
+    echo '<tr onClick="location.href=\'read_message.php?id='.$row[id].'"">><form action="delete_message.php"><td>'.$row[sender].'</td><td>'.$row[subject].'</td><td width="100" align="right"><input type="submit" value=刪除><input type="hidden" value="$row[id]" name=id></td></form><tr>';
 
 	if($id==$row[id]){
 

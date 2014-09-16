@@ -103,7 +103,7 @@ session_start();
 
 if (isset($_SESSION['MM_Username'])){ ?>
 
-<a class="dropdown-toggle" data-toggle="dropdown" href="show_item.php">會員專區<?php
+<a class="dropdown-toggle" data-toggle="dropdown" href="show_item.php"><?php echo $_SESSION['MM_Username'];
 
 include_once("mysql_info.php");
 

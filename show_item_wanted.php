@@ -160,7 +160,7 @@ if($sort!=null&$keyword!=null){
 echo 'keyword='.$keyword.'sort='.$sort;
 }
 	?>
-	<?php echo 'page='.$i.'">'.$i.'</a>'; 
+	<?php echo 'page='.$i.'">'.$i."&nbsp;".'</a>'; 
 }
 ?>
             

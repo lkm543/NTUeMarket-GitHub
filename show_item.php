@@ -151,7 +151,7 @@ for($k = 0; $k < $totalCount; $k ++) {
 
 </table>
 <?php for($i=1;$i<=$pages;$i++) { 
-    echo '<a href="http://b98502030.uphero.com/show_item.php?';?>
+    echo '<a href="show_item.php?';?>
     <?php 
 if($sort==null&$keyword!=null){
 echo 'keyword='.$keyword;
@@ -163,7 +163,7 @@ if($sort!=null&$keyword!=null){
 echo 'keyword='.$keyword.'sort='.$sort;
 }
   ?>
-  <?php echo 'page='.$i.'">'.$i.'</a>'; 
+  <?php echo 'page='.$i.'">'.$i."&nbsp;".'</a>'; 
 }
 ?>
           

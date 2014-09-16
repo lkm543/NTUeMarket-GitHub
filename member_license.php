@@ -40,7 +40,7 @@ if($license_code_email==$license_code_database){
 
 			<script type="text/javascript" language="javascript">
 
-			alert("Succeed,goint to index now!");
+			alert("Verification sucess! Account activated.");
 
 			</script>
 

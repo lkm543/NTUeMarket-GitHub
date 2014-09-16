@@ -34,12 +34,12 @@ if($sucess){
 	$mail->IsSMTP(); //設定使用SMTP方式寄信 
 	$mail->SMTPAuth = true; //設定SMTP需要驗證 
 	$mail->SMTPSecure = "ssl"; // Gmail的SMTP主機需要使用SSL連線 
-	$mail->Host = "smtp.gmail.com"; //Gamil的SMTP主機 
+	$mail->Host = "box990.bluehost.com"; //Gamil的SMTP主機 
 	$mail->Port = 465; //Gamil的SMTP主機的SMTP埠位為465埠。 
 	$mail->CharSet = "UTF-8"; //設定郵件編碼 
 
-	$mail->Username = "ntu.emarket@gmail.com"; //設定驗證帳號 
-	$mail->Password = "emarket@NTU"; //設定驗證密碼 
+	$mail->Username = "customer_service@collegebazaar.tw"; //設定驗證帳號 
+	$mail->Password = "cs@collegebazaar.tw"; //設定驗證密碼 
 
 	$mail->From = "customer_service@collegebazaar.tw"; //設定寄件者信箱 
 	$mail->FromName = "CollegeBazaar"; //設定寄件者姓名 

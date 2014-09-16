@@ -92,3 +92,15 @@
 [14-Sep-2014 21:17:17 America/Chicago] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home1/bazaar/public_html/sent_message_area.php on line 31
 [14-Sep-2014 21:18:54 America/Chicago] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home1/bazaar/public_html/garbage_message_area.php on line 32
 [14-Sep-2014 21:18:54 America/Chicago] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home1/bazaar/public_html/garbage_message_area.php on line 34
+[15-Sep-2014 07:18:04 America/Chicago] PHP Parse error:  syntax error, unexpected '}' in /home1/bazaar/public_html/send_message.php on line 110
+[15-Sep-2014 07:18:14 America/Chicago] PHP Parse error:  syntax error, unexpected '}' in /home1/bazaar/public_html/send_message.php on line 110
+[15-Sep-2014 07:26:18 America/Chicago] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home1/bazaar/public_html/garbage_message_area.php on line 117
+[15-Sep-2014 07:26:41 America/Chicago] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home1/bazaar/public_html/garbage_message_area.php on line 117
+[15-Sep-2014 08:04:11 America/Chicago] PHP Parse error:  syntax error, unexpected 'align' (T_STRING), expecting ',' or ';' in /home1/bazaar/public_html/modify.php on line 44
+[15-Sep-2014 08:11:01 America/Chicago] PHP Parse error:  syntax error, unexpected 'resend_email' (T_STRING), expecting ',' or ';' in /home1/bazaar/public_html/modify.php on line 43
+[15-Sep-2014 08:11:13 America/Chicago] PHP Parse error:  syntax error, unexpected 'resend_email' (T_STRING), expecting ',' or ';' in /home1/bazaar/public_html/modify.php on line 43
+[15-Sep-2014 08:12:26 America/Chicago] PHP Parse error:  syntax error, unexpected 'resend_email' (T_STRING), expecting ',' or ';' in /home1/bazaar/public_html/modify.php on line 43
+[15-Sep-2014 11:17:54 America/Chicago] PHP Fatal error:  Allowed memory size of 268435456 bytes exhausted (tried to allocate 8376 bytes) in /home1/bazaar/public_html/upload.php on line 137
+[15-Sep-2014 11:19:51 America/Chicago] PHP Fatal error:  Allowed memory size of 268435456 bytes exhausted (tried to allocate 33504 bytes) in /home1/bazaar/public_html/upload.php on line 137
+[15-Sep-2014 18:58:57] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 30708 bytes) in /home1/colleig4/public_html/upload.php on line 137
+[15-Sep-2014 19:58:48] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 33504 bytes) in /home1/colleig4/public_html/upload.php on line 137

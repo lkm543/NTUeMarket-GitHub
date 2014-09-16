@@ -89,7 +89,7 @@ echo "您已經登入!";
 
   <div class="form-group">
 
-    <label for="password">用戶密碼(5-15字)</label>
+    <label for="password">用戶密碼(至少8碼)</label>
 
     <input type="password" class="form-control" id="signup_pass" name="password" placeholder="請輸入用戶密碼" onBlur="validate('pass_alert', this.value)">
     <div id="pass_alert" class="alert_msg"></div>

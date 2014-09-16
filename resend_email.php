@@ -54,7 +54,7 @@ $email=$row[email];
 
 	$mail->SMTPSecure = "ssl"; // Gmail的SMTP主機需要使用SSL連線 
 
-	$mail->Host = "smtp.gmail.com"; //Gamil的SMTP主機 
+	$mail->Host = "box990.bluehost.com"; //Gamil的SMTP主機 
 
 	$mail->Port = 465; //Gamil的SMTP主機的SMTP埠位為465埠。 
 
@@ -62,9 +62,9 @@ $email=$row[email];
 
 
 
-	$mail->Username = "ntu.emarket@gmail.com"; //設定驗證帳號 
+	$mail->Username = "customer_service@collegebazaar.tw"; //設定驗證帳號 
 
-	$mail->Password = "emarket@NTU"; //設定驗證密碼 
+	$mail->Password = "cs@collegebazaar.tw"; //設定驗證密碼 
 
 
 

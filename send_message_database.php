@@ -18,7 +18,7 @@ $id_old=$row['id'];
 
 $id=$row['id']+1;
 
-$receiver=$_POST[receiver2];
+$receiver=$_POST['receiver2'];
 
 //檢查收件人是否存在
 
@@ -26,11 +26,15 @@ $result2 = mysqli_query($link,"select * from member where username='$receiver'")
 
 $number= mysqli_num_rows($result2);
 
+echo $number;
 if($number!=0)
 
 {
+$result3 = mysqli_query($link,"select * from member where username='$receiver'"); // 執行SQL查詢
 
-mysqli_query ($link,"insert into `message` (`from`,`to`,`subject`,`message`,`date`,`id`) values('$username','$_POST[receiver2]','$_POST[subject2]','$_POST[content2]','$currtimestr','$id')");
+$row = mysqli_fetch_array($result3);
+echo $row['id'];
+mysqli_query ($link,"insert into `message` (`from`,`to`,`subject`,`body`,`date`,`id`) values('$user_id','$row['id']','$_POST[subject2]','$_POST[content2]','$currtimestr','$id')");
 
 mysqli_query ($link,"update backend set id='$id' where id='$id_old'");
 

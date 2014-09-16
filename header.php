@@ -109,7 +109,12 @@ include_once("mysql_info.php");
 
 $username=$_SESSION['MM_Username'];
 
-$result=mysqli_query ($link,"select * from message where `to`='$username' and receiver_status='0'");
+$sql = "select * from member where username = '$username'"; //在資料表中選擇所有欄位
+$result = mysqli_query($link,$sql); // 執行SQL查詢
+$row = mysqli_fetch_array($result);
+$user_id=$row['id'];
+
+$result=mysqli_query ($link,"select * from message where `to`='$user_id' and receiver_status='0'");
 
 $number_unread=mysqli_num_rows($result);
 

@@ -54,8 +54,6 @@ if (isset($_SESSION['MM_Username'])){
 
           $Content=$_POST['content'];
 
-          echo $notice;
-
           $username=$_SESSION['MM_Username'];
           include_once("mysql_info.php");
 $sql = "select * from member where username = '$username'"; //在資料表中選擇所有欄位

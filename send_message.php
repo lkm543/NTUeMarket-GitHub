@@ -34,7 +34,7 @@ if (isset($_SESSION['MM_Username'])){
 
         <div class="col-md-7">
 
-          <?php //2:表單傳來的值 若無，則為剛輸入但查無收件者
+          <?php 
 
           $Subject=$_POST['subject'];
 
@@ -62,10 +62,6 @@ $sql = "select * from member where username = '$username'"; //在資料表中選
 $result = mysqli_query($link,$sql); // 執行SQL查詢
 $row = mysqli_fetch_array($result);
 if($row[active]==1){
-  $sql = "select * from member where id = '$Receiver2'"; //在資料表中選擇所有欄位
-$result = mysqli_query($link,$sql); // 執行SQL查詢
-$row = mysqli_fetch_array($result);
-$Receiver2=$row['username'];
   ?>
 
   <form action="send_message_database.php" method="POST">

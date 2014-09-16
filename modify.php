@@ -138,7 +138,7 @@ else {echo "已啟用";}
 
 <td><input type="radio" name="message" value="1"<?php 
 
-if($row[message]==1)
+if($row[msg_welcome]==1)
 
 {
 
@@ -148,7 +148,7 @@ if($row[message]==1)
 
 ?>>歡迎私訊   <input type="radio" name="message" value="2"<?php 
 
-if($row[message]==2)
+if($row[msg_welcome]==2)
 
 {
 

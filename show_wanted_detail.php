@@ -110,9 +110,9 @@ $row = mysqli_fetch_array($result);
 <tr>
 <td>私人訊息</td>
 <td><?php 
-if($row['message']==1)
+if($row['msg_welcome']==1)
 {echo "歡迎私訊";} 
-if($row['message']==2)
+if($row['msg_welcome']==2)
 {echo "不常用，以其他聯絡方式為主";}?></td>
 </tr>
 <tr>

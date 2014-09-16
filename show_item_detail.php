@@ -130,21 +130,19 @@
 
                         <div class="col-md-9">
 
-                         <?php 
+<?php 
 
-                         session_start();
+session_start();
 
-      //若無，則為加入興趣清單時未登入的回傳
+//若無，則為加入興趣清單時未登入的回傳
 
-                         if($_GET['id']!=NULL){
+if($_GET['id']!=NULL){
 
-                           $id=$_GET['id'];}
+ $id=$_GET['id'];}
 
+ include_once("mysql_info.php");
 
-
-                           include_once("mysql_info.php");
-
-                           $sql = "select * from item_forsell where id='$id'";
+ $sql = "select m.id, m.username, i.* from member m left join item_forsell i on i.owner = m.id where i.id='$id'";
 
 $result = mysqli_query($link,$sql); // 執行SQL查詢
 
@@ -164,7 +162,7 @@ $row = mysqli_fetch_array($result);
 
         <td width="70">帳號</td>
 
-        <td width="150"><?php echo $row['owner'];?></td>
+        <td width="150"><?php echo $row['username'];?></td>
 
       </tr>
 
@@ -222,11 +220,11 @@ $row = mysqli_fetch_array($result);
 
         <td><?php 
 
-          if($row['message']==1)
+          if($row['msg_welcome']==1)
 
             {echo "歡迎私訊";} 
 
-          if($row['message']==2)
+          if($row['msg_welcome']==2)
 
             {echo "不常用，以其他聯絡方式為主";}?></td>
 

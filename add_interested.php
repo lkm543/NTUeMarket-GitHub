@@ -5,24 +5,24 @@ $currtimestr=date("Y-m-d h:i:s");
 $username=$_SESSION['MM_Username'];
 $id=$_POST['id'];
 include_once("mysql_info.php");
-$result=mysqli_query($link,"select * from item_forsell where id='$id'");
+$result=mysqli_query($link,"select id from item_forsell where id='$id'");
 $number= mysqli_num_rows($result);
 //檢查登入
 if($username!=NULL){
-$result2=mysqli_query($link,"select * from member where username='$username'");
-$row = mysqli_fetch_array($result2);
+	$result2=mysqli_query($link,"select interested from member where username='$username'");
+	$row = mysqli_fetch_array($result2);
 //初始
-if($row['interested']==NULL){
-$tempt=array();
-array_push($tempt,$id);
-$tempt=serialize($tempt);
-mysqli_query ($link,"update member set interested='$tempt' where username='$username'");
-}
+	if($row['interested']==NULL){
+		$tempt=array();
+		array_push($tempt,$id);
+		$tempt=serialize($tempt);
+		mysqli_query ($link,"update member set interested='$tempt' where username='$username'");
+	}
 //興趣清單裡已有值
-else{
-$tempt=unserialize($row['interested']);
+	else{
+		$tempt=unserialize($row['interested']);
 //r檢查是否已經加入
-if(!in_array($id, $tempt)){	
+		if(!in_array($id, $tempt)){	
 array_push($tempt,$id);//增加
 $tempt=serialize($tempt);
 mysqli_query ($link,"update member set interested='$tempt' where username='$username'");}}
@@ -30,7 +30,7 @@ mysqli_query ($link,"update member set interested='$tempt' where username='$user
 $notice='已加入興趣清單，可至<a href="http://collegebazaar.tw/management_interested.php">會員專區</a>查看';
 
 if($number==1){//商品
-include_once("show_item.php");
+	include_once("show_item.php");
 }
 else{
 //徵求	
@@ -43,4 +43,4 @@ else
 {
 	$notice="請登入以啟用此功能";
 	include_once("login.php");}
-?>  
+	?>  

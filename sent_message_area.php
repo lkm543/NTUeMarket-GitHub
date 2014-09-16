@@ -44,7 +44,7 @@ include_once("mysql_info.php");
 
 //1 普通 2 刪除
 
-$sql = "select * from `message` where `From`='$username' and `sender_status`=1 order by `id` desc"; //在test資料表中選擇所有欄位
+$sql = "select * from `message` where `from`='$username' and `sender_status`=1 order by `id` desc"; //在test資料表中選擇所有欄位
 
 $result = mysqli_query($link,$sql); // 執行SQL查詢引
 
@@ -74,23 +74,23 @@ for($k = 0; $k < $number_of_row; $k ++) {
 
     if($row[receiver_status]!=0){//已讀
 
-    echo '<tr onClick="location.href=\'sent_message_area.php?id='.$row[id].'\'"><form action="delete_message.php" method="POST"><td>'.$row[To].'</td><td>'.$row[subject].'</td><td width="100" align="right"><input type="submit" value="刪除" class="btn btn-danger"><input type="hidden" value="'.$row[id].'" name=id></td></form><tr>';
+    echo '<tr onClick="location.href=\'sent_message_area.php?id='.$row[id].'\'"><form action="delete_message.php" method="POST"><td>'.$row[to].'</td><td>'.$row[subject].'</td><td width="100" align="right"><input type="submit" value="刪除" class="btn btn-danger"><input type="hidden" value="'.$row[id].'" name=id></td></form><tr>';
 
     }
 
     if($row[receiver_status]==0){//未讀
 
-echo '<tr style="font-weight: bold; font-size:16px; text-decoration: underline;" onClick="location.href=\'sent_sent_message_area.php?id='.$row[id].'\'"><form action="delete_message.php" method="POST"><td>'.$row[To].'</td><td>'.$row[subject].'</td><td width="100" align="right"><input type="submit" value="刪除" class="btn btn-danger"><input type="hidden" value="'.$row[id].'" name=id></td></form><tr>';
+echo '<tr style="font-weight: bold; font-size:16px; text-decoration: underline;" onClick="location.href=\'sent_sent_message_area.php?id='.$row[id].'\'"><form action="delete_message.php" method="POST"><td>'.$row[to].'</td><td>'.$row[subject].'</td><td width="100" align="right"><input type="submit" value="刪除" class="btn btn-danger"><input type="hidden" value="'.$row[id].'" name=id></td></form><tr>';
 
     }  
 
   }	if($id==$row[id]){
 
-    echo '<tr class="success" onClick="location.href=\'sent_message_area.php\'"><form action="delete_message.php" method="POST"><td>'.$row[To].'</td><td>'.$row[subject].'</td><td width="100" align="right"><input type="submit" value="刪除" class="btn btn-danger"><input type="hidden" value="'.$row[id].'" name=id></td></form><tr>';
+    echo '<tr class="success" onClick="location.href=\'sent_message_area.php\'"><form action="delete_message.php" method="POST"><td>'.$row[to].'</td><td>'.$row[subject].'</td><td width="100" align="right"><input type="submit" value="刪除" class="btn btn-danger"><input type="hidden" value="'.$row[id].'" name=id></td></form><tr>';
 
 
 
-		echo '<tr class="info"><td></td><td>'.nl2br($row[Message]).'</td><td></td></tr>';
+		echo '<tr class="info"><td></td><td>'.nl2br($row[body]).'</td><td></td></tr>';
 
 		
 

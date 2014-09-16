@@ -22,7 +22,7 @@ $contact_email=$_POST['contact_email'];
 
 //密碼未改
 
-mysqli_query ($link,"update member set phone='$phone', nickname='$nickname', method='$method', contact_email='$contact_email', message='$message' where username='$username'");
+mysqli_query ($link,"update member set phone='$phone', nickname='$nickname', method='$method', contact_email='$contact_email', msg_welcome='$message' where username='$username'");
 
 //密碼修改
 

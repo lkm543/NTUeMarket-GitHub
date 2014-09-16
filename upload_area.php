@@ -80,12 +80,12 @@ if($row[active]==1){
     <tr>
 <td>私人訊息</td>
 <td><input type="radio" name="message" value="1"<?php 
-if($row[message]==1)
+if($row[msg_welcome]==1)
 {
   echo " checked";
   }
 ?>>歡迎私訊   <input type="radio" name="message" value="2"<?php 
-if($row[message]==2)
+if($row[msg_welcome]==2)
 {
   echo " checked";
   }
@@ -108,7 +108,6 @@ if($row[message]==2)
           removeLabel: "刪除",
           removeIcon: '<i class="glyphicon glyphicon-trash"></i>',
           overwriteInitial: false,
-          maxFileSize: 10240000,
           initialCaption: "選擇商品圖片"
         });
         </script>
@@ -117,7 +116,7 @@ if($row[message]==2)
     <tr>
       <td>&nbsp;</td>
       <td>
-        <input type="submit" name="submit" id="submit" value="送出" class="btn btn-success">
+        <input type="submit" name="submit" id="submit" value="上架" class="btn btn-success">
         <input type="reset" name="reload" id="reload" value="重設" class="btn btn-warning">
       </td>
     </tr>

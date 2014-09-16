@@ -44,7 +44,7 @@ $id=$_GET["id"];
 
 //1 普通 2 刪除
 
-$sql = "select * from `message` where (`From`='$username' and sender_status=2) or (`To`='$username' and receiver_status=2) order by `id` desc";
+$sql = "select * from `message` where (`from`='$username' and sender_status=2) or (`to`='$username' and receiver_status=2) order by `id` desc";
 
 $result = mysqli_query($link,$sql); // 執行SQL查詢引
 
@@ -75,13 +75,13 @@ for($k = 0; $k < $number_of_row; $k ++) {
 
     if($row[receiver_status]!=0){//已讀
 
-    echo '<tr onClick="location.href=\'garbage_message_area.php?id='.$row[id].'\'"><form action="delete_message_ga.php" method="POST"><td>'.$row[From].'</td><td>'.$row[To].'</td><td>'.$row[subject].'</td><td width="200" align="right"><input type="submit" value="還原" class="btn btn-success" formaction="recover_message.php">&nbsp;&nbsp;<input type="submit" value="刪除" class="btn btn-danger"><input type="hidden" value="'.$row[id].'" name=id></td></form><tr>';
+    echo '<tr onClick="location.href=\'garbage_message_area.php?id='.$row[id].'\'"><form action="delete_message_ga.php" method="POST"><td>'.$row[from].'</td><td>'.$row[to].'</td><td>'.$row[subject].'</td><td width="200" align="right"><input type="submit" value="還原" class="btn btn-success" formaction="recover_message.php">&nbsp;&nbsp;<input type="submit" value="刪除" class="btn btn-danger"><input type="hidden" value="'.$row[id].'" name=id></td></form><tr>';
 
     }
 
     if($row[receiver_status]==0){//未讀
 
-echo '<tr style="font-weight: bold; font-size:16px; text-decoration: underline;" onClick="garbage_location.href=\'garbage_message_area.php?id='.$row[id].'\'"><form action="delete_message_ga.php" method="POST"><td>'.$row[From].'</td><td>'.$row[To].'</td><td>'.$row[subject].'</td><td width="200" align="right"><input type="submit" value="還原" class="btn btn-success" formaction="recover_message.php">&nbsp;&nbsp;<input type="submit" value="刪除" class="btn btn-danger"><input type="hidden" value="'.$row[id].'" name=id></td></form><tr>';
+echo '<tr style="font-weight: bold; font-size:16px; text-decoration: underline;" onClick="garbage_location.href=\'garbage_message_area.php?id='.$row[id].'\'"><form action="delete_message_ga.php" method="POST"><td>'.$row[from].'</td><td>'.$row[to].'</td><td>'.$row[subject].'</td><td width="200" align="right"><input type="submit" value="還原" class="btn btn-success" formaction="recover_message.php">&nbsp;&nbsp;<input type="submit" value="刪除" class="btn btn-danger"><input type="hidden" value="'.$row[id].'" name=id></td></form><tr>';
 
     }  
 
@@ -89,9 +89,9 @@ echo '<tr style="font-weight: bold; font-size:16px; text-decoration: underline;"
 
     	if($id==$row[id]){
 
-    echo '<tr class="success" onClick="location.href=\'garbage_message_area.php\'"><form action="delete_message_ga.php" method="POST"><td>'.$row[From].'</td><td>'.$row[To].'</td><td>'.$row[subject].'</td><td width="200" align="right"><input type="submit" value="還原" class="btn btn-success" formaction="recover_message.php">&nbsp;&nbsp;<input type="submit" value="刪除" class="btn btn-danger"><input type="hidden" value="'.$row[id].'" name=id></td></form><tr>';
+    echo '<tr class="success" onClick="location.href=\'garbage_message_area.php\'"><form action="delete_message_ga.php" method="POST"><td>'.$row[from].'</td><td>'.$row[to].'</td><td>'.$row[subject].'</td><td width="200" align="right"><input type="submit" value="還原" class="btn btn-success" formaction="recover_message.php">&nbsp;&nbsp;<input type="submit" value="刪除" class="btn btn-danger"><input type="hidden" value="'.$row[id].'" name=id></td></form><tr>';
 
-		echo '<tr class="info"><td colspan="2"></td><td>'.nl2br($row[Message]).'</td><td></td></tr>';
+		echo '<tr class="info"><td colspan="2"></td><td>'.nl2br($row[body]).'</td><td></td></tr>';
 
 	}}}?>     <?php }
      else{

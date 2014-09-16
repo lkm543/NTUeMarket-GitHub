@@ -76,12 +76,12 @@ if($row[active]==1){
 <tr>
 <td>私人訊息</td>
 <td><input type="radio" name="message" value="1"<?php 
-if($row[message]==1)
+if($row[msg_welcome]==1)
 {
 	echo " checked";
 	}
 ?>>歡迎私訊   <input type="radio" name="message" value="2"<?php 
-if($row[message]==2)
+if($row[msg_welcome]==2)
 {
 	echo " checked";
 	}

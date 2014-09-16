@@ -5,7 +5,7 @@ $currtimestr=date("Y-m-d h:i:s");
 include_once("mysql_info.php");
 $username=$_SESSION['MM_Username'];
 $id=$_POST['id'];
-$result=mysqli_query($link,"select * from member where username='$username'");
+$result=mysqli_query($link,"select interested from member where username='$username'");
 $row = mysqli_fetch_array($result);
 $interested_array=array();
 $interested_array=unserialize($row['interested']);

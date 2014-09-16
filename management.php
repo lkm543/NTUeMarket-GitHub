@@ -19,7 +19,7 @@
         <?php 
 $username=$_SESSION['MM_Username']; 
 include_once("mysql_info.php");
-$sql = "select * from item_forsell where owner='$username' and status=1 order by id desc"; 
+$sql = "select m.id, m.username, i.* from member m left join item_forsell i on m.id = i.owner where username = '$username' and status = 1 order by i.id desc"; 
 $result = mysqli_query($link,$sql); 
 $total_fields=mysqli_num_fields($result); // 取得欄位數
 $total_records=mysqli_num_rows($result);  // 取得記錄數

@@ -51,6 +51,9 @@ session_start();
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
 
     <script src="js/signup_validator.js" type="text/javascript"></script>
+    <script src="js/canvas-to-blob.min.js"></script>
+    <script src="resize.js"></script>
+    <script src="app.js"></script>
 
 	<script type="text/javascript">
 
@@ -106,7 +109,7 @@ include_once("mysql_info.php");
 
 $username=$_SESSION['MM_Username'];
 
-$result=mysqli_query ($link,"select * from message where `To`='$username' and receiver_status='0'");
+$result=mysqli_query ($link,"select * from message where `to`='$username' and receiver_status='0'");
 
 $number_unread=mysqli_num_rows($result);
 

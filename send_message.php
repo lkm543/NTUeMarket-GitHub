@@ -54,7 +54,7 @@ if (isset($_SESSION['MM_Username'])){
 
           $Content=$_POST['content'];
 
-          echo $Message;
+          echo $notice;
 
           $username=$_SESSION['MM_Username'];
           include_once("mysql_info.php");

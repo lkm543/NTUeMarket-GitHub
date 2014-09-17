@@ -2,6 +2,8 @@
 
 session_start();
 
+$current_page = basename($_SERVER['PHP_SELF']);
+
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -89,13 +91,13 @@ session_start();
 
 		  <ul class="menu fr">
 
-                 <li><a href="upload_area.php">上傳商品</a></li>
+                 <li><a href="upload_area.php"; <?php if($current_page=="upload_area.php") echo 'class="menu_item_selected"';?>>上傳商品</a></li>
 
-                 <li><a href="upload_wanted.php">公開徵求</a></li>
+                 <li><a href="upload_wanted.php"; <?php if($current_page=="upload_wanted.php") echo 'class="menu_item_selected"';?>;>公開徵求</a></li>
 
-                 <li><a href="show_item.php">商品總覽</a></li>
+                 <li><a href="show_item.php"; <?php if($current_page=="show_item.php") echo 'class="menu_item_selected"';?>>商品總覽</a></li>
 
-                 <li><a href="show_item_wanted.php">需求總覽</a></li>
+                 <li><a href="show_item_wanted.php"; <?php if($current_page=="show_item_wanted.php") echo 'class="menu_item_selected"';?>>需求總覽</a></li>
 
                  <li class="dropdown" id="twohandedmenu">
 
@@ -103,13 +105,13 @@ session_start();
 
 if (isset($_SESSION['MM_Username'])){ ?>
 
-<a class="dropdown-toggle" data-toggle="dropdown" href="show_item.php"><?php echo $_SESSION['MM_Username'];
+<a <?php if($current_page=="modify.php"||$current_page=="management_interested.php"||$current_page=="management.php"||$current_page=="message_area.php") echo 'class="dropdown-toggle menu_item_selected"'; else echo 'class="dropdown-toggle"';?> data-toggle="dropdown" href="show_item.php"><?php echo $_SESSION['MM_Username'];
 
 include_once("mysql_info.php");
 
 $username=$_SESSION['MM_Username'];
 
-$result=mysqli_query ($link,"select * from message where `to`='$username' and receiver_status='0'");
+$result=mysqli_query ($link,"select id from message where `to`='$username' and receiver_status='0'");
 
 $number_unread=mysqli_num_rows($result);
 
@@ -135,7 +137,7 @@ if($number_unread!=0){
 
 <?php //尚未登入
 
-} else{ ?><a class="dropdown-toggle" data-toggle="dropdown" href="show_item.php">會員註冊/登入<b class="caret"></b></a>
+} else{ ?><a <?php if($current_page=="registration.php"||$current_page=="login.php") echo 'class="dropdown-toggle menu_item_selected"'; else echo 'class="dropdown-toggle"';?> data-toggle="dropdown" href="show_item.php">會員註冊/登入<b class="caret"></b></a>
 
                         <ul class="dropdown-menu">
 
@@ -148,8 +150,6 @@ if($number_unread!=0){
                         </ul>
 
                 </li>
-
-                <li><a href="contact_us.php">聯絡我們</a></li>
 
 		  </ul>
 

@@ -50,8 +50,8 @@ a:hover { text-decoration: underline; }
 #header h1 a { color: #5f5f5f; font-family: 'Tangerine', serif; font-size: 48px; font-weight: bold; text-decoration: none; }
 
 ul.menu { margin: 28px 0px 0px; font-weight: bold;}
-ul.menu li { float: left; margin: 3px 0px 0px 15px; }
-ul.menu li a { color: #5f5f5f; font-size: 17px; }
+ul.menu li { float: left; margin: 3px 0px 0px 0px; }
+ul.menu li a { color: #5f5f5f; font-size: 17px; padding:5px 10px 5px 10px; border-left:solid 1px rgb(235,235,235);}
 ul.menu li a:hover, ul.menu li.active a { color: #70a3b4; text-decoration: none; }
 
 /*** Main ***/
@@ -64,7 +64,7 @@ ul.menu li a:hover, ul.menu li.active a { color: #70a3b4; text-decoration: none;
 #slideshow .nivo-controlNav .nivo-control.active { background: url(../../images_index/bullets.png) no-repeat scroll 0 -22px; }
 
 #upload_table {font-size: 18px; text-align: left;}
-#upload_table td {vertical-align: top; border:5px; border-style:solid; border-color:#FFFFFF;}
+#upload_table td {vertical-align: top; border:5px; border-style:solid; border-color:rgb(240,240,189);}
 
 .intro { margin: 0px 10px 20px; }
 .intro p { font-size: 22px; text-align: center;}
@@ -139,8 +139,14 @@ ul.menu li a:hover, ul.menu li.active a { color: #70a3b4; text-decoration: none;
 .alert_msg{
 color:#E9433F;
 font-size:12px
-<<<<<<< HEAD
 }
-=======
+
+.bg-success{
+	background-color: #F08080 !important;
+	color: #FFFFFF !important;
 }
->>>>>>> 9d483f7b7e944e3ccc303bca2a46d9d3f800d2f0
+
+.menu_item_selected{
+	border-bottom: solid 8px #70a3b4;
+	padding-bottom: 3px !important;
+}

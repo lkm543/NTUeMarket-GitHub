@@ -64,7 +64,7 @@ ul.menu li a:hover, ul.menu li.active a { color: #70a3b4; text-decoration: none;
 #slideshow .nivo-controlNav .nivo-control.active { background: url(../../images_index/bullets.png) no-repeat scroll 0 -22px; }
 
 #upload_table {font-size: 18px; text-align: left;}
-#upload_table td {vertical-align: top; border:5px; border-style:solid; border-color:#FFFFFF;}
+#upload_table td {vertical-align: top; border:5px; border-style:solid; border-color: rgb(240,240,189);}
 
 .intro { margin: 0px 10px 20px; }
 .intro p { font-size: 22px; text-align: center;}

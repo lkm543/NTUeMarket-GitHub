@@ -120,25 +120,33 @@ $result2 = mysqli_query($link,$sql2); // 執行SQL查詢
 
 ?>
 <center><div style="margin:20px 0px 5px 0px"><font color="#FF0000" size="5"><?php echo $notice;?></font></div></center>
+<table>
 <?php
 $number_of_row=mysqli_num_rows($result2);
 $totalCount = ceil($number_of_row/4)*4;
 for($k = 0; $k < $totalCount; $k ++) {
 
+        if($k%4 == 0) { echo '<tr>'; }
+
         if($row = mysqli_fetch_array($result2)) {
-                echo '
-                      <div id="item-div" class="item_wrapper" style="width:235px">
-                      <div>
-                      <a href="show_wanted_detail.php?id='.$row['id'].'">徵求物品：'.$row[name].'</a>
-                      </div><div>細節描述：'.$row[detail].
-                     '</div><div>徵求價格：$'.$row[price].
-                     '</div><div>交易方式：'.$row[method].
-                     '</div><div>上架日期：'.$row["date"].
-					           '</div></div>';
+                echo '<td style="width:230px"><a href="show_wanted_detail.php?id='
+					 .$row['id'].'">'.$row[name].'</a>'.'<br>'.$row[detail].
+                     '<br>$'.$row[price].'<br>'.$row[method].
+                     '<br>'.$row["date"].
+					 '<br><br>'.
+					 '</td>';
         }
+        else {
+                echo '<td style="width:230px"></td>';
+        }
+
+        if($k%4 == 3) { echo '</tr>'; }
+
 }
+
 ?>
 
+</table>
 <?php for($i=1;$i<=$pages;$i++) { 
     echo '<a href="http://collegebazaar.tw/show_item.php?';?>
     <?php 

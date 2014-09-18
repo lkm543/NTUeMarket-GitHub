@@ -58,8 +58,6 @@ else {echo "已啟用";}
 
 <tr>
 
-<tr>
-
 <td>暱稱</td>
 
 <td><input type="text" value="<?php echo $row[nickname];?>" name="nickname"/></td>

@@ -121,7 +121,7 @@ if($row['msg_welcome']==2)
 <td><?php echo $row['date'];?></td>
 </tr>
 <tr><td colspan="2" style="border-bottom:0px;">
-<form action="send_message.php" method="post"><input type="hidden" name="receiver" value="<?php echo $row[owner];?>"><input type="hidden" name="id" value="<?php echo $row['id'];?>"><input type="hidden" name="subject" value="<?php echo "商品：".$row[name];?>"><input type="hidden" name="id" value="<?php echo$row[id];?>">
+<form action="send_message.php" method="post"><input type="hidden" name="receiver" value="<?php echo $row[username];?>"><input type="hidden" name="id" value="<?php echo $row['id'];?>"><input type="hidden" name="subject" value="<?php echo "商品：".$row[name];?>"><input type="hidden" name="id" value="<?php echo$row[id];?>">
 <input type="hidden" name="content" value="<?php echo "需求名稱:".$row[name]."\n需求描述:".nl2br($row['detail'])."\n徵求價格:".$row['price']."\n交易方式:".$row[method]."\n聯絡email:".$row['contact_email']."\n手機:".$row['phone'];?>">
 <center><input type="submit" value="加到興趣清單" class="btn btn-default" formaction="add_interested.php">&nbsp;&nbsp;<input type="submit" value="丟私人訊息" class="btn btn-default"></center></form></td></tr>
 </table></div></div><center>

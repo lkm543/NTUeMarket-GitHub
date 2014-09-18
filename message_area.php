@@ -38,8 +38,6 @@ if (isset($_SESSION['MM_Username'])){
 
             <?php 
 
-session_start();
-
 $username=$_SESSION['MM_Username'];
 $user_id=$_SESSION['MM_UserID'];
 

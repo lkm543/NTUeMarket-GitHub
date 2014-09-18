@@ -113,10 +113,3 @@ else{echo '請先登入！';}
 
 
 <? include("footer.php");?>
-
-</body>
-
-</html>
-
-
-

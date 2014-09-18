@@ -38,7 +38,7 @@ $message .="$chklink<br>";
 
 $message .="<br>";
 
-$message .="建議您登入後修改您的聯絡方式，便可於每次上傳商品時自動帶入您的聯絡資料。<br><br>";
+$message .="建議您登入後更新您的聯絡方式，便可於每次上傳商品時自動帶入您的聯絡資料。<br><br>";
 
 $message .="歡迎您使用CollegeBazaar。<br><br><br>";
 

@@ -141,6 +141,8 @@ ul.menu li a:hover, ul.menu li.active a { color: #70a3b4; text-decoration: none;
 
 #contact-map { float: left; width: 300px; }
 
+#item-div {float: left;margin: 5px; text-align: left; }
+
 .alert_msg{
 color:#E9433F;
 font-size:12px

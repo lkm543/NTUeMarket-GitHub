@@ -123,35 +123,26 @@ $result2 = mysqli_query($link,$sql2); // 執行SQL查詢
 
 ?>
 <center><div style="margin:20px 0px 5px 0px"><font color="#FF0000" size="5"><?php echo $notice;?></font></div></center>
-<table>
 <?php
 $number_of_row=mysqli_num_rows($result2);
 $totalCount = ceil($number_of_row/4)*4;
 for($k = 0; $k < $totalCount; $k ++) {
 
-        if($k%4 == 0) { echo '<tr class="row item_list_row">'; }
 
         if($row = mysqli_fetch_array($result2)) {
-                echo '<td class="col-md-2">
-                      <div class="item_wrapper">
+                echo '<div id="item-div" class="item_wrapper" style="width:235px">
                       <div>商品名稱: '.$row[name].'</div>
-                      <div>出價金額: $'.$row[price].'</div>
+                      <div>販售金額: $'.$row[price].'</div>
                       <div>上架日期: '.$row[date].'</div>
                       <a href="show_item_detail.php?id='.$row['id'].'">
                       <div class="item_img_wrapper"><img src="Picture/'.$row[filename].'" width="208" class="img-rounded">
-                      </a></div></div></td>';
+                      </a></div></div>';
         }
-        else {
-                echo '</div><td style="width:230px"></td>';
-        }
-
-        if($k%4 == 3) { echo '</tr><tr><td style="height: 20px;"></td></tr>'; }
 
 }
 
 ?>
 
-</table>
 <?php for($i=1;$i<=$pages;$i++) { 
     echo '<a href="show_item.php?';?>
     <?php 

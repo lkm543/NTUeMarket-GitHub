@@ -1,6 +1,6 @@
-<? include("header.php");
-
-if (isset($_SESSION['MM_Username'])){
+<? include("header.php");?>
+<div id="main">
+<?php if (isset($_SESSION['MM_Username'])){
 
 $username=$_SESSION['MM_Username'];
 
@@ -16,7 +16,7 @@ $row = mysqli_fetch_array($result);
 
 <div class="row">
 
-<div class="col-md-6">
+<div class="col-md-6 col-md-offset-3">
 
 <center><div style="margin:20px 0px 5px 0px"><font color="#FF0000" size="5"><?php echo $notice;?></font></div></center>
 
@@ -192,7 +192,6 @@ else{
 ?>
 
 
-
-
+</div>
 
 <? include("footer.php");?>

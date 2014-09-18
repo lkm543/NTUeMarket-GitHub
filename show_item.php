@@ -126,13 +126,13 @@ $result2 = mysqli_query($link,$sql2); // 執行SQL查詢
 <table>
 <?php
 $number_of_row=mysqli_num_rows($result2);
-$totalCount = ceil($number_of_row/4)*4;
+$totalCount = ceil($number_of_row/3)*3;
 for($k = 0; $k < $totalCount; $k ++) {
 
-        if($k%4 == 0) { echo '<tr class="row item_list_row">'; }
+        if($k%3 == 0) { echo '<tr class="row item_list_row">'; }
 
         if($row = mysqli_fetch_array($result2)) {
-                echo '<td class="col-md-2">
+                echo '<td class="col-md-3 col-xs-9">
                       <div class="item_wrapper">
                       <div>商品名稱: '.$row[name].'</div>
                       <div>出價金額: $'.$row[price].'</div>
@@ -145,30 +145,32 @@ for($k = 0; $k < $totalCount; $k ++) {
                 echo '</div><td style="width:230px"></td>';
         }
 
-        if($k%4 == 3) { echo '</tr><tr><td style="height: 20px;"></td></tr>'; }
+        if($k%3 == 2) { echo '</tr><tr><td style="height: 20px;"></td></tr>'; }
 
 }
 
 ?>
 
 </table>
+<div class="col-md-12">
 <?php for($i=1;$i<=$pages;$i++) { 
-    echo '<a href="show_item.php?';?>
-    <?php 
-if($sort==null&$keyword!=null){
-echo 'keyword='.$keyword;
-}
-if($sort!=null&$keyword==null){
-echo 'sort='.$sort;
-}
-if($sort!=null&$keyword!=null){
-echo 'keyword='.$keyword.'sort='.$sort;
-}
+  echo '<a href="show_item.php?';?>
+  <?php 
+  if($sort==null&&$keyword!=null){
+    echo 'keyword='.$keyword;
+  }
+  if($sort!=null&&$keyword==null){
+    echo 'sort='.$sort;
+  }
+  if($sort!=null&&$keyword!=null){
+    echo 'keyword='.$keyword.'sort='.$sort;
+  }
   ?>
-  <?php echo 'page='.$i.'">'.$i."&nbsp;".'</a>'; 
+  <?php echo 'page='.$i.'"><span class="pagination">'.$i.'</span></a>'; 
 }
 ?>
-          
+
+</div>    
         </div>
         </div>
        </center>

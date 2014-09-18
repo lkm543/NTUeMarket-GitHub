@@ -143,9 +143,7 @@ for($k = 0; $k < $totalCount; $k ++) {
 
 ?>
 
-<?php 
-echo '<p style="align:center;">';
-for($i=1;$i<=$pages;$i++) { 
+<?php for($i=1;$i<=$pages;$i++) { 
     echo '<a href="show_item.php?';?>
     <?php 
 if($sort==null&$keyword!=null){
@@ -160,7 +158,6 @@ echo 'keyword='.$keyword.'sort='.$sort;
   ?>
   <?php echo 'page='.$i.'">'.$i."&nbsp;".'</a>'; 
 }
-echo '</p>';
 ?>
           
         </div>

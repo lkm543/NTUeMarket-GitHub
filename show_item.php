@@ -137,7 +137,7 @@ for($k = 0; $k < $totalCount; $k ++) {
                      '<br>'.$row["date"].
            '<br>'.
            '<a href="show_item_detail.php?id='
-           .$row['id'].'"><img src="Picture/'.$row[filename].'" width="216" height="162" class="img-rounded"></a><br><br></td>';
+           .$row['id'].'"><div style="width:216px;"><img src="Picture/'.$row[filename].'" width="216"class="img-rounded"></div></a><br><br></td>';
         }
         else {
                 echo '<td style="width:230px"></td>';

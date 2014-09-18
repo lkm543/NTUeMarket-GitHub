@@ -242,13 +242,13 @@ $row = mysqli_fetch_array($result);
           
           <td colspan="2"> 
           <center> 
-          <div id="slideshow" style="margin-bottom:40px;">
+          <div id="slideshow" style="margin-bottom:40px;width:432px;">
             <?php 
             $number=$row[img_count];
             $next=1;
             for($i=0;$i<$number;$i++)
             {            
-            echo '<img src="Picture/'.str_replace("_$number","_$next",$row[filename]).'"width="432" height="324" class="img-rounded">';
+            echo '<div style="width:432px;margin-right:0px;"><img src="Picture/'.str_replace("_$number","_$next",$row[filename]).'"width="432" class="img-rounded"></div>';
             $next++;
             }
             ?>

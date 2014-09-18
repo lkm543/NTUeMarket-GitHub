@@ -2,9 +2,7 @@
 	<div id="main">
     <center>
         <div class="row">
-            <div class="col-md-1">
-       		   </div>
-            <div class="col-md-2" align="left">
+            <div class="col-md-2 col-md-offset-1 col-xs-10 col-xs-offset-1" align="left">
                <div id=search>
                <?php  //search_bar
 $sort=$_GET['sort'];
@@ -63,7 +61,7 @@ $sort=$_GET['sort'];
 </td></tr></table>
        		   </div>
             </div>
-  			<div class="col-md-9">
+  			<div class="col-md-8">
        
 
 <?php 
@@ -132,14 +130,13 @@ for($k = 0; $k < $totalCount; $k ++) {
         if($k%3 == 0) { echo '<tr class="row item_list_row">'; }
 
         if($row = mysqli_fetch_array($result2)) {
-                echo '<td class="col-md-3 col-xs-9">
+                echo '<td class="col-xs-9 col-md-3 col-md-offset-1">
                       <div class="item_wrapper">
-                      <div>商品名稱: '.$row[name].'</div>
-                      <div>出價金額: $'.$row[price].'</div>
+                      <div class="item_title">'.$row[name].'</div>
+                      <a href="show_item_detail.php?id='.$row[id].'"><div class="item_img_wrapper" style="background:url(Picture/'.$row[filename].') no-repeat center center; background-size:230px"></div></a>
+                      <div class="item_value">出價金額: $'.$row[price].'</div>
                       <div>上架日期: '.$row[date].'</div>
-                      <a href="show_item_detail.php?id='.$row['id'].'">
-                      <div class="item_img_wrapper"><img src="Picture/'.$row[filename].'" width="208" class="img-rounded">
-                      </a></div></div></td>';
+                      </div></td>';
         }
         else {
                 echo '</div><td style="width:230px"></td>';

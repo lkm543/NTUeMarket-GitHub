@@ -91,13 +91,13 @@ $current_page = basename($_SERVER['PHP_SELF']);
 
 		  <ul class="menu fr">
 
-                 <li><a href="upload_area.php"; <?php if($current_page=="upload_area.php") echo 'class="menu_item_selected"';?>>上傳商品</a></li>
+                 <li><a href="upload_area.php"; <?php if($current_page=="upload_area.php"||$current_page=="upload_item_succeed.php") echo 'class="menu_item_selected"';?>>上傳商品</a></li>
 
-                 <li><a href="upload_wanted.php"; <?php if($current_page=="upload_wanted.php") echo 'class="menu_item_selected"';?>;>公開徵求</a></li>
+                 <li><a href="upload_wanted.php"; <?php if($current_page=="upload_wanted.php"||$current_page=="upload_wanted_succeed.php") echo 'class="menu_item_selected"';?>;>公開徵求</a></li>
 
-                 <li><a href="show_item.php"; <?php if($current_page=="show_item.php") echo 'class="menu_item_selected"';?>>商品總覽</a></li>
+                 <li><a href="show_item.php"; <?php if($current_page=="show_item.php"||$current_page=="show_item_detail.php") echo 'class="menu_item_selected"';?>>商品總覽</a></li>
 
-                 <li><a href="show_item_wanted.php"; <?php if($current_page=="show_item_wanted.php") echo 'class="menu_item_selected"';?>>需求總覽</a></li>
+                 <li><a href="show_item_wanted.php"; <?php if($current_page=="show_item_wanted.php"||$current_page=="show_wanted_detail.php") echo 'class="menu_item_selected"';?>>需求總覽</a></li>
 
                  <li class="dropdown" id="twohandedmenu">
 

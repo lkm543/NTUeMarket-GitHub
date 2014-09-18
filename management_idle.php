@@ -17,7 +17,7 @@
 session_start();
 $username=$_SESSION['MM_Username']; 
 include_once("mysql_info.php");
-$sql = "select * from item_forsell where owner='$username' and status=3 order by id desc"; //在test資料表中選擇所有欄位
+$sql = "select m.id, m.username, i.* from member m, item_forsell i where m.id = i.owner and m.username = '$username' and status = 3 order by i.id desc"; 
 $result = mysqli_query($link,$sql); // 執行SQL查詢
 $total_fields=mysqli_num_fields($result); // 取得欄位數
 $number_of_row=mysqli_num_rows($result); // 取得記錄數
@@ -43,7 +43,7 @@ for($k = 0; $k < $totalCount; $k ++) {
 echo "</table>";
 
 include_once("mysql_info.php");
-$sql = "select * from item_wanted where owner='$username' and status=3 order by id desc"; //在test資料表中選擇所有欄位
+$sql = "select m.id, m.username, i.* from member m, item_wanted i where m.id = i.owner and m.username = '$username' and status = 3 order by i.id desc"; 
 $result = mysqli_query($link,$sql); // 執行SQL查詢
 $total_fields=mysqli_num_fields($result); // 取得欄位數
 $number_of_row=mysqli_num_rows($result); // 取得記錄數

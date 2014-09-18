@@ -156,13 +156,13 @@ $row = mysqli_fetch_array($result);
 
     <center><div style="margin:20px 0px 5px 0px"><font color="#FF0000" size="5"><?php echo $notice;?></font></div></center>
 
-    <table class="table table-striped">
+    <table id="item_info_table" >
 
       <tr>
 
-        <td width="70">帳號</td>
+        <td style="width:144px">帳號</td>
 
-        <td width="150"><?php echo $row['username'];?></td>
+        <td style="width:288px"><?php echo $row['username'];?></td>
 
       </tr>
 
@@ -240,31 +240,29 @@ $row = mysqli_fetch_array($result);
         
         <tr>
           
-          <td colspan="2"> 
+          <td colspan="2" style="border-bottom:0px;"> 
           <center> 
-          <div id="slideshow" style="margin-bottom:40px;">
+          <div id="slideshow" style="margin-bottom:40px;width:432px;">
             <?php 
             $number=$row[img_count];
             $next=1;
             for($i=0;$i<$number;$i++)
             {            
-            echo '<img src="Picture/'.str_replace("_$number","_$next",$row[filename]).'"width="432" height="324" class="img-rounded">';
+            echo '<div style="width:432px;margin-right:0px;"><img src="Picture/'.str_replace("_$number","_$next",$row[filename]).'"width="432" class="img-rounded"></div>';
             $next++;
             }
             ?>
         </div>
+        <form action="send_message.php" method="post"><input type="hidden" name="receiver" value="<?php echo $row[username];?>"><input type="hidden" name="id" value="<?php echo $row[id];?>"><input type="hidden" name="subject" value="<?php echo "商品名稱：".$row[name];?>">
+
+        <input type="hidden" name="content" value="<?php echo "商品內容:".$row[name]."\n商品描述:".$row['detail']."\n商品價格:".$row['price']."\n交易方式:".$row[method]."\n聯絡email:".$row['contact_email']."\n手機:".$row['phone'];?>">
+
+        <center><input type="submit" value="加到興趣清單" class="btn btn-default" formaction="add_interested.php">&nbsp;&nbsp;<input type="submit" value="丟私人訊息" class="btn btn-default"></center></form>
         </center>
       </td>
 
     </tr>
 
-    <tr><td colspan="2">
-
-      <form action="send_message.php" method="post"><input type="hidden" name="receiver" value="<?php echo $row[username];?>"><input type="hidden" name="id" value="<?php echo $row[id];?>"><input type="hidden" name="subject" value="<?php echo "商品名稱：".$row[name];?>">
-
-        <input type="hidden" name="content" value="<?php echo "商品內容:".$row[name]."\n商品描述:".$row['detail']."\n商品價格:".$row['price']."\n交易方式:".$row[method]."\n聯絡email:".$row['contact_email']."\n手機:".$row['phone'];?>">
-
-        <center><input type="submit" value="加到興趣清單" class="btn btn-default" formaction="add_interested.php">&nbsp;&nbsp;<input type="submit" value="丟私人訊息" class="btn btn-default"></center></form></td></tr>
 
       </table></div></div><center>
 

@@ -132,6 +132,7 @@ for($k = 0; $k < $totalCount; $k ++) {
         if($k%4 == 0) { echo '<tr class="row item_list_row">'; }
 
         if($row = mysqli_fetch_array($result2)) {
+<<<<<<< HEAD
                 echo '<td class="col-md-2">
                       <div class="item_wrapper">
                       <div>商品名稱: '.$row[name].'</div>
@@ -140,6 +141,14 @@ for($k = 0; $k < $totalCount; $k ++) {
                       <a href="show_item_detail.php?id='.$row['id'].'">
                       <div class="item_img_wrapper"><img src="Picture/'.$row[filename].'" width="208" class="img-rounded">
                       </a></div></div></td>';
+=======
+                echo '<td style="width:230px" >'.$row[name].
+                     '<br>$'.$row[price].
+                     '<br>'.$row["date"].
+           '<br>'.
+           '<a href="show_item_detail.php?id='
+           .$row['id'].'"><div style="width:216px;"><img src="Picture/'.$row[filename].'" width="216"class="img-rounded"></div></a><br><br></td>';
+>>>>>>> 243e8e387f7f43ec23a3216d1f8dd8cd6a9e7b83
         }
         else {
                 echo '</div><td style="width:230px"></td>';

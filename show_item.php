@@ -129,21 +129,23 @@ $number_of_row=mysqli_num_rows($result2);
 $totalCount = ceil($number_of_row/4)*4;
 for($k = 0; $k < $totalCount; $k ++) {
 
-        if($k%4 == 0) { echo '<tr>'; }
+        if($k%4 == 0) { echo '<tr class="row item_list_row">'; }
 
         if($row = mysqli_fetch_array($result2)) {
-                echo '<td style="width:230px" >'.$row[name].
-                     '<br>$'.$row[price].
-                     '<br>'.$row["date"].
-           '<br>'.
-           '<a href="show_item_detail.php?id='
-           .$row['id'].'"><img src="Picture/'.$row[filename].'" width="216" height="162" class="img-rounded"></a><br><br></td>';
+                echo '<td class="col-md-2">
+                      <div class="item_wrapper">
+                      <div>商品名稱: '.$row[name].'</div>
+                      <div>出價金額: $'.$row[price].'</div>
+                      <div>上架日期: '.$row[date].'</div>
+                      <a href="show_item_detail.php?id='.$row['id'].'">
+                      <div class="item_img_wrapper"><img src="Picture/'.$row[filename].'" width="208" class="img-rounded">
+                      </a></div></div></td>';
         }
         else {
-                echo '<td style="width:230px"></td>';
+                echo '</div><td style="width:230px"></td>';
         }
 
-        if($k%4 == 3) { echo '</tr>'; }
+        if($k%4 == 3) { echo '</tr><tr><td style="height: 20px;"></td></tr>'; }
 
 }
 

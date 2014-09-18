@@ -151,3 +151,27 @@ font-size:12px
 	border-bottom: solid 8px #70a3b4;
 	padding-bottom: 3px !important;
 }
+
+.item_wrapper{
+	background-color: white;
+	padding: 20px 12px;
+	border-radius: 6px;
+	box-shadow: 4px 5px 8px gray;
+}
+
+.item_wrapper div{
+	padding: 5px 0px;
+	font-weight: bold;
+}
+
+.item_wrapper .item_img_wrapper{
+	width: 214px;
+	border: 3px solid #70a3b4;
+	border-radius: 10px;
+	padding: 0px;
+}
+
+.item_list_row{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}

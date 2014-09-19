@@ -20,8 +20,8 @@ $sort=$_GET['sort'];
   <p><button type="submit" class="btn btn-default">Submit</button></p>
 </form>
 <table class="table table-hover" width="100%" style="margin:0 0 0 0">
-<tr><td onClick="location.href='show_item_wanted.php'"><center>需求總覽</center></td></tr>
-<tr><td class="active" onClick="location.href='show_item.php'"><center>商品總覽</center></td></tr></table>
+<tr><td class="active" onClick="location.href='show_item_wanted.php'"><center>需求總覽</center></td></tr>
+<tr><td onClick="location.href='show_item.php'"><center>商品總覽</center></td></tr></table>
 <table width="100%">
 <tr><td>
 <table class="table table-hover" width="100%" style="margin:0 0 0 0">

@@ -83,7 +83,7 @@ $sql = "select * from item_forsell where ((name like '%$keyword%' or detail like
 }
 $result = mysqli_query($link,$sql); // 執行SQL查詢引
 $total_records=mysqli_num_rows($result);  // 取得記錄數
-$per = 20; //每頁顯示項目數量 
+$per = 15; //每頁顯示項目數量 
 $pages = ceil($total_records/$per); //總頁數
 if(!isset($_GET["page"])){ 
     $page=1; //設定起始頁 
@@ -139,7 +139,7 @@ for($k = 0; $k < $totalCount; $k ++) {
                       </div></td>';
         }
         else {
-                echo '</div><td style="width:230px"></td>';
+                echo '<td style="width:230px"></td>';
         }
 
         if($k%3 == 2) { echo '</tr><tr><td style="height: 20px;"></td></tr>'; }

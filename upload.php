@@ -111,13 +111,6 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
 		$currtimestr=date("Y-m-d h:i:s"); 
 		include_once("mysql_info.php");
 
-		// $sql="select * from backend";
-		// $result = mysqli_query($link,$sql); // 執行SQL查詢
-		// $row = mysqli_fetch_array($result);
-		// $id_old=$row['id'];
-		// $id=$row['id']+1;
-		// mysqli_query ($link,"update backend set id='$id' where id='$id_old'");
-
 		$sql = "select id from member where username = '$username'";
 		$result = mysqli_query($link,$sql);
 		$row = mysqli_fetch_array($result);
@@ -127,6 +120,12 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
 
 			values('$_POST[name]','$_POST[detail]','$_POST[price]','$_POST[method]','$_POST[sort]','$file_name','$count','$currtimestr','$user_id','$_POST[message]','$_POST[phone]','$_POST[contact_email]')");
 
+		 $sql2="select * from backend";
+		 $result2 = mysqli_query($link,$sql2); // 執行SQL查詢
+		 $row2 = mysqli_fetch_array($result2);
+		 $id_old=$row2['id'];
+		 $id2=$row2['id']+1;
+		 mysqli_query ($link,"update backend set id='$id2' where id='$id_old'");
 
 		if(!$sucess){
 			echo '<pre>';

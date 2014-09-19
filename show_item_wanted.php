@@ -87,7 +87,7 @@
         }
         $result = mysqli_query($link,$sql); // 執行SQL查詢引
         $total_records=mysqli_num_rows($result);  // 取得記錄數
-        $per = 20; //每頁顯示項目數量 
+        $per = 15; //每頁顯示項目數量 
         $pages = ceil($total_records/$per); //總頁數
         if(!isset($_GET["page"])){ 
             $page=1; //設定起始頁 
@@ -120,35 +120,34 @@
 
         ?>
         <center><div style="margin:20px 0px 5px 0px"><font color="#FF0000" size="5"><?php echo $notice;?></font></div></center>
-
+        <center>
+        <table>
         <?php
         $number_of_row=mysqli_num_rows($result2);
-        $totalCount = ceil($number_of_row/4)*4;
+        $totalCount = ceil($number_of_row/3)*3;
         for($k = 0; $k < $totalCount; $k ++) {
 
-            if($k%4 == 0) { echo '<div class="row item_list_row">'; }
+            if($k%3 == 0) { echo '<tr class="row item_list_row">'; }
 
             if($row = mysqli_fetch_array($result2)) {
-                    echo '
-                          <div class="col-md-3">
+                    echo '<td class="col-xs-9 col-md-3 col-md-offset-1" style="width:285px;">
                           <div class="item_wrapper">
-                          <div><a href="show_wanted_detail.php?id='.$row['id'].'">徵求物品：'.$row[name].'</a></div>
-                          <div>細節描述：'.$row[detail].'</div>
-                          <div>徵求價格：$'.$row[price].'</div>
-                          <div>交易方式：'.$row[method].'</div>
+                          <a href="show_wanted_detail.php?id='.$row['id'].'"><div class="item_title" style="min-height: 30px;">'.$row[name].'</div></a>
+                          <div>需求描述：'.$row[detail].'</div>
+                          <div class="item_value">徵求價格：$'.$row[price].'</div>
                           <div>上架日期：'.$row[date].'</div>
-                          </div></div>';
+                          </div></td>';
             }
             else {
-                    echo '</div><div style="width:230px"></div>';
+                    echo '<td style="width:230px"></td>';
             }
 
-            if($k%4 == 3) { echo '</div><div><div style="height: 20px;"></div></div>'; }
+            if($k%3 == 2) { echo '</tr><tr><td style="height: 20px;"></td></tr>'; }
 
         }
 
           ?>
-
+          </table></center>
         <div class="col-md-12" style="text-align:center">
         <?php for($i=1;$i<=$pages;$i++) { 
           echo '<a href="show_item_wanted.php?';?>

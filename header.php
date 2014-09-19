@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 $current_page = basename($_SERVER['PHP_SELF']);
@@ -7,7 +6,6 @@ $current_page = basename($_SERVER['PHP_SELF']);
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
@@ -26,7 +24,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
 
     <!-- Bootstrap!-->
 
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 
@@ -53,10 +51,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
 
     <script src="js/signup_validator.js" type="text/javascript"></script>
-    <script src="js/canvas-to-blob.min.js"></script>
-    <script src="resize.js"></script>
-    <script src="app.js"></script>
-
+    
 	<script type="text/javascript">
 
 		$(window).load(function() {
@@ -72,8 +67,6 @@ $current_page = basename($_SERVER['PHP_SELF']);
 	</script>
 
 </head>
-
-
 
 <body>
 
@@ -91,13 +84,13 @@ $current_page = basename($_SERVER['PHP_SELF']);
 
 		  <ul class="menu fr">
 
-                 <li><a href="upload_area.php"; <?php if($current_page=="upload_area.php"||$current_page=="upload_item_succeed.php") echo 'class="menu_item_selected"';?>>上傳商品</a></li>
+                 <li><a href="upload_area.php" <?php if($current_page=="upload_area.php"||$current_page=="upload_item_succeed.php") echo 'class="menu_item_selected"';?>>上傳商品</a></li>
 
-                 <li><a href="upload_wanted.php"; <?php if($current_page=="upload_wanted.php"||$current_page=="upload_wanted_succeed.php") echo 'class="menu_item_selected"';?>;>公開徵求</a></li>
+                 <li><a href="upload_wanted.php" <?php if($current_page=="upload_wanted.php"||$current_page=="upload_wanted_succeed.php") echo 'class="menu_item_selected"';?>>公開徵求</a></li>
 
-                 <li><a href="show_item.php"; <?php if($current_page=="show_item.php"||$current_page=="show_item_detail.php") echo 'class="menu_item_selected"';?>>商品總覽</a></li>
+                 <li><a href="show_item.php" <?php if($current_page=="show_item.php"||$current_page=="show_item_detail.php") echo 'class="menu_item_selected"';?>>商品總覽</a></li>
 
-                 <li><a href="show_item_wanted.php"; <?php if($current_page=="show_item_wanted.php"||$current_page=="show_wanted_detail.php") echo 'class="menu_item_selected"';?>>需求總覽</a></li>
+                 <li><a href="show_item_wanted.php" <?php if($current_page=="show_item_wanted.php"||$current_page=="show_wanted_detail.php") echo 'class="menu_item_selected"';?>>需求總覽</a></li>
 
                  <li class="dropdown" id="twohandedmenu">
 
@@ -105,7 +98,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
 
 if (isset($_SESSION['MM_Username'])){ ?>
 
-<a <?php if($current_page=="modify.php"||$current_page=="management_interested.php"||$current_page=="management.php"||$current_page=="message_area.php") echo 'class="dropdown-toggle menu_item_selected"'; else echo 'class="dropdown-toggle"';?> data-toggle="dropdown" href="show_item.php"><?php echo $_SESSION['MM_Username'];
+<a <?php if($current_page=="modify.php"||$current_page=="management_interested.php"||$current_page=="management_wanted.php"||$current_page=="management_idle.php"||$current_page=="management_removed.php"||$current_page=="management.php"||$current_page=="message_area.php"||$current_page=="garbage_message_area.php"||$current_page=="sent_message_area.php"||$current_page=="send_message.php") echo 'class="dropdown-toggle menu_item_selected"'; else echo 'class="dropdown-toggle"';?> data-toggle="dropdown" href="show_item.php"><?php echo $_SESSION['MM_Username'];
 
 include_once("mysql_info.php");
 
@@ -117,7 +110,7 @@ $number_unread=mysqli_num_rows($result);
 
 if($number_unread!=0){
 
-    echo '<a href=message_area.php><img src="images/message.jpg" width=20px></a>';
+    echo '<a href=message_inbox.php><img src="images/message.jpg" width=20px></a>';
 
 }
 
@@ -131,7 +124,7 @@ if($number_unread!=0){
 
                             <li><a href="management.php">管理商品</a></li>
 
-							<li><a href="message_area.php">私人訊息</a></li>
+							<li><a href="message_inbox.php">私人訊息</a></li>
 
                             <li><a href="logout.php">登出</a></li>
 

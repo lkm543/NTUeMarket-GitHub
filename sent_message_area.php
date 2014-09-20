@@ -56,8 +56,7 @@ if (isset($_SESSION['MM_Username'])){
 
             <table class="table table-striped table table-hover" style="margin:15px 0px 15px 0px">
 
-              <tr><th width="200px">收件人</th><th colspan="2">主旨</th></tr>
-
+              <tr><th class="col-md-2">收件人</th><th class="col-md-6">主旨</th><th class="col-md-2">日期/時間</th><th class="col-md-2">動作</th></tr>
               <?php
 
               $number_of_row=mysqli_num_rows($result);
@@ -66,30 +65,32 @@ if (isset($_SESSION['MM_Username'])){
 
                if($row = mysqli_fetch_array($result)){
 
-                 if($id!=$row[id]){
+                    echo '<tr ';
+                    $class = "";
 
-                    if($row[receiver_status]!=0){//已讀
-
-                      echo '<tr onClick="location.href=\'sent_message_area.php?id='.$row[id].'\'"><form action="delete_message.php" method="POST"><td>'.$row[receiver].'</td><td>'.$row[subject].'</td><td width="100" align="right"><input type="submit" value="刪除" class="btn btn-danger"><input type="hidden" value="'.$row[id].'" name=id></td></form><tr>';
-
+                    if($id==$row[id]){
+                       $class='class="info" ';
                     }
 
-                    if($row[receiver_status]==0){//未讀
+                    echo $class.'onClick="location.href=\'sent_message_area.php?id='.$row[id].'\'">
+                    <form action="delete_message.php" method="POST">
+                    <td class="col-md-2">'.$row[receiver].'</td>
+                    <td class="col-md-6">'.$row[subject].'</td>
+                    <td class="col-md-2">'.$row[date].'</td>
+                    <td class="col-md-2">
+                    <input type="submit" value="刪除" class="btn btn-danger">
+                    <input type="hidden" value="'.$row[id].'" name="id"></td>
+                    </form><tr>';
 
-                      echo '<tr style="font-weight: bold; font-size:16px; text-decoration: underline;" onClick="location.href=\'sent_message_area.php?id='.$row[id].'\'"><form action="delete_message.php" method="POST"><td>'.$row[receiver].'</td><td>'.$row[subject].'</td><td width="100" align="right"><input type="submit" value="刪除" class="btn btn-danger"><input type="hidden" value="'.$row[id].'" name=id></td></form><tr>';
+                  	if($id==$row[id]){
+                      echo '<tr><td colspan="1"></td><td class="info" colspan="3">'.nl2br($row[body]).'</td></tr>';
+                    }
 
-                    }  
-
-                  }	if($id==$row[id]){
-
-                    echo '<tr class="success" onClick="location.href=\'sent_message_area.php\'"><form action="delete_message.php" method="POST"><td>'.$row[receiver].'</td><td>'.$row[subject].'</td><td width="100" align="right"><input type="submit" value="刪除" class="btn btn-danger"><input type="hidden" value="'.$row[id].'" name=id></td></form><tr>';
-
-                    echo '<tr class="info"><td></td><td>'.nl2br($row[body]).'</td><td></td></tr>';
-
-                 }}}
-              }else{
-                echo "<center>您的帳號尚未啟用，請至信箱收取驗證信。</center>";
-              }?></table> <div class="col-md-1">
+               }
+             }
+          }else{
+            echo "<center>您的帳號尚未啟用，請至信箱收取驗證信。</center>";
+          }?></table> <div class="col-md-1">
 
 </div></div>
 
@@ -100,18 +101,10 @@ if (isset($_SESSION['MM_Username'])){
 </div><!-- // end #main -->
 
 
-
 <?php
-
+}else{
+  echo '請先登入！';
 }
 
-else{echo '請先登入！';}
-
-?>
-
-
-
-
-
-<? include("footer.php");?>
+include("footer.php");?>
 

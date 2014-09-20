@@ -34,7 +34,7 @@ if (isset($_SESSION['MM_Username'])){
             $Subject = "";
             $Content = "";
 
-            if(isset($_POST['receiver'])||isset($_POST['subject'])||isset($_POST['content'])){
+            if(isset($_POST['receiver'])&&isset($_POST['subject'])&&isset($_POST['content'])){
                 $Receiver=trim($_POST['receiver']);
                 $Subject=$_POST['subject'];
                 $Content=$_POST['content'];
@@ -45,6 +45,21 @@ if (isset($_SESSION['MM_Username'])){
 
               if($Content!=""){
                 $Content = "\n請在這輸入您的訊息內容...\n\n-------------------------------------------------------------------\n".$Content;
+              }
+            }elseif(isset($_POST['sender'])&&isset($_POST['reply_subject'])&&isset($_POST['reply_content'])&&isset($_POST['date'])){
+                $Receiver=trim($_POST['sender']);
+                $Subject=$_POST['reply_subject'];
+                $Content=$_POST['reply_content'];
+                $Date=$_POST['date'];
+
+              if($Subject!=""){
+                if(strpos($Subject,'Re: ')===false){
+                  $Subject="Re: ".$Subject;
+                }
+              }
+
+              if($Content!=""){
+                $Content = "\n請在這輸入您要回覆的內容...\n\n-------------------------------------------------------------------\n".$Receiver." <".$Date."> :\n\n".$Content;
               }
             }
 

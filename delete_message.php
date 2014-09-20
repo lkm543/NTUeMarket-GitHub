@@ -18,7 +18,7 @@ include_once("mysql_info.php");
 
 $id=$_POST['id'];
 
-$sql="select * from message where id='$id'";
+// $sql="select * from message where id='$id'";
 
 // $result = mysqli_query($link,$sql); // 執行SQL查詢引
 

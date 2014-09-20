@@ -39,7 +39,7 @@ if (isset($_SESSION['MM_Username'])){
 
             include_once("mysql_info.php");  
 
-            //0 未讀 1已讀 2刪除age
+            //0 未讀 1已讀 2刪除
             $sql = "select active from member where id='$user_id'";
             $result = mysqli_query($link,$sql);
             $check_active = mysqli_fetch_array($result);
@@ -55,7 +55,7 @@ if (isset($_SESSION['MM_Username'])){
 
       			<table class="table table-striped table table-hover" style="margin:15px 0px 15px 0px">
 
-              <tr><th width="200px">寄件人</th><th colspan="2">主旨</th></tr>
+              <tr><th class="col-md-2">寄件人</th><th class="col-md-6">主旨</th><th class="col-md-2">日期/時間</th><th class="col-md-2">動作</th></tr>
 
                 <?php
 
@@ -65,28 +65,39 @@ if (isset($_SESSION['MM_Username'])){
 
                 	if($row = mysqli_fetch_array($result)){
 
-                   if($id!=$row[id]){
+                    echo '<tr ';
+                    $class = "";
 
-                      if($row[receiver_status]==1){//已讀
-                         echo '<tr onClick="location.href=\'message_inbox.php?id='.$row[id].'\'"><form action="delete_message_re.php" method="post"><td>'.$row[sender].'</td><td>'.$row[subject].'</td><td width="100" align="right"><input type="submit" value="刪除" class="btn btn-danger"><input type="hidden" value="'.$row[id].'" name=id></td></form><tr>';
-                      }
-
-                      if($row[receiver_status]==0){//未讀
-                          echo '<tr style="font-weight: bold; font-size:16px; text-decoration: underline;" onClick="location.href=\'message_inbox.php?id='.$row[id].'\'"><form action="delete_message_re.php" method="post"><td>'.$row[sender].'</td><td>'.$row[subject].'</td><td width="100" align="right"><input type="submit" value="刪除" class="btn btn-danger"><input type="hidden" value="'.$row[id].'" name=id></td></form><tr>';
-                      }  
+                    if($id==$row[id]){
+                       $class='class="info" ';
                     }
 
+                    if($row[receiver_status]==0){//未讀
+                      $class='class="success" ';
+                      echo $class.'style="font-weight: bold; font-size:16px;" ';
+                    }
+                    
+                    echo $class.'onClick="location.href=\'message_inbox.php?id='.$row[id].'\'">
+                    <form action="delete_message_re.php" method="post">
+                    <td class="col-md-2">'.$row[sender].'</td>
+                    <td class="col-md-6">'.$row[subject].'</td>
+                    <td class="col-md-2">'.$row[date].'</td>
+                    <td class="col-md-2">
+                    <input type="submit" value="回覆" class="btn btn-success" style="margin: 2px" formaction="send_message.php">
+                    <input type="submit" value="刪除" class="btn btn-danger" style="margin: 2px">
+                    <input type="hidden" value="'.$row[id].'" name="id">
+                    <input type="hidden" value="'.$row[date].'" name="date">
+                    <input type="hidden" value="'.$row[sender].'" name="sender">
+                    <input type="hidden" value="'.$row[subject].'" name="reply_subject">
+                    <input type="hidden" value="'.$row[body].'" name="reply_content"></td>
+                    </form><tr>';
+                    
                     if($id==$row[id]){//開啟訊息
-
-                        echo '<tr class="success" onClick="location.href=\'message_inbox.php\'"><form action="delete_message_re.php" method="post"><td>'.$row[sender].'</td><td>'.$row[subject].'</td><td width="100" align="right"><input type="submit" value="刪除" class="btn btn-danger"><input type="hidden" value="'.$row[id].'" name=id></td></form><tr>';
-
                         mysqli_query ($link,"update message set receiver_status= 1 where id='$id'");
-
-                    		echo '<tr class="info"><td></td><td>'.nl2br($row[body]).'</td><td></td></tr>';    		
+                    		echo '<tr><td colspan="1"></td><td class="info" colspan="3">'.nl2br($row[body]).'</td></tr>';    		
         	          }
                   }
-                }?>    
-                <?php 
+                }
               }else{
                 echo "<center>您的帳號尚未啟用，請至信箱收取驗證信。</center>";
               }?></table>

@@ -1,49 +1,44 @@
 <?php
 
-session_start();
 
-$username=$_SESSION['MM_Username'];
+	session_start();
+	$username=$_SESSION['MM_Username'];
+	$user_id=$_SESSION['MM_UserID'];
 
-$currtimestr=date("Y-m-d h:i:s"); 
+	$receiver=trim($_POST['receiver2']);
+	$subject=($_POST['subject2']);
+	$content=($_POST['content2']);
+	$currtimestr=date("Y-m-d h:i:s"); 
 
-include_once("mysql_info.php");
+	include_once("mysql_info.php");
 
-$sql="select * from backend";
+	$query = "select id as receiver_id from member where username='$receiver'";
+	//檢查收件人是否存在
+	$result = mysqli_query($link,$query); // 執行SQL查詢引
+	$row = mysqli_fetch_array($result);
+	$number= mysqli_num_rows($result);
+	// echo $number;
+	if($result){
+		if($number==1){
+			$sql = "insert into `message` (`from`,`to`,`subject`,`body`,`date`) values('$user_id','".$row[receiver_id]."','$subject','$content','$currtimestr')";
 
-$result = mysqli_query($link,$sql); // 執行SQL查詢
+			if($sucess=mysqli_query ($link,$sql)){
+				echo '<meta http-equiv=REFRESH CONTENT=2;url=message_inbox.php>';
+			}else{
+				?><script type="text/javascript" text="javascript">
+					alert("Error sending message to ".<?php echo $receiver; ?>.", please try again later.");
+					</script><?php
+			}
+		}else{
 
-$row = mysqli_fetch_array($result);
+			$notice="查無此收件者";
 
-$id_old=$row['id'];
-
-$id=$row['id']+1;
-
-$receiver=$_POST[receiver2];
-
-//檢查收件人是否存在
-
-$result2 = mysqli_query($link,"select * from member where username='$receiver'"); // 執行SQL查詢
-
-$number= mysqli_num_rows($result2);
-
-if($number!=0)
-
-{
-
-mysqli_query ($link,"insert into `message` (`from`,`to`,`subject`,`message`,`date`,`id`) values('$username','$_POST[receiver2]','$_POST[subject2]','$_POST[content2]','$currtimestr','$id')");
-
-mysqli_query ($link,"update backend set id='$id' where id='$id_old'");
-
-echo '<meta http-equiv=REFRESH CONTENT=2;url=message_area.php>';}
-
-else{
-
-	$notice="查無此收件者";
-
-
-
-	include_once("send_message.php");
-
+			include_once("send_message.php");
+		}		
+	}else{
+		?><script type="text/javascript" text="javascript">
+					alert("Could not run query.");
+					</script><?php
 	}
 
 ?>

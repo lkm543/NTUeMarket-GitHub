@@ -162,7 +162,7 @@ $row = mysqli_fetch_array($result);
 
         <td style="width:144px">帳號</td>
 
-        <td style="width:288px"><?php echo $row['username'];?></td>
+        <td style="width:288px"><?php echo $row[username];?></td>
 
       </tr>
 
@@ -170,7 +170,7 @@ $row = mysqli_fetch_array($result);
 
         <td>商品名稱</td>
 
-        <td><?php echo $row['name'];?></td>
+        <td><?php echo $row[name];?></td>
 
       </tr>
 
@@ -178,7 +178,7 @@ $row = mysqli_fetch_array($result);
 
         <td>商品描述</td>
 
-        <td><?php echo nl2br($row['detail']);?></td>
+        <td><?php echo nl2br($row[detail]);?></td>
 
       </tr>
 
@@ -186,7 +186,7 @@ $row = mysqli_fetch_array($result);
 
         <td>商品價格</td>
 
-        <td><?php echo '$'.$row['price'];?></td>
+        <td><?php echo '$'.$row[price];?></td>
 
       </tr>
 
@@ -194,7 +194,7 @@ $row = mysqli_fetch_array($result);
 
         <td>交易方式</td>
 
-        <td><?php echo $row['method'];?></td>
+        <td><?php echo $row[method];?></td>
 
       </tr>
 
@@ -202,7 +202,7 @@ $row = mysqli_fetch_array($result);
 
         <td>聯絡email</td>
 
-        <td><?php echo $row['contact_email'];?></td>
+        <td><?php echo $row[contact_email];?></td>
 
       </tr>
 
@@ -210,7 +210,7 @@ $row = mysqli_fetch_array($result);
 
         <td>手機</td>
 
-        <td><?php echo $row['phone'];?></td>
+        <td><?php echo $row[phone];?></td>
 
       </tr>
 
@@ -220,11 +220,11 @@ $row = mysqli_fetch_array($result);
 
         <td><?php 
 
-          if($row['msg_welcome']==1)
+          if($row[msg_welcome]==1)
 
             {echo "歡迎私訊";} 
 
-          if($row['msg_welcome']==2)
+          if($row[msg_welcome]==2)
 
             {echo "不常用，以其他聯絡方式為主";}?></td>
 
@@ -234,7 +234,7 @@ $row = mysqli_fetch_array($result);
 
           <td>上架日期</td>
 
-          <td><?php echo $row['date'];?></td>
+          <td><?php echo $row[date];?></td>
 
         </tr>
         
@@ -253,9 +253,9 @@ $row = mysqli_fetch_array($result);
             }
             ?>
         </div>
-        <form action="send_message.php" method="post"><input type="hidden" name="receiver" value="<?php echo $row[username];?>"><input type="hidden" name="id" value="<?php echo $row[id];?>"><input type="hidden" name="subject" value="<?php echo "商品名稱：".$row[name];?>">
+        <form action="send_message.php" method="post"><input type="hidden" id="receiver" name="receiver" value="<?php echo $row[username];?>"><input type="hidden" id="id" name="id" value="<?php echo $row[id];?>"><input type="hidden" id="subject" name="subject" value="<?php echo $row[name];?>">
 
-        <input type="hidden" name="content" value="<?php echo "商品內容:".$row[name]."\n商品描述:".$row['detail']."\n商品價格:".$row['price']."\n交易方式:".$row[method]."\n聯絡email:".$row['contact_email']."\n手機:".$row['phone'];?>">
+        <input type="hidden" id="content" name="content" value="<?php echo "商品內容:".$row[name]."\n商品描述:".$row[detail]."\n商品價格:".$row[price]."\n交易方式:".$row[method]."\n聯絡email:".$row[contact_email]."\n手機:".$row[phone];?>">
 
         <center><input type="submit" value="加到興趣清單" class="btn btn-default" formaction="add_interested.php">&nbsp;&nbsp;<input type="submit" value="丟私人訊息" class="btn btn-default"></center></form>
         </center>

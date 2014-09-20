@@ -9,8 +9,12 @@ if (isset($_SESSION['MM_Username'])){
     <center>
 
       <div class="row">
-            <div class="col-md-2 col-md-offset-1 col-xs-10 col-xs-offset-1" align="left">
-               <div id=search>
+            <div class="col-md-1">
+
+      </div>
+
+      <div class="col-md-2" align="left">
+               <div id="search">
 
 
           <table class="table table-hover">

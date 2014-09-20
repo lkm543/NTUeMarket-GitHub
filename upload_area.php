@@ -125,16 +125,7 @@ if($row[msg_welcome]==2)
 <?php }
 else{
   echo "<center>您的帳號尚未啟用，請至信箱收取驗證信。</center>";
-}}?>
-
-
-
-
-
-
-
-<?php
-if (!isset($_SESSION['MM_Username'])){
+}}else{
 	echo '<center><p style="color:red">您尚未登入，請先註冊或登入。</p></center>';?>
 	<div class="col-md-5 col-md-offset-4" style="text-align:left; margin-top:30px;">
 <form action="login_check.php" method="post" name="registration" >

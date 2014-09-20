@@ -12,7 +12,7 @@
 
       <div class="col-md-2" align="left">
 
-       <div id=search>
+       <div id="search">
 
          <?php
 

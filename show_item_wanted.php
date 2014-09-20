@@ -2,9 +2,13 @@
 <div id="main">
     <div class="row">
 
-      <div class="col-md-2 col-md-offset-1 col-xs-10 col-xs-offset-1" align="left">
+      <div class="col-md-1">
+
+      </div>
+
+      <div class="col-md-2" align="left">
        
-        <div id=search>
+        <div id="search">
 
           <?php
           $sort=$_GET['sort'];

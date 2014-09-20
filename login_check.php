@@ -18,14 +18,14 @@ $row = mysqli_fetch_array($result);
 
 $message="";
 
-if($username != null && $password != null && $row['username'] == $username && $row['password'] == md5($password))
+if($username != null && $password != null && $row[username] == $username && $row[password] == md5($password))
 
 {
 
         //將帳號寫入session，方便驗證使用者身份
 
-        $_SESSION['MM_Username'] = $username;
-        $_SESSION['MM_UserID'] = $row['id'];
+        $_SESSION['MM_UserID'] = $row[id];
+        $_SESSION['MM_Username'] = $row[username];
 
 echo '<meta http-equiv=REFRESH CONTENT=2;url=index.php>';
 

@@ -1,6 +1,7 @@
 <?php
 session_start();
-
+$username=$_SESSION['MM_Username'];
+$user_id=$_SESSION['MM_UserID'];
 $current_page = basename($_SERVER['PHP_SELF']);
 
 ?>
@@ -96,37 +97,28 @@ $current_page = basename($_SERVER['PHP_SELF']);
 
 <?php //已經登入
 
-if (isset($_SESSION['MM_Username'])){ ?>
+if (isset($_SESSION['MM_Username'])){
 
-<a <?php if($current_page=="modify.php"||$current_page=="management_interested.php"||$current_page=="management_wanted.php"||$current_page=="management_idle.php"||$current_page=="management_removed.php"||$current_page=="management.php"||$current_page=="message_area.php"||$current_page=="garbage_message_area.php"||$current_page=="sent_message_area.php"||$current_page=="send_message.php") echo 'class="dropdown-toggle menu_item_selected"'; else echo 'class="dropdown-toggle"';?> data-toggle="dropdown" href="show_item.php"><?php echo $_SESSION['MM_Username'];
+    include_once("mysql_info.php");
 
-include_once("mysql_info.php");
+    $sql="select count(id) as rows from message where `to`='$user_id' and receiver_status='0'";
+    $result = mysqli_query($link,$sql); // 執行SQL查詢引
+    $num_notice = mysqli_fetch_array($result);
 
-$username=$_SESSION['MM_Username'];
+?>
+<a <?php if($current_page=="modify.php"||$current_page=="management_interested.php"||$current_page=="management_wanted.php"||$current_page=="management_idle.php"||$current_page=="management_removed.php"||$current_page=="management.php"||$current_page=="message_area.php"||$current_page=="garbage_message_area.php"||$current_page=="sent_message_area.php"||$current_page=="send_message.php") echo 'class="dropdown-toggle menu_item_selected"'; else echo 'class="dropdown-toggle"';?> data-toggle="dropdown" href="show_item.php"><?php echo $username;?><?php if($num_notice[rows]!=0) echo '<span style="vertical-align:top; display:inline-block;"><img src="images/message.jpg" width=20px></span>' ?><b class="caret"></b></a>
 
-$result=mysqli_query ($link,"select id from message where `to`='$username' and receiver_status='0'");
+    <ul class="dropdown-menu">
 
-$number_unread=mysqli_num_rows($result);
+        <li><a href="modify.php">修改資料</a></li>
 
-if($number_unread!=0){
+        <li><a href="management_interested.php">興趣清單</a></li>
 
-    echo '<a href=message_inbox.php><img src="images/message.jpg" width=20px></a>';
+        <li><a href="management.php">管理商品</a></li>
 
-}
+		<li><a href="message_inbox.php">私人訊息<?php if($num_notice[rows]!=0) echo '<span id="notification" style="background-color:#FF0000; vertical-align:top; font-size:14px; border-radius:10px; padding:1px 6px; color:#FFFFFF; -webkit-box-shadow:0 1px 1px rgba(0, 0, 0, .7)">'.$num_notice[rows].'</span>'?></a></li>
 
- ?><b class="caret"></b></a>
-
-                        <ul class="dropdown-menu">
-
-                            <li><a href="modify.php">修改資料</a></li>
-
-                            <li><a href="management_interested.php">興趣清單</a></li>
-
-                            <li><a href="management.php">管理商品</a></li>
-
-							<li><a href="message_inbox.php">私人訊息</a></li>
-
-                            <li><a href="logout.php">登出</a></li>
+        <li><a href="logout.php">登出</a></li>
 
 <?php //尚未登入
 

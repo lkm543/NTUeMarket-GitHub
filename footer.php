@@ -1,4 +1,4 @@
-<div id="footer" class="row">
+<div id="footer">
 	<div class="container">
 		<div class="col-md-4">
 		<ul class="menu fl">

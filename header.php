@@ -43,6 +43,9 @@ $current_page = basename($_SERVER['PHP_SELF']);
 
     <link href="bootstrap/css/style.css" rel="stylesheet" type="text/css" />    
 
+    <script src="bootstrap/js/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+
+
     <!-- Fileinput plugin -->
 
     <link href="bootstrap/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
@@ -58,7 +61,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
 		$(window).load(function() {
 
 			$('#slideshow').nivoSlider({
-
+                controlNav: false, 
 				directionNav: false
 
 			});

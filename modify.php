@@ -100,7 +100,7 @@ else {echo "已啟用";}
 
 <table class="table table-striped" style="margin:15px 0px 25px 0px">
 
-<tr><th colspan="2">使用者偏好設定  (選填,填入後將於每次上傳商品自動帶入)</th></tr>
+<tr><th colspan="3">使用者偏好設定  (選填,填入後將於每次上傳商品自動帶入)</th></tr>
 
 <tr>
 

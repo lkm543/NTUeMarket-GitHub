@@ -151,27 +151,30 @@
         }
 
           ?>
-          </table></center>
-        <div class="col-md-12" style="text-align:center">
-        <?php for($i=1;$i<=$pages;$i++) { 
-          echo '<a href="show_item_wanted.php?';?>
-          <?php 
-          if($sort==null&&$keyword!=null){
-            echo 'keyword='.$keyword;
-          }
-          if($sort!=null&&$keyword==null){
-            echo 'sort='.$sort;
-          }
-          if($sort!=null&&$keyword!=null){
-            echo 'keyword='.$keyword.'sort='.$sort;
-          }
-          ?>
-          <?php echo 'page='.$i.'"><span class="pagination">'.$i.'</span></a>'; 
-        }
-        ?>
 
-      </div>
-      </div>
-    </div>
-</div><!-- // end #main -->
+</table>
+<div class="col-md-12">
+<?php for($i=1;$i<=$pages;$i++) { 
+  echo '<a href="show_item.php?';?>
+  <?php 
+  if($sort==null&&$keyword!=null){
+    echo 'keyword='.$keyword;
+  }
+  if($sort!=null&&$keyword==null){
+    echo 'sort='.$sort;
+  }
+  if($sort!=null&&$keyword!=null){
+    echo 'keyword='.$keyword.'sort='.$sort;
+  }
+  ?>
+  <?php echo 'page='.$i.'"><span class="pagination">'.$i.'</span></a>'; 
+}
+?>
+
+</div>    
+        </div>
+        </div>
+       </center>
+  </div><!-- // end #main -->
+</div>
 <? include("footer.php");?>

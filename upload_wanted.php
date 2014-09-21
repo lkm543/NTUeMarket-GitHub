@@ -17,8 +17,8 @@
             echo '<p>Step4. 回報或下架</p>';}
 			
 			?>
-            </div>    <center>
-  			<div class="col-md-7">
+            </div>
+  			<div class="col-md-7">    <center>
 <?php //已經登入
 if (isset($_SESSION['MM_Username'])){
 
@@ -101,8 +101,7 @@ if($row[msg_welcome]==2)
 else{
   echo "<center>您的帳號尚未啟用，請至信箱收取驗證信。</center>";
 }
-}
-else{
+}else{
 	echo '<center><p style="color:red">您尚未登入，請先註冊或登入。</p></center>';?>
   <div class="col-md-5 col-md-offset-4" style="text-align:left; margin-top:30px;">
 <form action="login_check.php" method="post" name="registration" >

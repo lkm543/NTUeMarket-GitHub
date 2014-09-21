@@ -118,31 +118,32 @@
                       </tr>
                   </table>
                   </form>          
-
-                <div class="col-md-2"></div>
                 <?php
                 }else{
                   echo "<center>您的帳號尚未啟用，請至信箱收取驗證信。</center>";
                 }
             }else{
-              	echo '<center><p style="color:red">您尚未登入，請先註冊或登入。</p></center>';?>
-              	<div class="col-md-5 col-md-offset-4" style="text-align:left; margin-top:30px;">
-                <form action="login_check.php" method="post" name="registration" >
-                  <div class="form-group">
-                    <label for="Account">帳戶名稱</label>
-                    <input type="text" class="form-control" name="username" placeholder="請輸入帳戶名稱">
-                  </div>
-                  <div class="form-group">
-                    <label for="password">用戶密碼</label>
-                    <input type="password" class="form-control" name="password" placeholder="請輸入用戶密碼">
-                  </div>
-                  <button type="submit" class="btn btn-default">Submit</button>
-                </form>
-                </div>
-              </center></div>
-              <?php 
-            }
-        ?></div>
+  echo '<center><p style="color:red">您尚未登入，請先註冊或登入。</p></center>';?>
+  <div class="col-md-5 col-md-offset-4" style="text-align:left; margin-top:30px;">
+<form action="login_check.php" method="post" name="registration" >
+  <div class="form-group">
+    <label for="Account">帳戶名稱</label>
+    <input type="text" class="form-control" name="username" placeholder="請輸入帳戶名稱">
+  </div>
+  <div class="form-group">
+    <label for="password">用戶密碼</label>
+    <input type="password" class="form-control" name="password" placeholder="請輸入用戶密碼">
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+</div>
+<?php 
+}
 
-    </div><!-- end of main -->
+?></div>
+            <div class="col-md-2"></div>
+        </div>
+    </center>
+  </div>
+</div>
 <?php include("footer.php");?>

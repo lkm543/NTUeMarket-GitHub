@@ -167,7 +167,7 @@
     echo 'keyword='.$keyword.'sort='.$sort;
   }
   ?>
-  <?php echo 'page='.$i.'"><span class="pagination">'.$i.'</span></a>'; 
+  <?php echo 'page='.$i.'"><span class="item_pagination">'.$i.'</span></a>'; 
 }
 ?>
 

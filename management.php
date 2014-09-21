@@ -6,10 +6,10 @@
        		   </div>
             <div class="col-md-2" align="left">
        		      <table class="table table-hover">
-<tr><td class="success" onClick="location.href='management.php'"><center>&nbsp;我的商品&nbsp;</center></td></tr>
-<tr><td onClick="location.href='management_wanted.php'"><center>&nbsp;我的需求&nbsp;</center></td></tr>
+<tr><td class="success" onClick="location.href='management.php'"><center>我的商品</center></td></tr>
+<tr><td onClick="location.href='management_wanted.php'"><center>我的需求</center></td></tr>
 <tr><td onClick="location.href='management_removed.php'"><center>已下架商品/需求</center></td></tr>
-<tr><td onClick="location.href='management_idle.php'"><center>&nbsp;閒置商品/需求&nbsp;</center></td></tr>
+<tr><td onClick="location.href='management_idle.php'"><center>閒置商品/需求</center></td></tr>
 </table>     
             </div>
   			<div class="col-md-9">
@@ -28,42 +28,80 @@ $total_records=mysqli_num_rows($result);  // 取得記錄數
 
 <?php
 
-$totalCount = ceil($total_records/4)*4;
-echo '<table align=left>';
-for($k = 0; $k < $totalCount; $k ++) {
+  $totalCount = ceil($total_records/3)*3;
+  echo '<table align=left>';
+  for($k = 0; $k < $totalCount; $k ++) {
 
-        if($k%4 == 0) { echo '<tr>'; }
+        if($k%3 == 0) { echo '<tr class="row">'; }
 
         if($row = mysqli_fetch_array($result)) {
-echo '<td><form action="management_database.php" method="post"><table style="margin: 10px 10px 10px 10px">';
-echo '<tr><td>&nbsp;&nbsp;名稱&nbsp;&nbsp;&nbsp;</td><td><input type="text" name="name" class="form-control" value="'. $row[name].'"><input type="hidden" name="id" value="'.$row['id'].'"/></td></tr>';
-echo '<tr><td>&nbsp;&nbsp;描述&nbsp;&nbsp;&nbsp;</td><td><textarea name="detail" id="detail" pattern=".{0,100}" class="form-control" rows="3">'.$row[detail].'</textarea></td></tr>';   
-echo '<tr><td>&nbsp;&nbsp;價格&nbsp;&nbsp;&nbsp;</td><td><input type="text" name="price" class="form-control" value="'.$row[price].'"></td></tr>';  
-echo '<tr><td>&nbsp;&nbsp;方式&nbsp;&nbsp;&nbsp;</td><td><input type="text" name="method" class="form-control" value="'.$row[method].'"></td></tr>';  
-echo '<tr><td>&nbsp;&nbsp;分類&nbsp;&nbsp;&nbsp;</td><td>
-      <select name="sort" id="sort" class="form-control">'; ?>
-          <option value="life" <?php if ($row['sort']=="life") echo 'selected="selected"';?>>生活用品</option>
-          <option value="stationary" <?php if ($row['sort']=="stationary") echo 'selected="selected"';?>>文具</option>
-          <option value="clothes" <?php if ($row['sort']=="clothes") echo 'selected="selected"';?>>衣物</option>
-          <option value="3c" <?php if ($row['sort']=="3c") echo 'selected="selected"';?>>3c產品</option>
-          <option value="bike" <?php if ($row['sort']=="bike") echo 'selected="selected"';?>>腳踏車</option>
-          <option value="book" <?php if ($row['sort']=="book") echo 'selected="selected"';?>>課外讀物</option>
-          <option value="textbook" <?php if ($row['sort']=="textbook") echo 'selected="selected"';?>>教科書</option>
-          <option value="else" <?php if ($row['sort']=="else") echo 'selected="selected"';?>>其他</option>
-<?php 
-echo '</select></td></tr>'; 
-echo '<tr><td colspan="2"><center><img src="Picture/'.$row[filename].'_1.jpg"width="200" height="150" class="img-rounded"></center></td></tr>';
-//echo '<tr><td>&nbsp;&nbsp;圖片&nbsp;&nbsp;&nbsp;</td><td><input type="file" name="file" id="file" style="width:180px" class="form-control"></td></tr>';
-echo '<tr><td colspan="2"><center><input type="submit" value="修改" class="btn btn-default">&nbsp;&nbsp;<input type="submit" value="下架" class="btn btn-default" formaction="delete_item.php""></center></td></tr></table></form></td>';
+            echo '<td class="col-xs-9 col-md-3">
+                    <div class="item_wrapper" style="margin-bottom:20px">
+                    <form action="management_database.php" method="post" style="max-width:360px">
+                      <table class="manage_item_table">
+                        <tr>
+                          <td colspan="2">
+                            <div class="item_img_wrapper" style="background:url(Picture/'.$row[filename].'_1.jpg) no-repeat center center; background-size:230px"></div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="min-width:35px">名稱</td>
+                          <td>
+                              <input type="text" name="name" class="form-control" value="'. $row[name].'">
+                              <input type="hidden" name="id" value="'.$row[id].'"/>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="vertical-align:middle;">描述</td>
+                          <td style="max-width:360px">
+                            <textarea name="detail" id="detail" pattern=".{0,100}" class="form-control" rows="3">'.$row[detail].'</textarea>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>價格</td>
+                          <td>
+                            <input type="text" name="price" class="form-control" value="'.$row[price].'">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>方式</td>
+                          <td>
+                            <input type="text" name="method" class="form-control" value="'.$row[method].'">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>分類</td>
+                          <td>
+                            <select name="sort" id="sort" class="form-control">'; ?>
+                            <option value="life" <?php if ($row[sort]=="life") echo 'selected="selected"';?>>生活用品</option>
+                            <option value="stationary" <?php if ($row[sort]=="stationary") echo 'selected="selected"';?>>文具</option>
+                            <option value="clothes" <?php if ($row[sort]=="clothes") echo 'selected="selected"';?>>衣物</option>
+                            <option value="3c" <?php if ($row[sort]=="3c") echo 'selected="selected"';?>>3c產品</option>
+                            <option value="bike" <?php if ($row[sort]=="bike") echo 'selected="selected"';?>>腳踏車</option>
+                            <option value="book" <?php if ($row[sort]=="book") echo 'selected="selected"';?>>課外讀物</option>
+                            <option value="textbook" <?php if ($row[sort]=="textbook") echo 'selected="selected"';?>>教科書</option>
+                            <option value="else" <?php if ($row[sort]=="else") echo 'selected="selected"';?>>其他</option>
+                            <?php 
+                    echo '</select></td></tr>';
+
+                  echo '<tr>
+                          <td colspan="2">
+                            <center><input type="submit" value="修改" class="btn btn-success">
+                            <input type="submit" value="下架" class="btn btn-danger" formaction="delete_item.php""></center>
+                          </td>
+                        </tr>
+                      </table>
+                    </form>
+                    </div>
+                  </td>';
         }
 
-        if($k%4 == 3) { echo '</tr>'; }
-
-}
-echo '</table>';
-?>
-
-
+        if($k%3 == 2) {
+          echo '</tr>';
+        }
+  }
+  echo '</table>';
+  ?>
 
         </div>
         </div>

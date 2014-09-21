@@ -188,7 +188,7 @@ $number_of_row=mysqli_num_rows($result2);
 $totalCount = ceil($number_of_row/3)*3;
 for($k = 0; $k < $totalCount; $k ++) {
 
-        if($k%3 == 0) { echo '<tr class="row item_list_row">'; }
+        if($k%3 == 0) { echo '<tr class="row">'; }
 
         if($row = mysqli_fetch_array($result2)) {
                 echo '<td class="col-xs-9 col-md-3 col-md-offset-1">
@@ -203,7 +203,7 @@ for($k = 0; $k < $totalCount; $k ++) {
                 echo '<td style="width:230px"></td>';
         }
 
-        if($k%3 == 2) { echo '</tr><tr><td style="height: 20px;"></td></tr>'; }
+        if($k%3 == 2) { echo '</tr>'; }
 
 }
 
@@ -224,7 +224,7 @@ for($k = 0; $k < $totalCount; $k ++) {
     echo 'keyword='.$keyword.'sort='.$sort;
   }
   ?>
-  <?php echo 'page='.$i.'"><span class="pagination">'.$i.'</span></a>'; 
+  <?php echo 'page='.$i.'"><span class="item_pagination">'.$i.'</span></a>'; 
 }
 ?>
 

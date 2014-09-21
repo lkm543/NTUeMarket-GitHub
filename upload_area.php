@@ -47,7 +47,7 @@
                         <td><input type="text" name="price" id="price" class="form-control"></td>
                       </tr>
                       <tr>
-                        <td>商品類別</td>
+                        <td style="vertical-align:middle;">商品類別</td>
                         <td><label for="sort"></label>
                           <select name="sort" id="sort" class="form-control">
                             <option value="life">生活用品</option>

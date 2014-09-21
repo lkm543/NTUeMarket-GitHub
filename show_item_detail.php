@@ -237,35 +237,38 @@ $row = mysqli_fetch_array($result);
           <td><?php echo $row[date];?></td>
 
         </tr>
-        
-        <tr class="row">
+        <tr>
           
-          <td colspan="2" style="border-bottom:0px;"> 
-          <center> 
-          <div style="margin-bottom:40px;width:432px;">
-            <?php 
+          <td colspan="2"><?php 
             $number=$row[img_count];
+            echo '<div style="display:inline-block">';
             for($i=1;$i<=$number;$i++)
-            {            
-              echo '<div class="item_thumb_wrapper" style="width:200px;margin-right:0px;"><a href="Picture/'.$row[filename].'_'.$i.'.jpg" data-lightbox-gallery="item-gallery" title="'.$row[name].'"><img src="Picture/'.$row[filename].'_'.$i.'.jpg" class="img-rounded"></a></div>';
+            {
+              echo '<div class="item_thumb_wrapper" style="float:left; max-width:200px;margin:10px;border:solid 3px white;box-shadow:2px 2px 6px lightgray;border-radius:6px;"><a href="Picture/'.$row[filename].'_'.$i.'.jpg" data-lightbox-gallery="item-gallery" title="'.$row[name].'"><img src="Picture/'.$row[filename].'_'.$i.'.jpg" width="100%" class="img-rounded"></a></div>';
+
+              // echo '<a href="Picture/'.$row[filename].'_'.$i.'.jpg" data-lightbox-gallery="item-gallery" title="'.$row[name].'"><div style="background:url(Picture/'.$row[filename].'_'.$i.'.jpg) no-repeat center center; background-size:400px;><a href="Picture/'.$row[filename].'_'.$i.'.jpg"</div></a>';
             }
+            echo '</div>';
             ?>
-        </div>
-        <form action="send_message.php" method="post">
-          <input type="hidden" name="item_type" value="sell">
-          <input type="hidden" id="receiver" name="receiver" value="<?php echo $row[username];?>">
-          <input type="hidden" id="id" name="id" value="<?php echo $row[id];?>">
-          <input type="hidden" id="subject" name="subject" value="<?php echo $row[name];?>">
-          <input type="hidden" id="content" name="content" value="<?php echo "商品內容:".$row[name]."\n商品描述:".$row[detail]."\n商品價格:".$row[price]."\n交易方式:".$row[method]."\n聯絡email:".$row[contact_email]."\n手機:".$row[phone];?>">
+          </td>
 
-        <center>
-          <input type="submit" value="加到興趣清單" class="btn btn-default" formaction="add_interested.php">&nbsp;&nbsp;
-          <input type="submit" value="丟私人訊息" class="btn btn-default"></center></form>
-        </center>
-      </td>
+        </tr>
+          <td colspan="2" style="text-align:center">
+            <form action="send_message.php" method="post">
+            <input type="hidden" name="item_type" value="sell">
+            <input type="hidden" id="receiver" name="receiver" value="<?php echo $row[username];?>">
+            <input type="hidden" id="id" name="id" value="<?php echo $row[id];?>">
+            <input type="hidden" id="subject" name="subject" value="<?php echo $row[name];?>">
+            <input type="hidden" id="content" name="content" value="<?php echo "商品內容:".$row[name]."\n商品描述:".$row[detail]."\n商品價格:".$row[price]."\n交易方式:".$row[method]."\n聯絡email:".$row[contact_email]."\n手機:".$row[phone];?>">
+            
+            <input type="submit" value="加到興趣清單" class="btn btn-success" formaction="add_interested.php" style="margin:0px 5px">
+            <input type="submit" value="丟私人訊息" class="btn btn-info style="margin:0px 5px"">
 
-    </tr>
+            </form>
+          </td>
+        <tr>
 
+        </tr>
 
       </table></div></div><center>
 

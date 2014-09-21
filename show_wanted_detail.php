@@ -128,8 +128,8 @@ if($row['msg_welcome']==2)
   <input type="hidden" name="subject" value="<?php $row[name];?>">
   <input type="hidden" name="content" value="<?php echo "需求名稱:".$row[name]."\n需求描述:".nl2br($row[detail])."\n徵求價格:".$row[price]."\n交易方式:".$row[method]."\n聯絡email:".$row[contact_email]."\n手機:".$row[phone];?>">
 <center>
-  <input type="submit" value="加到興趣清單" class="btn btn-default" formaction="add_interested.php">&nbsp;&nbsp;
-  <input type="submit" value="丟私人訊息" class="btn btn-default"></center></form></td></tr>
+  <input type="submit" value="加到興趣清單" class="btn btn-success" formaction="add_interested.php">&nbsp;&nbsp;
+  <input type="submit" value="丟私人訊息" class="btn btn-info"></center></form></td></tr>
 </table></div></div><center>
             </div>
         </div>

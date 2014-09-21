@@ -194,7 +194,7 @@ for($k = 0; $k < $totalCount; $k ++) {
                 echo '<td class="col-xs-9 col-md-3 col-md-offset-1">
                       <div class="item_wrapper">
                       <div class="item_title">'.$row[name].'</div>
-                      <a href="show_item_detail.php?id='.$row[id].'"><div class="item_img_wrapper" style="background:url(Picture/'.$row[filename].') no-repeat center center; background-size:230px"></div></a>
+                      <a href="show_item_detail.php?id='.$row[id].'"><div class="item_img_wrapper" style="background:url(Picture/'.$row[filename].'_1.jpg) no-repeat center center; background-size:230px"></div></a>
                       <div class="item_value">出價金額: $'.$row[price].'</div>
                       <div>上架日期: '.$row[date].'</div>
                       </div></td>';

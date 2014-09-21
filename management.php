@@ -52,7 +52,7 @@ echo '<tr><td>&nbsp;&nbsp;分類&nbsp;&nbsp;&nbsp;</td><td>
           <option value="else" <?php if ($row['sort']=="else") echo 'selected="selected"';?>>其他</option>
 <?php 
 echo '</select></td></tr>'; 
-echo '<tr><td colspan="2"><center><img src="Picture/'.$row[filename].'"width="200" height="150" class="img-rounded"></center></td></tr>';
+echo '<tr><td colspan="2"><center><img src="Picture/'.$row[filename].'_1.jpg"width="200" height="150" class="img-rounded"></center></td></tr>';
 //echo '<tr><td>&nbsp;&nbsp;圖片&nbsp;&nbsp;&nbsp;</td><td><input type="file" name="file" id="file" style="width:180px" class="form-control"></td></tr>';
 echo '<tr><td colspan="2"><center><input type="submit" value="修改" class="btn btn-default">&nbsp;&nbsp;<input type="submit" value="下架" class="btn btn-default" formaction="delete_item.php""></center></td></tr></table></form></td>';
         }

@@ -63,7 +63,24 @@ $current_page = basename($_SERVER['PHP_SELF']);
 
     <!-- Other plugin !-->
     <script src="js/signup_validator.js" type="text/javascript"></script>
+    <!-- Facebook api!-->
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '748381258544691',
+      xfbml      : true,
+      version    : 'v2.1'
+    });
+  };
 
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 
 </head>
 
@@ -77,7 +94,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
 
 			<h1>
 
-				<a href="/" title="CollegeBazaar">CollegeBazaar</a>
+				<a href="/" title="CollegeBazaar">CollegeBazaar</a><div style="margin-left:25px;" class="fb-like" data-href="http://collegebazaar.tw/" data-width="200" data-layout="button" data-action="like" data-show-faces="false" data-share="true"></div>
 
 		  </h1>
 
@@ -133,10 +150,7 @@ if (isset($_SESSION['MM_Username'])){
                         </ul>
 
                 </li>
-
 		  </ul>
-
 		</div>
 
 	</div><!-- // end #header -->
-

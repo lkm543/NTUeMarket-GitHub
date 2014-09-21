@@ -30,7 +30,11 @@
             </td></tr></table>
 			
         </div>
+
 	</div><!-- // end #main -->
+
     </center>
     </div>
+
+
 <? include("footer.php");?>

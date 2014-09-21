@@ -89,7 +89,7 @@ ul.menu li a:hover, ul.menu li.active a { color: #70a3b4; text-decoration: none;
 #footer { background: #FFFFFF; border-top: 1px solid #d9d9d9; position: absolute; left: 0; right: 0;}
 #footer .container { height: 46px;}
 #footer, .pust { min-height: 46px; }
-#footer p { float: right; text-align: right; font-size: 15px; margin: 15px 0px 0px; }
+#footer p { float: right; text-align: right; font-size: 15px;margin-top: 15px;}
 #footer ul.menu { margin-top: 15px; }
 #footer ul.menu li { margin: 0px 15px 0px 0px; }
 

@@ -51,7 +51,7 @@ if (isset($_SESSION['MM_Username'])){
 
           $id=$_GET["id"];
 
-          if(!$check_active[active]==1){
+          if($check_active[active]==1){
             ?>
 
             <table class="table table-striped table table-hover" style="margin:15px 0px 15px 0px">

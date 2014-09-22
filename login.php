@@ -8,7 +8,7 @@ if (isset($_SESSION['MM_Username'])){
   <br>
   <br>
   <br>
-  <div class="row">
+  <div class="row" style="padding-bottom: 80px">
     <div class="col-md-3 col-md-offset-2" style="margin-top:80px; min-width:300px; padding:0px 50px">
       <center>  <p style="margin:0px 0px 10px 0px; font-size:20px;">會員登入</p></center>
       <center>  <p style="margin:0px 0px 10px 0px;color:red; font-size:20px;"><?php echo $message;?></p></center>

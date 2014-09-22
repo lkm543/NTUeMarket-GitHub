@@ -34,13 +34,9 @@ if (isset($_SESSION['MM_Username'])){
         <div class="col-md-8">
 
           <?php 
-          session_start();
-          $username=$_SESSION['MM_Username'];
-          $user_ID=$_SESSION['MM_UserID']; 
-
           include_once("mysql_info.php");
 
-          $sql = "select active from member where id='$user_id'";
+          $sql = "select active from member where username='$username'";
           $result = mysqli_query($link,$sql);
           $check_active = mysqli_fetch_array($result);
 

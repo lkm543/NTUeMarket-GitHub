@@ -141,7 +141,7 @@ if (isset($_SESSION['MM_Username'])){
 
     <li><a href="login.php"     <?php 
     if($current_page=="login.php") 
-        echo 'menu_item_selected"'; 
+        echo 'class="menu_item_selected"'; 
     ?> >會員註冊/登入</a></li>
 
 <?php }?>

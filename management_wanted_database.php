@@ -10,5 +10,5 @@ $method=$_POST['method'];
 $sort=$_POST['sort'];
 $id=$_POST['id'];
 mysqli_query ($link,"update item_wanted set name='$name', detail='$detail', price='$price', method='$method', sort='$sort' where id='$id'");
-include_once("management_wanted.php");
+header("Location: management_wanted.php");
 ?>  

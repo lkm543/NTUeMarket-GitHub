@@ -9,5 +9,5 @@ $method=$_POST['method'];
 $sort=$_POST['sort'];
 $id=$_POST['id'];
 mysqli_query ($link,"update item_forsell set name='$name', detail='$detail', price='$price', method='$method', sort='$sort' where id='$id'");
-include_once("management.php");
+header("Location: management.php");
 ?>  

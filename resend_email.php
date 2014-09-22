@@ -85,6 +85,6 @@ $email=$row[email];
 	$mail->Send();
 	$notice="已寄出驗證信，請至註冊信箱收取";
 
-	include_once("index.php");
+	header("Location: index.php");
 
 ?>

@@ -23,7 +23,7 @@
 			$sql = "insert into `message` (`from`,`to`,`subject`,`body`,`date`) values('$user_id','".$row[receiver_id]."','$subject','$content','$currtimestr')";
 
 			if($sucess=mysqli_query ($link,$sql)){
-				echo '<meta http-equiv=REFRESH CONTENT=2;url=message_inbox.php>';
+					header("Location: message_inbox.php");
 			}else{
 				?><script type="text/javascript" text="javascript">
 					alert("Error sending message to ".<?php echo $receiver; ?>.", please try again later.");

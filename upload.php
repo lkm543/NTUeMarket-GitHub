@@ -116,8 +116,7 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
 			printf("Failed to insert into database.");
 			echo '</pre>';
 		}
-
-		include_once("upload_item_succeed.php");
+		header("Location: upload_item_succeed.php");
 	}
 
 	//錯誤,無法上傳

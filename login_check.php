@@ -27,7 +27,7 @@ if($username != null && $password != null && $row[username] == $username && $row
         $_SESSION['MM_UserID'] = $row[id];
         $_SESSION['MM_Username'] = $row[username];
 
-echo '<meta http-equiv=REFRESH CONTENT=2;url=index.php>';
+header("Location: index.php");
 
 }
 

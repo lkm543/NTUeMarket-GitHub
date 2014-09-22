@@ -5,7 +5,6 @@
 $username=$_SESSION['MM_Username'];
 
 include_once("mysql_info.php");
-
 $sql = "select * from member where username = '$username'"; //在資料表中選擇所有欄位
 
 $result = mysqli_query($link,$sql); // 執行SQL查詢
@@ -30,7 +29,7 @@ $row = mysqli_fetch_array($result);
 
 <td width="240">帳號</td>
 
-<td><?php echo $username;?></td>
+<td><?php echo $row[username];?></td>
 
 </tr>
 

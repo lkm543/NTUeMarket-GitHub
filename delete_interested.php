@@ -39,6 +39,7 @@ if(isset($_POST['id'])&&isset($_POST['item_type'])){
 	}
 	$tempt=serialize($interest_array);
 	mysqli_query ($link,"update member set interested='$tempt' where username='$username'");
-	include_once("management_interested.php");
+	header("Location: management_interested.php");
+
 }
 ?>  

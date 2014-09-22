@@ -19,5 +19,5 @@ mysqli_query ($link,"update backend set id='$id' where id='$id_old'");?>
 alert("Succeed!");
 </script>
 <?php
-include_once("upload_wanted_succeed.php");
+header("Location: upload_wanted_succeed.php");
 ?>

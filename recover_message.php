@@ -31,6 +31,6 @@ if(isset($_POST['id'])){
 
 	}
 }
-echo '<meta http-equiv=REFRESH CONTENT=2;url="../garbage_message_area.php">';
+header("Location: garbage_message_area.php");
 
 ?>

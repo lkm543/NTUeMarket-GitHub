@@ -3,7 +3,7 @@ if(!isset($_POST['id'])){
 	?><script type="text/javascript" text="javascript">
 		alert("你太邪惡囉!!!");
 	</script><?php
-		echo '<meta http-equiv=REFRESH CONTENT=2;url=index.php>'; 
+		header("Location: index.php");
 }else{
 	session_start();
 	$username=$_SESSION['MM_Username'];
@@ -20,6 +20,6 @@ if(!isset($_POST['id'])){
 	if($user_id==$row['to']){
 		mysqli_query ($link,"update message set receiver_status= 3 where id='$id'");
 		}
-	echo '<meta http-equiv=REFRESH CONTENT=2;url=garbage_message_area.php>';
+		header("Location: garbage_message_area.php");
 }
 ?>

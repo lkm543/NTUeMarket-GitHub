@@ -19,12 +19,12 @@ if(!isset($_POST['id'])){
 	$result = mysqli_query ($link,$sql);
 	if($result){
 		// }
-		echo '<meta http-equiv=REFRESH CONTENT=2;url=message_inbox.php>';
+		header("Location: message_inbox.php");
 	}else{
 		?><script type="text/javascript" text="javascript">
 			alert("發生錯誤! 訊息無法刪除，請稍後在試。");
 		</script><?php
-			echo '<meta http-equiv=REFRESH CONTENT=2;url=message_inbox.php>'; 
+		header("Location: message_inbox.php");
 	}
 }
 ?>

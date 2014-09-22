@@ -55,7 +55,7 @@ if(isset($_POST['username'])||isset($_POST['email'])||isset($_POST['password']))
 				</script><?php
 
 				$_SESSION['MM_Username'] = $username;
-				echo '<meta http-equiv=REFRESH CONTENT=2;url=index.php>';
+				header("Location: index.php");
 			}else{
 				?><script type="text/javascript" language="javascript">
 				alert("驗證信傳送失敗，請稍後再試!");
@@ -66,12 +66,12 @@ if(isset($_POST['username'])||isset($_POST['email'])||isset($_POST['password']))
 		?><script type="text/javascript" language="javascript">
 		alert("這不是狡猾，什麼才是狡猾?!");
 		</script><?php
-		echo '<meta http-equiv=REFRESH CONTENT=2;url=index.php>';
+		header("Location: index.php");
 	}
 }else{
 	?><script type="text/javascript" language="javascript">
 	alert("你太邪惡囉!!!");
 	</script><?php
-	echo '<meta http-equiv=REFRESH CONTENT=2;url=index.php>';
+	header("Location: index.php");
 }
 ?>

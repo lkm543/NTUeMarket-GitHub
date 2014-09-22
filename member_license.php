@@ -45,8 +45,7 @@ if($license_code_email==$license_code_database){
 			</script>
 
 			<?php
-
-			echo '<meta http-equiv=REFRESH CONTENT=2;url=/modify.php>';
+			header("Location: modify.php");
 
 		}
 
@@ -59,8 +58,7 @@ if($license_code_email==$license_code_database){
 		</script>
 
 		<?php
-
-		echo '<meta http-equiv=REFRESH CONTENT=2;url=/>';
+		header("Location: index.php");
 
 	}
 
@@ -75,8 +73,7 @@ if($license_code_email==$license_code_database){
 	</script>
 
 	<?php
-
-	echo '<meta http-equiv=REFRESH CONTENT=2;url=/contact_us.php>';
+	header("Location: contact_us.php");
 
 }
 

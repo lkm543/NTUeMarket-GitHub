@@ -141,6 +141,14 @@ ul.menu li a:hover, ul.menu li.active a { color: #70a3b4; text-decoration: none;
 
 #contact-map { float: left; width: 300px; }
 
+#sing-up{
+	padding-left:100px;
+	/*margin-left:10%;*/
+	border:1px rgb(171,171,140);
+	border-left-style:solid;
+	margin-top: 30px;
+}
+
 .alert_msg{
 color:#E9433F;
 font-size:12px

@@ -58,7 +58,7 @@ ul.menu li a:hover, ul.menu li.active a { color: #70a3b4; text-decoration: none;
 #main { padding: 100px 0px; background-color: rgb(240,240,189);}
 
 /*** Slideshow ***/
-#slideshow { background: #cccccc; margin: 0px 10px 50px; position: relative; -moz-box-shadow: 0 0 5px #888; -webkit-box-shadow: 0 0 5px#888; box-shadow: 0 0 5px #888; }
+#slideshow { background: #cccccc; margin: 0px 10px 15px; position: relative; -moz-box-shadow: 0 0 5px #888; -webkit-box-shadow: 0 0 5px#888; box-shadow: 0 0 5px #888; }
 #slideshow .nivo-controlNav { bottom: -40px; left: 50%; margin-left: -30px; position: absolute;  }
 #slideshow .nivo-controlNav .nivo-control { background: url(../../images_index/bullets.png) no-repeat; display: block; float: left; height: 20px; text-indent: -9999px; width: 22px; }
 #slideshow .nivo-controlNav .nivo-control.active { background: url(../../images_index/bullets.png) no-repeat scroll 0 -22px; }
@@ -72,7 +72,7 @@ ul.menu li a:hover, ul.menu li.active a { color: #70a3b4; text-decoration: none;
 #item_info_table td {vertical-align: top; border-bottom:1px; border-style:solid; border-color: #666666; padding-top: 10px;}
 
 .intro { margin: 0px 10px 20px; }
-.intro p { font-size: 22px; text-align: center;}
+.intro p { font-size: 32px; text-align: center;}
 
 #procedure .col-md-2{margin-top:60px;font-size:20px;}
 #procedure.row{font-size: 15px;}

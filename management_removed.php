@@ -36,6 +36,7 @@ for($k = 0; $k < $totalCount; $k ++) {
                   <a href="show_item_detail.php?id='.$row[id].'"><div class="item_img_wrapper" style="background:url(Picture/'.$row[filename].'_1.jpg) no-repeat center center; background-size:230px"></div></a>
                   <form action="recover_item.php" method="post">
                   <div><center>
+                  <input type="hidden" value="item" name="type">
                   <input type="submit" class="btn btn-info" value="恢復上架">
                   <input type="hidden" name="id" value="'.$row[id].'"/>
                   </center></div></form>
@@ -50,11 +51,12 @@ for($k = 0; $k < $totalCount; $k ++) {
 }
 echo "</table>";}
 
-$sql = "select m.id, m.username, i.* from member m, item_wanted i where m.id = i.owner and m.username = '$username' and status = 2 order by i.id desc"; 
+$sql2 = "select m.id, m.username, i.* from member m, item_wanted i where m.id = i.owner and m.username = '$username' and status = 2 order by i.id desc"; 
 $result2 = mysqli_query($link,$sql2); // 執行SQL查詢
 $total_fields2=mysqli_num_fields($result2); // 取得欄位數
 $number_of_row2=mysqli_num_rows($result2); // 取得記錄數
 $totalCount2 = ceil($number_of_row2/4)*4;
+//echo "number".$number_of_row2;
 if($number_of_row2!=0){//有東西
 echo "<table><tr><th colspan=\"4\">已停止徵求</th></tr>";
 for($k = 0; $k < $totalCount2; $k ++) {
@@ -65,7 +67,7 @@ for($k = 0; $k < $totalCount2; $k ++) {
                 echo '<td><table><form action="recover_item.php" method="post"><tr><td style="width:230px">'.$row2[name].
                      '</td></tr><tr><td>'.$row2[detail].'</td></tr><tr><td>'.$row2[price].
                      '</td></tr><tr><td>'.$row2["date"].
-					 '</td></tr><tr><td><center><input type="submit" class="btn btn-default" value="繼續徵求"><input type="hidden" name="id" value="'.$row2['id'].'"/></center></td></tr></form></table></td>';
+					 '</td></tr><tr><td><center><input type="hidden" value="want" name="type"><input type="submit" class="btn btn-default" value="繼續徵求"><input type="hidden" name="id" value="'.$row2['id'].'"/></center></td></tr></form></table></td>';
         }
         else {
                 echo '<td style="width:230px"></td>';

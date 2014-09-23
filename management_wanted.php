@@ -77,6 +77,7 @@ echo '<table align=left>';
                         <td colspan="2">
                           <center>
                             <input type="submit" value="修改" class="btn btn-success">
+                            <input type="hidden" value="want" name="type">
                             <input type="submit" class="btn btn-danger" value="撤下" formaction="delete_wanted.php"">
                           </center>
                         </td>

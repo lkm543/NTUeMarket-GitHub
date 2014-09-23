@@ -34,19 +34,15 @@ if (isset($_SESSION['MM_Username'])){
         <div class="col-md-8">
 
           <?php 
-          session_start();
-          $username=$_SESSION['MM_Username'];
-          $user_ID=$_SESSION['MM_UserID']; 
-
           include_once("mysql_info.php");
 
-          $sql = "select active from member where id='$user_id'";
+          $sql = "select active from member where username='$username'";
           $result = mysqli_query($link,$sql);
           $check_active = mysqli_fetch_array($result);
 
           //1 普通 2 刪除
 
-          $sql = "select m.username as receiver, msg.* from member m, message msg where m.id = msg.to and msg.from='$user_ID' and sender_status=1 order by msg.id desc";
+          $sql = "select m.username as receiver, msg.* from member m, message msg where m.id = msg.to and msg.from='$user_id' and sender_status=1 order by msg.id desc";
           $result = mysqli_query($link,$sql);
 
           $id=$_GET["id"];

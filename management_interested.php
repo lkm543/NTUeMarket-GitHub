@@ -6,15 +6,9 @@
              </div>
         <div class="col-md-11">
             <?php 
-
-session_start();
-$username=$_SESSION['MM_Username']; 
-
 include_once("mysql_info.php");
-
 $result2=mysqli_query($link,"select * from member where username='$username'");
 $row2 = mysqli_fetch_array($result2);
-
 $interest_array=array();
 $interest_array=unserialize($row2[interested]);
 $interest_forsell=array();

@@ -87,6 +87,7 @@ $total_records=mysqli_num_rows($result);  // 取得記錄數
                   echo '<tr>
                           <td colspan="2">
                             <center><input type="submit" value="修改" class="btn btn-success">
+                            <input type="hidden" value="item" name="type">
                             <input type="submit" value="下架" class="btn btn-danger" formaction="delete_item.php""></center>
                           </td>
                         </tr>

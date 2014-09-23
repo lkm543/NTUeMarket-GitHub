@@ -34,13 +34,10 @@ if (isset($_SESSION['MM_Username'])){
 
             <?php 
 
-            $username=$_SESSION['MM_Username'];
-            $user_id=$_SESSION['MM_UserID'];
-
             include_once("mysql_info.php");  
 
             //0 未讀 1已讀 2刪除
-            $sql = "select active from member where id='$user_id'";
+            $sql = "select active from member where username='$username'";
             $result = mysqli_query($link,$sql);
             $check_active = mysqli_fetch_array($result);
 

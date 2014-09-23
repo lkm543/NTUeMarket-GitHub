@@ -21,9 +21,9 @@ if(isset($_POST['username'])||isset($_POST['email'])||isset($_POST['password']))
 
 	if(trim($username)!=""&&trim($email)!=""&&trim($password)!=""){
 		//MySQL連接
-		$sucess = mysqli_query ($link,"insert into member(username,license_code,email,password,date) values('$username','$chkno','$email','$encrypt_pass','$currtimestr')");
+		$success = mysqli_query ($link,"insert into member(username,license_code,email,password,date) values('$username','$chkno','$email','$encrypt_pass','$currtimestr')");
 
-		if($sucess){
+		if($success){
 			//產生信中快速認證連結(請自行修改)
 			$chklink = "<a href=http://collegebazaar.tw/member_license.php?email=$email&license_code=$chkno>http://collegebazaar.tw/member_license.php?email=$email&liences_code=$chkno</a>";
 			//寄出認證信

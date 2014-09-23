@@ -10,7 +10,7 @@ session_start();
 
 include_once("mysql_info.php");
 
-$sql = "select * from member where username='$username'"; //在test資料表中選擇所有欄位
+$sql = "select * from member where username='$username'"; 
 
 $result = mysqli_query($link,$sql); // 執行SQL查詢
 

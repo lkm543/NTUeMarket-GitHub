@@ -178,7 +178,7 @@ font-size:12px
 }
 
 .item_wrapper .item_img_wrapper{
-	width: 265px;
+	width: 100%;
 	height: 150px;
 	/*border: 5px solid #70a3b4;
 	border-radius: 6px;*/

@@ -31,7 +31,7 @@ if($interest_array!=NULL){
     $result = mysqli_query($link,$sql); // 執行SQL查詢
     $total_fields=mysqli_num_fields($result); // 取得欄位數
     $number_of_row=mysqli_num_rows($result); // 取得記錄數
-    $totalCount = ceil($number_of_row/3)*3;
+    $totalCount = ceil($number_of_row/4)*4;
     if ($number_of_row==0){
         echo '<table><tr><th colspan="4"><p style="font-size:20px;">您目前沒有追蹤任何商品</p></th></tr></table>';
         }
@@ -44,10 +44,10 @@ if($interest_array!=NULL){
 
             if($row = mysqli_fetch_array($result)) {
                     echo '<td class="col-xs-9 col-md-3 col-md-offset-1">
-                          <div class="item_wrapper">
+                          <div class="item_wrapper" >
                           <div class="item_title">'.$row[name].'</div>
                           <a href="show_item_detail.php?id='.$row[id].'">
-                          <div class="item_img_wrapper" style="background:url(Picture/'.$row[filename].'_1.jpg) no-repeat center center; background-size:230px"></div></a>
+                          <div class="item_img_wrapper" style="background:url(Picture/'.$row[filename].'_1.jpg) no-repeat center center; background-size:100%"></div></a>
                           <div class="item_value">出價金額: $'.$row[price].'</div>
                           <div>上架日期: '.$row[date].'</div>
                           <div><center>
@@ -57,11 +57,11 @@ if($interest_array!=NULL){
                           <input type="hidden" name="id" value="'.$row[id].'"/></center></form>
                           </div></td>';
             }
-            else {
-                    echo '</div><td style="width:230px"></td>';
-            }
+        else{
+          echo "<td class=\"col-xs-9 col-md-3 col-md-offset-1\"></td>";
+        }
 
-            if($k%4 == 3) { echo '</tr><tr><td style="height: 20px;"></td></tr>'; }
+            if($k%4 == 3) { echo '</tr>'; }
 
     }
 
@@ -75,7 +75,7 @@ if($interest_array!=NULL){
         echo '<table><tr><td>&nbsp;</td></tr><tr><th colspan="4"><p style="font-size:20px;">您目前沒有追蹤任何徵求</p></th></tr></table>';
         }
     else{
-    echo '<table><tr><td>&nbsp;</td></tr><tr><th colspan="4"><p style="font-size:20px;">追蹤需求一覽</p></th></tr>';
+    echo '<table style="margin-top:20px"><tr><th colspan="4"><p style="font-size:20px;">追蹤需求一覽</p></th></tr>';
 
     for($k = 0; $k < $totalCount; $k ++) {
 
@@ -95,11 +95,11 @@ if($interest_array!=NULL){
                           <input type="hidden" name="id" value="'.$row2[id].'"/></center></form>
                           </div></td>';
             }
-            else {
-                    echo '</div><td style="width:230px"></td>';
-            }
+        else{
+          echo "<td class=\"col-xs-9 col-md-3 col-md-offset-1\"></td>";
+        }
 
-            if($k%4 == 3) { echo '</tr><tr><td style="height: 20px;"></td></tr>'; }
+            if($k%4 == 3) { echo '</tr>'; }
 
     }
 

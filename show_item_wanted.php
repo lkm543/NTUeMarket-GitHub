@@ -134,7 +134,7 @@
             if($k%3 == 0) { echo '<tr class="row item_list_row">'; }
 
             if($row = mysqli_fetch_array($result2)) {
-                    echo '<td class="col-xs-9 col-md-3 col-md-offset-1" style="width:285px;">
+                    echo '<td class="col-xs-9 col-md-4 col-md-offset-1">
                           <div class="item_wrapper">
                           <a href="show_wanted_detail.php?id='.$row['id'].'"><div class="item_title" style="min-height: 30px;">'.$row[name].'</div></a>
                           <div>需求描述：'.$row[detail].'</div>

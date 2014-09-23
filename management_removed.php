@@ -42,8 +42,8 @@ for($k = 0; $k < $totalCount; $k ++) {
                   </center></div></form>
                   </div></td>';
         }
-        else {
-            echo '<td style="width:230px"></td>';
+                else{
+          echo "<td class=\"col-xs-9 col-md-4 col-md-offset-1\"></td>";
         }
 
         if($k%3 == 2) { echo '</tr>'; }
@@ -64,7 +64,7 @@ for($k = 0; $k < $totalCount2; $k ++) {
         if($k%3 == 0) { echo '<tr class="row">'; }
 
         if($row2= mysqli_fetch_array($result2)) {
-            echo '<td class="col-xs-9 col-md-4 col-md-offset-1"><center>
+            echo '<td class="col-xs-9 col-md-4 col-md-offset-1">
                   <div class="item_wrapper">
                   <div>'.$row2[name].'</div>
                   <div>出價金額: $'.$row2[price].'</div>
@@ -75,10 +75,10 @@ for($k = 0; $k < $totalCount2; $k ++) {
                   <input type="submit" class="btn btn-info" value="恢復上架">
                   <input type="hidden" name="id" value="'.$row2[id].'"/>
                   </center></div></form>
-                  </div></center></td>';
+                  </div></td>';
         }
-        else {
-            echo '<td style="width:230px"></td>';
+                else{
+          echo "<td class=\"col-xs-9 col-md-4 col-md-offset-1\"></td>";
         }
 
         if($k%3 == 2) { echo '</tr>'; }

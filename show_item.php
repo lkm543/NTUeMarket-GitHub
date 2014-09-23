@@ -191,7 +191,7 @@ for($k = 0; $k < $totalCount; $k ++) {
         if($k%3 == 0) { echo '<tr class="row">'; }
 
         if($row = mysqli_fetch_array($result2)) {
-                echo '<td class="col-xs-9 col-md-3 col-md-offset-1">
+                echo '<td class="col-xs-9 col-md-4 col-md-offset-1">
                       <div class="item_wrapper">
                       <div class="item_title">'.$row[name].'</div>
                       <a href="show_item_detail.php?id='.$row[id].'"><div class="item_img_wrapper" style="background:url(Picture/'.$row[filename].'_1.jpg) no-repeat center center; background-size:230px"></div></a>

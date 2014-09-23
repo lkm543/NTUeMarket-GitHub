@@ -31,7 +31,7 @@ echo '<table align=left>';
           echo '<td class="col-xs-9 col-md-4 col-md-offset-1">
                   <div class="item_wrapper" style="min-width:240px;">
                   <form action="management_wanted_database.php" method="post" style="max-width:360px">
-                    <table class="manage_item_table">
+                    <table class="manage_item_table" width="100%">
                       <tr>
                         <td style="min-width:35px">名稱</td>
                         <td>
@@ -86,6 +86,9 @@ echo '<table align=left>';
                   </form>
                   </div>
                 </td>';
+        }
+                else{
+          echo "<td class=\"col-xs-9 col-md-4 col-md-offset-1\"></td>";
         }
 
         if($k%3 == 2) {

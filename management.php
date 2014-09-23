@@ -1,6 +1,5 @@
 <? include("header.php");?>
 	<div id="main">
-    <center>
         <div class="row">
             <div class="col-md-1">
        		   </div>
@@ -35,10 +34,10 @@ $total_records=mysqli_num_rows($result);  // 取得記錄數
         if($k%3 == 0) { echo '<tr class="row">'; }
 
         if($row = mysqli_fetch_array($result)) {
-            echo '<td class="col-xs-9 col-md-4 col-md-offset-1"><center>
+            echo '<td class="col-xs-9 col-md-4 col-md-offset-1">
                     <div class="item_wrapper" style="margin-bottom:20px">
                     <form action="management_database.php" method="post" style="max-width:360px">
-                      <table class="manage_item_table">
+                      <table class="manage_item_table" width="100%">
                         <tr>
                           <td colspan="2">
                             <div class="item_img_wrapper" style="background:url(Picture/'.$row[filename].'_1.jpg) no-repeat center center; background-size:230px"></div>
@@ -82,9 +81,7 @@ $total_records=mysqli_num_rows($result);  // 取得記錄數
                             <option value="textbook" <?php if ($row[sort]=="textbook") echo 'selected="selected"';?>>教科書</option>
                             <option value="else" <?php if ($row[sort]=="else") echo 'selected="selected"';?>>其他</option>
                             <?php 
-                    echo '</select></td></tr>';
-
-                  echo '<tr>
+                    echo '</select></td></tr><tr>
                           <td colspan="2">
                             <center><input type="submit" value="修改" class="btn btn-success">
                             <input type="hidden" value="item" name="type">
@@ -93,8 +90,11 @@ $total_records=mysqli_num_rows($result);  // 取得記錄數
                         </tr>
                       </table>
                     </form>
-                    </div></center
+                    </div>
                   </td>';
+        }
+        else{
+          echo "<td class=\"col-xs-9 col-md-4 col-md-offset-1\"></td>";
         }
 
         if($k%3 == 2) {
@@ -106,7 +106,6 @@ $total_records=mysqli_num_rows($result);  // 取得記錄數
 
         </div>
         </div>
-       </center>
 	</div><!-- // end #main -->
 </div>
 <? include("footer.php");?>

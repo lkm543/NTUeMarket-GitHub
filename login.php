@@ -10,12 +10,7 @@ if (isset($_SESSION['MM_Username'])){
 
   ?>
 
-  <br>
-
-  <br>
-
-  <br>
-
+<center><span style="color:#5f5f5f;font-size:20px;font-weight:bold;"><?php if ($notice!=NULL) echo $notice; else echo"<br><br>";?></span></center>
   <div class="row" style="padding-bottom: 80px">
 
     <div class="col-md-3 col-md-offset-2" style="margin-top:80px; min-width:300px; padding:0px 50px">

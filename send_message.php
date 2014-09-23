@@ -98,32 +98,13 @@ if (isset($_SESSION['MM_Username'])){
           <div class="col-md-2"></div>
 
       </div></center>
+</div><!-- // end #main -->
 
   <?php
 
-}else{  ?>
-  <div class="row">
-    <div class="col-md-3 col-md-offset-5" style="text-align:left; margin-top:10px;">
-    <?php  echo '<center><p style="color:#5f5f5f;font-size:20px;font-weight:bold;">您尚未登入，請先<a href="login.php">註冊</a>或登入。</p></center>';?>
-      <form action="login_check.php" method="post" name="registration" >
-        <div class="form-group">
-          <label for="Account">帳戶名稱</label>
-          <input type="text" class="form-control" name="username" placeholder="請輸入帳戶名稱">
-        </div>
-        <div class="form-group">
-          <label for="password">用戶密碼</label>
-          <input type="password" class="form-control" name="password" placeholder="請輸入用戶密碼">
-        </div>
-        <div class="form-group">
-        <center>
-        <button type="submit" class="btn btn-default">Submit</button><br>
-        <a href="fbconfig.php"><img src="images/fbsignin.png" width="80%" style="margin-top:10px;"></a>
-        </center>
-        </div>
-      </form>
-    </div>
-  </div>
-<?php } ?>
-</div><!-- // end #main -->
+}else{  
+$notice="您尚未登入，請註冊或登入以啟用此功能。";
+include_once("login.php");
+} ?>
 
 <?php include("footer.php");?>

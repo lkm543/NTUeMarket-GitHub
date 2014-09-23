@@ -113,8 +113,9 @@ else{
     <label for="password">用戶密碼</label>
     <input type="password" class="form-control" name="password" placeholder="請輸入用戶密碼">
   </div>
-  <button type="submit" class="btn btn-default">Submit</button>
+  <center><button type="submit" class="btn btn-default">Submit</button></center>
 </form>
+<div style="text-align:center;margin-top:20px;"><a href="fbconfig.php"><img src="images/fbsignin.png" width="90%"></a></div>
 </div>
 <?php 
 }

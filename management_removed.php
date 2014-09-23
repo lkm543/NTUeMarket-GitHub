@@ -22,13 +22,13 @@ $total_fields=mysqli_num_fields($result); // 取得欄位數
 $number_of_row=mysqli_num_rows($result); // 取得記錄數
 $totalCount = ceil($number_of_row/3)*3;
 if($number_of_row!=0){//有東西
-echo "<table><tr><th colspan=\"4\">已下架商品</th></tr>";
+echo "<table><tr><th colspan=\"3\">已下架商品</th></tr>";
 for($k = 0; $k < $totalCount; $k ++) {
 
         if($k%3 == 0) { echo '<tr class="row">'; }
 
         if($row = mysqli_fetch_array($result)) {
-            echo '<td class="col-xs-9 col-md-3 col-md-offset-1">
+            echo '<td class="col-xs-9 col-md-4 col-md-offset-1">
                   <div class="item_wrapper">
                   <div>'.$row[name].'</div>
                   <div>出價金額: $'.$row[price].'</div>
@@ -61,16 +61,24 @@ if($number_of_row2!=0){//有東西
 echo "<table><tr><th colspan=\"3\">已停止徵求</th></tr>";
 for($k = 0; $k < $totalCount2; $k ++) {
 
-        if($k%3 == 0) { echo '<tr>'; }
+        if($k%3 == 0) { echo '<tr class="row">'; }
 
-        if($row2 = mysqli_fetch_array($result2)) {
-                echo '<td><table><form action="recover_item.php" method="post"><tr><td style="width:230px">'.$row2[name].
-                     '</td></tr><tr><td>'.$row2[detail].'</td></tr><tr><td>'.$row2[price].
-                     '</td></tr><tr><td>'.$row2["date"].
-					 '</td></tr><tr><td><center><input type="hidden" value="want" name="type"><input type="submit" class="btn btn-default" value="繼續徵求"><input type="hidden" name="id" value="'.$row2['id'].'"/></center></td></tr></form></table></td>';
+        if($row2= mysqli_fetch_array($result2)) {
+            echo '<td class="col-xs-9 col-md-4 col-md-offset-1"><center>
+                  <div class="item_wrapper">
+                  <div>'.$row2[name].'</div>
+                  <div>出價金額: $'.$row2[price].'</div>
+                  <div>上架日期: '.$row2[date].'</div>
+                  <form action="recover_item.php" method="post">
+                  <div><center>
+                  <input type="hidden" value="want" name="type">
+                  <input type="submit" class="btn btn-info" value="恢復上架">
+                  <input type="hidden" name="id" value="'.$row2[id].'"/>
+                  </center></div></form>
+                  </div></center></td>';
         }
         else {
-                echo '<td style="width:230px"></td>';
+            echo '<td style="width:230px"></td>';
         }
 
         if($k%3 == 2) { echo '</tr>'; }

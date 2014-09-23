@@ -35,7 +35,7 @@ $total_records=mysqli_num_rows($result);  // 取得記錄數
         if($k%3 == 0) { echo '<tr class="row">'; }
 
         if($row = mysqli_fetch_array($result)) {
-            echo '<td class="col-xs-9 col-md-3">
+            echo '<td class="col-xs-9 col-md-4 col-md-offset-1"><center>
                     <div class="item_wrapper" style="margin-bottom:20px">
                     <form action="management_database.php" method="post" style="max-width:360px">
                       <table class="manage_item_table">
@@ -93,7 +93,7 @@ $total_records=mysqli_num_rows($result);  // 取得記錄數
                         </tr>
                       </table>
                     </form>
-                    </div>
+                    </div></center
                   </td>';
         }
 

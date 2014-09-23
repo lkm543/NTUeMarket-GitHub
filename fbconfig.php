@@ -16,7 +16,6 @@ function checkuser($fuid,$funame,$ffname,$femail){
   $check = mysqli_query($link,"select * from member where username='$fuid'");
  $row = mysqli_fetch_array($check);
  $_SESSION['MM_UserID'] = $row[id];
- $_SESSION['MM_UserID'] = $ffname;
   //echo $success,$check,$fuid,$funame,$ffname,$femail;
 }
 

@@ -42,7 +42,7 @@ if (isset($_SESSION['MM_Username'])){
 
           //1 普通 2 刪除
 
-          $sql = "select m.username as receiver, msg.* from member m, message msg where m.id = msg.to and msg.from='$user_ID' and sender_status=1 order by msg.id desc";
+          $sql = "select m.username as receiver, msg.* from member m, message msg where m.id = msg.to and msg.from='$user_id' and sender_status=1 order by msg.id desc";
           $result = mysqli_query($link,$sql);
 
           $id=$_GET["id"];

@@ -17,19 +17,17 @@
 	$result = mysqli_query($link,$query); // 執行SQL查詢引
 	$row = mysqli_fetch_array($result);
 	$number= mysqli_num_rows($result);
-	// echo $number;
+	//echo "here".$username."id".$user_id."re".$receiver."sub".$subject."con".$content."number".$number;
 	if($result){
 		if($number==1){
 			$sql = "insert into `message` (`from`,`to`,`subject`,`body`,`date`) values('$user_id','".$row[receiver_id]."','$subject','$content','$currtimestr')";
-
 			if($sucess=mysqli_query ($link,$sql)){
 					header("Location: message_inbox.php");
 			}else{
 				?><script type="text/javascript" text="javascript">
 					alert("Error sending message to ".<?php echo $receiver; ?>.", please try again later.");
 					</script><?php
-			}
-		}else{
+		}}else{
 
 			$notice="查無此收件者";
 

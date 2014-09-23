@@ -25,7 +25,7 @@ if($interest_array!=NULL){
        }
     }
   
-    $sql = "select * from item_forsell where status=1 and `id` in (".implode(",",$interest_forsell).")"; //在test資料表中選擇所有欄位
+    $sql = "select * from item_forsell where status=1 and `id` in (".implode(",",$interest_forsell).")"; 
     //test用
     //echo implode(",",$interest_array);
     $result = mysqli_query($link,$sql); // 執行SQL查詢
@@ -66,7 +66,7 @@ if($interest_array!=NULL){
     }
 
     echo "</table>";}
-    $sql = "select * from item_wanted where status=1 and `id` in (".implode(",",$interest_wanted).")"; //在test資料表中選擇所有欄位
+    $sql = "select * from item_wanted where status=1 and `id` in (".implode(",",$interest_wanted).")"; 
     $result2 = mysqli_query($link,$sql); // 執行SQL查詢
     $total_fields=mysqli_num_fields($result2); // 取得欄位數
     $number_of_row=mysqli_num_rows($result2); // 取得記錄數

@@ -21,7 +21,7 @@
 	if($result){
 		if($number==1){
 			$sql = "insert into `message` (`from`,`to`,`subject`,`body`,`date`) values('$user_id','".$row[receiver_id]."','$subject','$content','$currtimestr')";
-			if($sucess=mysqli_query ($link,$sql)){
+			if($success=mysqli_query ($link,$sql)){
 					header("Location: message_inbox.php");
 			}else{
 				?><script type="text/javascript" text="javascript">

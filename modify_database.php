@@ -36,9 +36,9 @@ if ($password1!=null&$password1==$password2)
 
 	$password = md5($password1);
 
-	$sucess = mysqli_query ($link,"update member set password='$password' where username='$username'");
+	$success = mysqli_query ($link,"update member set password='$password' where username='$username'");
 
-	if($sucess){
+	if($success){
 
 		$notice="密碼修改成功";
 

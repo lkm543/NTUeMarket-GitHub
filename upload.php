@@ -13,7 +13,7 @@ $checkSize = "";
 $checkmsg = "";
 $file_name = "";
 $fileRenamed = "";
-$sucessUpload = false;
+$successUpload = false;
 $errorFiles = "";
 
 if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
@@ -22,7 +22,7 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
 
 		if ($_FILES['files']['error'][$f] == 4) {
 			$file_name = strtolower($file_name);
-			$sucessUpload = false;
+			$successUpload = false;
 			$errorFiles .= $_FILES['files']['name'][$f].",";
 		    continue; // Skip file if any error found
 		}
@@ -77,41 +77,35 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
 			$height = imagesy($image) * $ratio; 
 			$new_image = imagecreatetruecolor($resized_img_width, $height);
 			imagecopyresampled($new_image, $image, 0, 0, 0, 0, $resized_img_width, $height, imagesx($image), imagesy($image));
-			$sucessUpload = imagejpeg($new_image,$folderPath.$file_name.".jpg");
+			$successUpload = imagejpeg($new_image,$folderPath.$file_name.".jpg");
 			$checkSize = "ok";
 
-			if($sucessUpload)
+			if($successUpload)
 				$count++;	
 
 		}
 
 	}
 
-	if($sucessUpload && $count>=1){
+	if($successUpload && $count>=1){
 
 		// mySQL資料庫
 		session_start();
 		$username=$_SESSION['MM_Username'];
+		$user_id=$_SESSION['MM_UserID'];
 		$currtimestr=date("Y-m-d h:i:s"); 
 		include_once("mysql_info.php");
 
-		$sql = "select id from member where username = '$username'";
-		$result = mysqli_query($link,$sql);
-		$row = mysqli_fetch_array($result);
-		$user_id = $row['id'];
+		// $sql = "select id from member where username = '$username'";
+		// $result = mysqli_query($link,$sql);
+		// $row = mysqli_fetch_array($result);
+		// $user_id = $row['id'];
 
-		$sucess = mysqli_query ($link,"insert into item_forsell(name,detail,price,method,sort,filename,img_count,date,owner,msg_welcome,phone,contact_email)
+		$success = mysqli_query ($link,"insert into item_forsell(name,detail,price,method,sort,filename,img_count,date,owner,msg_welcome,phone,contact_email)
 
 			values('$_POST[name]','$_POST[detail]','$_POST[price]','$_POST[method]','$_POST[sort]','$fileRenamed','$count','$currtimestr','$user_id','$_POST[message]','$_POST[phone]','$_POST[contact_email]')");
 
-		 $sql2="select * from backend";
-		 $result2 = mysqli_query($link,$sql2); // 執行SQL查詢
-		 $row2 = mysqli_fetch_array($result2);
-		 $id_old=$row2['id'];
-		 $id2=$row2['id']+1;
-		 mysqli_query ($link,"update backend set id='$id2' where id='$id_old'");
-
-		if(!$sucess){
+		if(!$success){
 			echo '<pre>';
 			printf("Failed to insert into database.");
 			echo '</pre>';

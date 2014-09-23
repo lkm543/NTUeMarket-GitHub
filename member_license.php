@@ -32,15 +32,15 @@ if($license_code_email==$license_code_database){
 
 	if(!$status==1){
 
-		$sucess = mysqli_query ($link,"update member set active=1 where email = '$email'");
+		$success = mysqli_query ($link,"update member set active=1 where email = '$email'");
 
-		if($sucess){
+		if($success){
 
 			$_SESSION['MM_Username']=$username;?>
 
 			<script type="text/javascript" language="javascript">
 
-			alert("Verification sucess! Account activated.");
+			alert("Verification success! Account activated.");
 
 			</script>
 

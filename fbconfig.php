@@ -13,7 +13,7 @@ function checkuser($fuid,$funame,$ffname,$femail){
   $success=mysqli_query($link,$query);
   $success.="update";
   }
-  $check = mysqli_query($link,"select * from member where username='$fuid'");
+  $check = mysqli_query($link,"select id from member where username='$fuid'");
  $row = mysqli_fetch_array($check);
  $_SESSION['MM_UserID'] = $row[id];
   //echo $success,$check,$fuid,$funame,$ffname,$femail;

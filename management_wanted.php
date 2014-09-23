@@ -21,11 +21,11 @@ $sql = "select m.id, m.username, i.* from member m, item_wanted i where m.id = i
 $result = mysqli_query($link,$sql); // 執行SQL查詢
 $total_fields=mysqli_num_fields($result); // 取得欄位數
 $total_records=mysqli_num_rows($result);  // 取得記錄數
-$totalCount = ceil($total_records/4)*4;
+$totalCount = ceil($total_records/3)*3;
 echo '<table align=left>';
   for($k = 0; $k < $totalCount; $k ++) {
 
-        if($k%4 == 0) { echo '<tr class="row">'; }
+        if($k%3 == 0) { echo '<tr class="row">'; }
 
         if($row = mysqli_fetch_array($result)) {
           echo '<td class="col-xs-9 col-md-3">
@@ -88,7 +88,7 @@ echo '<table align=left>';
                 </td>';
         }
 
-        if($k%4 == 3) {
+        if($k%3 == 2) {
           echo '</tr>';
         }
   }

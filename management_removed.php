@@ -55,13 +55,13 @@ $sql2 = "select m.id, m.username, i.* from member m, item_wanted i where m.id = 
 $result2 = mysqli_query($link,$sql2); // 執行SQL查詢
 $total_fields2=mysqli_num_fields($result2); // 取得欄位數
 $number_of_row2=mysqli_num_rows($result2); // 取得記錄數
-$totalCount2 = ceil($number_of_row2/4)*4;
+$totalCount2 = ceil($number_of_row2/3)*3;
 //echo "number".$number_of_row2;
 if($number_of_row2!=0){//有東西
-echo "<table><tr><th colspan=\"4\">已停止徵求</th></tr>";
+echo "<table><tr><th colspan=\"3\">已停止徵求</th></tr>";
 for($k = 0; $k < $totalCount2; $k ++) {
 
-        if($k%4 == 0) { echo '<tr>'; }
+        if($k%3 == 0) { echo '<tr>'; }
 
         if($row2 = mysqli_fetch_array($result2)) {
                 echo '<td><table><form action="recover_item.php" method="post"><tr><td style="width:230px">'.$row2[name].
@@ -73,7 +73,7 @@ for($k = 0; $k < $totalCount2; $k ++) {
                 echo '<td style="width:230px"></td>';
         }
 
-        if($k%4 == 3) { echo '</tr>'; }
+        if($k%3 == 2) { echo '</tr>'; }
 
 }
 echo "</table>";}

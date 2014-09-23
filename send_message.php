@@ -101,11 +101,10 @@ if (isset($_SESSION['MM_Username'])){
 
   <?php
 
-}else{
-  echo '<center><p style="color:red">您尚未登入，請先註冊或登入。</p></center>';
-  ?>
+}else{  ?>
   <div class="row">
-    <div class="col-md-5 col-md-offset-4" style="text-align:left; margin-top:30px;">
+    <div class="col-md-3 col-md-offset-5" style="text-align:left; margin-top:10px;">
+    <?php  echo '<center><p style="color:#5f5f5f;font-size:20px;font-weight:bold;">您尚未登入，請先<a href="login.php">註冊</a>或登入。</p></center>';?>
       <form action="login_check.php" method="post" name="registration" >
         <div class="form-group">
           <label for="Account">帳戶名稱</label>
@@ -115,8 +114,12 @@ if (isset($_SESSION['MM_Username'])){
           <label for="password">用戶密碼</label>
           <input type="password" class="form-control" name="password" placeholder="請輸入用戶密碼">
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-        <a href="fbconfig.php"><img src="images/fbsignin.png" style="padding-left:30px" width="50%"></a>
+        <div class="form-group">
+        <center>
+        <button type="submit" class="btn btn-default">Submit</button><br>
+        <a href="fbconfig.php"><img src="images/fbsignin.png" width="80%" style="margin-top:10px;"></a>
+        </center>
+        </div>
       </form>
     </div>
   </div>

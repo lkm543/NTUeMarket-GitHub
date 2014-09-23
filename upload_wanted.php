@@ -34,8 +34,8 @@ if($row[active]==1){
   <table border="0" id="upload_table">
     <tr>
       <td>需求商品名稱</td>
-      <td width="300"><input type="text" pattern=".{1,15}" name="name" id="name" class="form-control"></td>
-      <td>(1-15字)</td>
+      <td width="300"><input type="text" pattern=".{1,20}" name="name" id="name" class="form-control"></td>
+      <td>(1-20字)</td>
     </tr>
     <tr>
       <td>描述</td>
@@ -101,11 +101,12 @@ if($row[msg_welcome]==2)
 else{
   echo "<center>您的帳號尚未啟用，請至信箱收取驗證信。</center>";
 }
-}else{
-	echo '<center><p style="color:red">您尚未登入，請先註冊或登入。</p></center>';?>
-  <div class="col-md-5 col-md-offset-4" style="text-align:left; margin-top:30px;">
+}else{?>
+	 <div class="col-md-5 col-md-offset-4" style="text-align:left;">
+<?php  echo '<center><p style="color:#5f5f5f;font-size:20px;font-weight:bold;">您尚未登入，請先<a href="login.php">註冊</a>或登入。</p></center>';?>
+
 <form action="login_check.php" method="post" name="registration" >
-  <div class="form-group">
+  <div class="form-group" style="margin-top:30px;">
     <label for="Account">帳戶名稱</label>
     <input type="text" class="form-control" name="username" placeholder="請輸入帳戶名稱">
   </div>

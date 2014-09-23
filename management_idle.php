@@ -21,11 +21,11 @@ $sql = "select m.id, m.username, i.* from member m, item_forsell i where m.id = 
 $result = mysqli_query($link,$sql); // 執行SQL查詢
 $total_fields=mysqli_num_fields($result); // 取得欄位數
 $number_of_row=mysqli_num_rows($result); // 取得記錄數
-$totalCount = ceil($number_of_row/4)*4;
-echo "<table><tr><th colspan=\"4\"></th></tr>";
+$totalCount = ceil($number_of_row/3)*3;
+echo "<table><tr><th colspan=\"3\"></th></tr>";
 for($k = 0; $k < $totalCount; $k ++) {
 
-        if($k%4 == 0) { echo '<tr>'; }
+        if($k%3 == 0) { echo '<tr>'; }
 
         if($row = mysqli_fetch_array($result)) {
                 echo '<td><table><form action="recover_item.php" method="post"><tr><td style="width:230px">'.$row[name].
@@ -37,7 +37,7 @@ for($k = 0; $k < $totalCount; $k ++) {
                 echo '<td style="width:230px"></td>';
         }
 
-        if($k%4 == 3) { echo '</tr>'; }
+        if($k%3 == 2) { echo '</tr>'; }
 
 }
 echo "</table>";
@@ -48,10 +48,10 @@ $result = mysqli_query($link,$sql); // 執行SQL查詢
 $total_fields=mysqli_num_fields($result); // 取得欄位數
 $number_of_row=mysqli_num_rows($result); // 取得記錄數
 
-echo "<table><tr><th colspan=\"4\"></th></tr>";
+echo "<table><tr><th colspan=\"3\"></th></tr>";
 for($k = 0; $k < $totalCount; $k ++) {
 
-        if($k%4 == 0) { echo '<tr>'; }
+        if($k%3 == 0) { echo '<tr>'; }
 
         if($row = mysqli_fetch_array($result)) {
                 echo '<td><table><form action="recover_item.php" method="post"><tr><td style="width:230px">'.$row[name].
@@ -63,7 +63,7 @@ for($k = 0; $k < $totalCount; $k ++) {
                 echo '<td style="width:230px"></td>';
         }
 
-        if($k%4 == 3) { echo '</tr>'; }
+        if($k%3 == 2) { echo '</tr>'; }
 
 }
 echo "</table>";

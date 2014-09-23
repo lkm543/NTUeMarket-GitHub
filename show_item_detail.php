@@ -253,7 +253,7 @@ $row = mysqli_fetch_array($result);
           </td>
 
         </tr>
-          <td colspan="2" style="text-align:center">
+          <td colspan="2" style="text-align:center;border-bottom:0px;">
             <form action="send_message.php" method="post">
             <input type="hidden" name="item_type" value="sell">
             <input type="hidden" id="receiver" name="receiver" value="<?php echo $row[username];?>">

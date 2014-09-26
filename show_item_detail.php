@@ -32,7 +32,11 @@
 
           </div>
 
-          <p><button type="submit" class="btn btn-default">Submit</button></p>
+          <p>
+            <button type="submit" class="btn btn-default">
+              Submit
+            </button>
+          </p>
 
         </form>
 
@@ -40,252 +44,238 @@
 
           <tr><td onClick="location.href='show_item_wanted.php'"><center>需求總覽</center></td></tr>
 
-          <tr><td class="active" onClick="location.href='show_item.php'"><center>商品總覽</center></td></tr></table>
+          <tr><td class="active" onClick="location.href='show_item.php'"><center>商品總覽</center></td></tr>
+        </table>
 
-          <table width="100%">
+        <table width="100%">
 
-            <tr><td>
+          <tr><td>
 
-              <table class="table table-hover" width="100%" style="margin:0 0 0 0">
+            <table class="table table-hover" width="100%" style="margin:0 0 0 0">
+
+              <tr><td <?php 
+
+                if($sort=="life")
+
+                  echo "class=\"success\" ";
+
+                ?>onClick="location.href='show_item.php?sort=life'"><center>生活用品</center></td></tr>
 
                 <tr><td <?php 
 
-                  if($sort=="life")
+                  if($sort=="clothes")
 
                     echo "class=\"success\" ";
 
-                  ?>onClick="location.href='show_item.php?sort=life'"><center>生活用品</center></td></tr>
+                  ?>onClick="location.href='show_item.php?sort=clothes'"><center>&nbsp;&nbsp;衣&nbsp;&nbsp;&nbsp;物&nbsp;&nbsp;</center></td></tr>
 
                   <tr><td <?php 
 
-                    if($sort=="clothes")
+                    if($sort=="bike")
 
                       echo "class=\"success\" ";
 
-                    ?>onClick="location.href='show_item.php?sort=clothes'"><center>&nbsp;&nbsp;衣&nbsp;&nbsp;&nbsp;物&nbsp;&nbsp;</center></td></tr>
+                    ?>onClick="location.href='show_item.php?sort=bike'"><center>&nbsp;腳&nbsp;踏&nbsp;車&nbsp;</center></td></tr>
 
                     <tr><td <?php 
 
-                      if($sort=="bike")
+                      if($sort=="book")
 
                         echo "class=\"success\" ";
 
-                      ?>onClick="location.href='show_item.php?sort=bike'"><center>&nbsp;腳&nbsp;踏&nbsp;車&nbsp;</center></td></tr>
+                      ?>onClick="location.href='show_item.php?sort=book'"><center>課外讀物</center></td></tr></table>
 
-                      <tr><td <?php 
+                    </td>
 
-                        if($sort=="book")
+                    <td>
 
-                          echo "class=\"success\" ";
+                      <table class="table table-hover" width="100%" style="margin:0 0 0 0">
 
-                        ?>onClick="location.href='show_item.php?sort=book'"><center>課外讀物</center></td></tr></table>
+                        <tr><td <?php 
 
-                      </td>
+                          if($sort=="stationary")
 
-                      <td>
+                            echo "class=\"success\" ";
 
-                        <table class="table table-hover" width="100%" style="margin:0 0 0 0">
+                          ?>onClick="location.href='show_item.php?sort=stationary'"><center>&nbsp;&nbsp;文&nbsp;&nbsp;&nbsp;具&nbsp;&nbsp;
+
+                        </center></td></tr>
+
+                        <tr><td <?php 
+
+                          if($sort=="3c")
+
+                            echo "class=\"success\" ";
+
+                          ?>onClick="location.href='show_item.php?sort=3c'"><center>&nbsp;&nbsp;3C產品&nbsp;</center></td></tr>
 
                           <tr><td <?php 
 
-                            if($sort=="stationary")
+                            if($sort=="textbook")
 
                               echo "class=\"success\" ";
 
-                            ?>onClick="location.href='show_item.php?sort=stationary'"><center>&nbsp;&nbsp;文&nbsp;&nbsp;&nbsp;具&nbsp;&nbsp;
-
-                          </center></td></tr>
-
-                          <tr><td <?php 
-
-                            if($sort=="3c")
-
-                              echo "class=\"success\" ";
-
-                            ?>onClick="location.href='show_item.php?sort=3c'"><center>&nbsp;&nbsp;3C產品&nbsp;</center></td></tr>
+                            ?>onClick="location.href='show_item.php?sort=textbook'"><center>&nbsp;&nbsp;教科書&nbsp;&nbsp;</center></td></tr>
 
                             <tr><td <?php 
 
-                              if($sort=="textbook")
+                              if($sort=="else")
 
                                 echo "class=\"success\" ";
 
-                              ?>onClick="location.href='show_item.php?sort=textbook'"><center>&nbsp;&nbsp;教科書&nbsp;&nbsp;</center></td></tr>
+                              ?>onClick="location.href='show_item.php?sort=else'"><center>&nbsp;&nbsp;其&nbsp;&nbsp;&nbsp;他&nbsp;&nbsp;</center></td></tr>
 
-                              <tr><td <?php 
+                            </table>
 
-                                if($sort=="else")
+                          </td></tr>
 
-                                  echo "class=\"success\" ";
+                        </table>
 
-                                ?>onClick="location.href='show_item.php?sort=else'"><center>&nbsp;&nbsp;其&nbsp;&nbsp;&nbsp;他&nbsp;&nbsp;</center></td></tr>
+                      </div>
 
-                              </table>
+                    </div>
 
-                            </td></tr></table>
+                    <div class="col-md-9">
 
-                          </div>
+                      <?php 
 
-                        </div>
-
-                        <div class="col-md-9">
-
-                          <?php 
-
-                          session_start();
+                      session_start();
 
 //若無，則為加入興趣清單時未登入的回傳
 
-                          if($_GET['id']!=NULL){
+                      if($_GET['id']!=NULL){
 
-                           $id=$_GET['id'];}
+                       $id=$_GET['id'];}
 
-                           include_once("mysql_info.php");
+                       include_once("mysql_info.php");
 
-                           $sql = "select m.id, m.username, i.* from member m, item_forsell i where i.owner = m.id and i.id='$id'";
+                       $sql = "select m.id, m.username, i.* from member m, item_forsell i where i.owner = m.id and i.id='$id'";
 
 $result = mysqli_query($link,$sql); // 執行SQL查詢
 
 $row = mysqli_fetch_array($result);
 
-?><center>
+?>
+<center>
+  <div class="row">
+    <div class="col-md-9 col-md-offset-1">
+        <div style="margin:20px 0px 5px 0px">
+          <font color="#FF0000" size="5">
+            <?php echo $notice;?>
+          </font>
+        </div>
+      <table id="item_info_table" >
 
-<div class="row">
+        <tr>
 
-  <div class="col-md-9 col-md-offset-1">
+          <td>商品名稱</td>
 
-    <center><div style="margin:20px 0px 5px 0px"><font color="#FF0000" size="5"><?php echo $notice;?></font></div></center>
-
-    <table id="item_info_table" >
-
-      <tr>
-
-        <td style="width:144px">帳號</td>
-
-        <td style="width:288px"><?php echo $row[username];?></td>
-
-      </tr>
-
-      <tr>
-
-        <td>商品名稱</td>
-
-        <td><?php echo $row[name];?></td>
-
-      </tr>
-
-      <tr>
-
-        <td>商品描述</td>
-
-        <td><?php echo nl2br($row[detail]);?></td>
-
-      </tr>
-
-      <tr>
-
-        <td>商品價格</td>
-
-        <td><?php echo '$'.$row[price];?></td>
-
-      </tr>
-
-      <tr>
-
-        <td>交易方式</td>
-
-        <td><?php echo $row[method];?></td>
-
-      </tr>
-
-      <tr>
-
-        <td>聯絡email</td>
-
-        <td><?php echo $row[contact_email];?></td>
-
-      </tr>
-
-      <tr>
-
-        <td>手機</td>
-
-        <td><?php echo $row[phone];?></td>
-
-      </tr>
-
-      <tr>
-
-        <td>私人訊息</td>
-
-        <td><?php 
-
-          if($row[msg_welcome]==1)
-
-            {echo "歡迎私訊";} 
-
-          if($row[msg_welcome]==2)
-
-            {echo "不常用，以其他聯絡方式為主";}?></td>
+          <td><?php echo $row[name];?></td>
 
         </tr>
 
         <tr>
 
-          <td>上架日期</td>
+          <td>商品描述</td>
 
-          <td><?php echo $row[date];?></td>
+          <td><?php echo nl2br($row[detail]);?></td>
 
         </tr>
+
         <tr>
 
-          <td colspan="2"><?php 
-            $number=$row[img_count];
-            echo '<div style="display:inline-block">';
-            for($i=1;$i<=$number;$i++)
-            {
-              echo '<div class="item_thumb_wrapper" style="float:left; max-width:200px;margin:10px;border:solid 3px white;box-shadow:2px 2px 6px lightgray;border-radius:6px;"><a href="Picture/'.$row[filename].'_'.$i.'.jpg" data-lightbox-gallery="item-gallery" title="'.$row[name].'"><img src="Picture/'.$row[filename].'_'.$i.'.jpg" width="100%" class="img-rounded"></a></div>';
+          <td>商品價格</td>
+
+          <td><?php echo '$'.$row[price];?></td>
+
+        </tr>
+
+        <tr>
+
+          <td>交易方式</td>
+
+          <td><?php echo $row[method];?></td>
+
+        </tr>
+
+        <tr>
+
+          <td>聯絡email</td>
+
+          <td><?php echo $row[contact_email];?></td>
+
+        </tr>
+
+        <tr>
+
+          <td>手機</td>
+
+          <td><?php echo $row[phone];?></td>
+
+        </tr>
+
+        <tr>
+
+          <td>私人訊息</td>
+
+          <td><?php 
+
+            if($row[msg_welcome]==1)
+
+              {echo "歡迎私訊";} 
+
+            if($row[msg_welcome]==2)
+
+              {echo "不常用，以其他聯絡方式為主";}?></td>
+
+          </tr>
+
+          <tr>
+
+            <td>上架日期</td>
+
+            <td><?php echo $row[date];?></td>
+
+          </tr>
+          <tr>
+
+            <td colspan="2"><?php 
+              $number=$row[img_count];
+              echo '<div style="display:inline-block">';
+              for($i=1;$i<=$number;$i++)
+              {
+                echo '<div class="item_thumb_wrapper" style="float:left; max-width:200px;margin:10px;border:solid 3px white;box-shadow:2px 2px 6px lightgray;border-radius:6px;"><a href="Picture/'.$row[filename].'_'.$i.'.jpg" data-lightbox-gallery="item-gallery" title="'.$row[name].'"><img src="Picture/'.$row[filename].'_'.$i.'.jpg" width="100%" class="img-rounded"></a></div>';
 
               // echo '<a href="Picture/'.$row[filename].'_'.$i.'.jpg" data-lightbox-gallery="item-gallery" title="'.$row[name].'"><div style="background:url(Picture/'.$row[filename].'_'.$i.'.jpg) no-repeat center center; background-size:400px;><a href="Picture/'.$row[filename].'_'.$i.'.jpg"</div></a>';
-            }
-            echo '</div>';
-            ?>
+              }
+              echo '</div>';
+              ?>
+            </td>
+
+          </tr>
+          <td colspan="2" style="text-align:center;border-bottom:0px;">
+            <form action="send_message.php" method="post">
+              <input type="hidden" name="item_type" value="sell">
+              <input type="hidden" id="receiver" name="receiver" value="<?php echo $row[username];?>">
+              <input type="hidden" id="id" name="id" value="<?php echo $row[id];?>">
+              <input type="hidden" id="subject" name="subject" value="<?php echo $row[name];?>">
+              <input type="hidden" id="content" name="content" value="<?php echo "商品內容:".$row[name]."\n商品描述:".$row[detail]."\n商品價格:".$row[price]."\n交易方式:".$row[method]."\n聯絡email:".$row[contact_email]."\n手機:".$row[phone];?>">
+
+              <input type="submit" value="加到興趣清單" class="btn btn-success" formaction="add_interested.php" style="margin:0px 5px">
+              <input type="submit" value="丟私人訊息" class="btn btn-info" style="margin:0px 5px">
+              <input type="submit" value="回報已成交/閒置" formaction="report_idle.php" class="btn btn-warning" style="margin:0px 5px;">
+              <button class="fb-share-button btn btn-primary" style="width:100px;height:33px;margin:0px 5px;" data-href="http://collegebazaar.tw/show_item_detail.php?id=<?php echo $row[id];?>"></button>
+
+            </form>
           </td>
-
         </tr>
-        <td colspan="2" style="text-align:center;border-bottom:0px;">
-          <form action="send_message.php" method="post">
-            <input type="hidden" name="item_type" value="sell">
-            <input type="hidden" id="receiver" name="receiver" value="<?php echo $row[username];?>">
-            <input type="hidden" id="id" name="id" value="<?php echo $row[id];?>">
-            <input type="hidden" id="subject" name="subject" value="<?php echo $row[name];?>">
-            <input type="hidden" id="content" name="content" value="<?php echo "商品內容:".$row[name]."\n商品描述:".$row[detail]."\n商品價格:".$row[price]."\n交易方式:".$row[method]."\n聯絡email:".$row[contact_email]."\n手機:".$row[phone];?>">
-            
-            <input type="submit" value="加到興趣清單" class="btn btn-success" formaction="add_interested.php" style="margin:0px 5px">
-            <input type="submit" value="丟私人訊息" class="btn btn-info" style="margin:0px 5px">
-            <input type="submit" value="回報已成交/閒置" formaction="report_idle.php" class="btn btn-warning" style="margin:0px 5px;">
-            <button class="fb-share-button btn btn-primary" style="width:100px;height:33px;margin:0px 5px;" data-href="http://collegebazaar.tw/show_item_detail.php?id=<?php echo $row[id];?>"></button>
-
-          </form>
-        </td>
-      </tr>
-    </table>
-    <div class="fb-comments" style="margin-top:10px;"data-href="http://collegebazaar.tw/show_item_detail.php?id=<?php echo $row[id];?>" data-width="500" data-numposts="10" data-colorscheme="light"></div>
- 
+      </table>
+      <div class="fb-comments" style="margin-top:10px;padding-bottom:10px;"data-href="http://collegebazaar.tw/show_item_detail.php?id=<?php echo $row[id];?>" data-width="500" data-numposts="10" data-colorscheme="light"></div>
+    </div>
   </div>
-
-</div>
-       
-<center>
-
-</div>
-
-</div>
-
 </center>
-
-</div><!-- // end #main -->
-
+</div>
+</div>
 </div>
 
 <? include("footer.php");?>

@@ -81,10 +81,6 @@ $row = mysqli_fetch_array($result);
 
     <table id="item_info_table">
       <tr>
-        <td style="width:144px">帳號</td>
-        <td style="width:288px"><?php echo $row['username'];?></td>
-      </tr>
-      <tr>
         <td>需求名稱</td>
         <td><?php echo $row['name'];?></td>
       </tr>
@@ -139,7 +135,7 @@ $row = mysqli_fetch_array($result);
       </tr>
 
     </table>
-    <div class="fb-comments" style="margin-top:10px;"data-href="http://collegebazaar.tw/show_wanted_detail.php?id=<?php echo $row[id];?>" data-width="500" data-numposts="10" data-colorscheme="light"></div>
+    <div class="fb-comments" style="margin-top:10px;padding-bottom:10px;"data-href="http://collegebazaar.tw/show_wanted_detail.php?id=<?php echo $row[id];?>" data-width="500" data-numposts="10" data-colorscheme="light"></div>
 
   </div>
 </div>

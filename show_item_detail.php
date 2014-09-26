@@ -130,19 +130,19 @@
 
                         <div class="col-md-9">
 
-<?php 
+                          <?php 
 
-session_start();
+                          session_start();
 
 //若無，則為加入興趣清單時未登入的回傳
 
-if($_GET['id']!=NULL){
+                          if($_GET['id']!=NULL){
 
- $id=$_GET['id'];}
+                           $id=$_GET['id'];}
 
- include_once("mysql_info.php");
+                           include_once("mysql_info.php");
 
- $sql = "select m.id, m.username, i.* from member m, item_forsell i where i.owner = m.id and i.id='$id'";
+                           $sql = "select m.id, m.username, i.* from member m, item_forsell i where i.owner = m.id and i.id='$id'";
 
 $result = mysqli_query($link,$sql); // 執行SQL查詢
 
@@ -152,7 +152,7 @@ $row = mysqli_fetch_array($result);
 
 <div class="row">
 
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-9 col-md-offset-1">
 
     <center><div style="margin:20px 0px 5px 0px"><font color="#FF0000" size="5"><?php echo $notice;?></font></div></center>
 
@@ -238,7 +238,7 @@ $row = mysqli_fetch_array($result);
 
         </tr>
         <tr>
-          
+
           <td colspan="2"><?php 
             $number=$row[img_count];
             echo '<div style="display:inline-block">';
@@ -253,8 +253,8 @@ $row = mysqli_fetch_array($result);
           </td>
 
         </tr>
-          <td colspan="2" style="text-align:center;border-bottom:0px;">
-            <form action="send_message.php" method="post">
+        <td colspan="2" style="text-align:center;border-bottom:0px;">
+          <form action="send_message.php" method="post">
             <input type="hidden" name="item_type" value="sell">
             <input type="hidden" id="receiver" name="receiver" value="<?php echo $row[username];?>">
             <input type="hidden" id="id" name="id" value="<?php echo $row[id];?>">
@@ -262,19 +262,25 @@ $row = mysqli_fetch_array($result);
             <input type="hidden" id="content" name="content" value="<?php echo "商品內容:".$row[name]."\n商品描述:".$row[detail]."\n商品價格:".$row[price]."\n交易方式:".$row[method]."\n聯絡email:".$row[contact_email]."\n手機:".$row[phone];?>">
             
             <input type="submit" value="加到興趣清單" class="btn btn-success" formaction="add_interested.php" style="margin:0px 5px">
-            <input type="submit" value="丟私人訊息" class="btn btn-info style="margin:0px 5px"">
+            <input type="submit" value="丟私人訊息" class="btn btn-info" style="margin:0px 5px">
+            <input type="submit" value="回報已成交/閒置" formaction="report_idle.php" class="btn btn-warning" style="margin:0px 5px;">
+            <button class="fb-share-button btn btn-primary" style="width:100px;height:33px;margin:0px 5px;" data-href="http://collegebazaar.tw/show_item_detail.php?id=<?php echo $row[id];?>"></button>
 
-            </form>
-          </td>
-        <tr>
-
-        </tr>
-
-      </table></div></div><center>
-
-    </div>
-
+          </form>
+        </td>
+      </tr>
+    </table>
+    <div class="fb-comments" style="margin-top:10px;"data-href="http://collegebazaar.tw/show_item_detail.php?id=<?php echo $row[id];?>" data-width="500" data-numposts="10" data-colorscheme="light"></div>
+ 
   </div>
+
+</div>
+       
+<center>
+
+</div>
+
+</div>
 
 </center>
 

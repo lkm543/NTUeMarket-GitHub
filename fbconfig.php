@@ -23,6 +23,7 @@ $facebook = new Facebook(array(
   'appId'  => '748381258544691',   // Facebook App ID 
   'secret' => 'b71c13dd5fd34972cf52108efa47e8ef',  // Facebook App Secret
   'cookie' => true,	
+  'version' => 'v2.0'
 ));
 $user = $facebook->getUser();
 

@@ -9,12 +9,12 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
 
 <!-- Second, add the Timer and Easing plugins -->
-<script type="text/javascript" src="GalleryView/js/jquery.timers-1.2.js"></script>
-<script type="text/javascript" src="GalleryView/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="../js/jquery.timers-1.2.js"></script>
+<script type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
 
 <!-- Third, add the GalleryView Javascript and CSS files -->
-<script type="text/javascript" src="GalleryView/js/jquery.galleryview-3.0-dev.js"></script>
-<link type="text/css" rel="stylesheet" href="GalleryView/css/jquery.galleryview-3.0-dev.css" />
+<script type="text/javascript" src="../js/jquery.galleryview-3.0-dev.js"></script>
+<link type="text/css" rel="stylesheet" href="../css/jquery.galleryview-3.0-dev.css" />
 
 <!-- Lastly, call the galleryView() function on your unordered list(s) -->
 <script type="text/javascript">

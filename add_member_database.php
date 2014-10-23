@@ -3,7 +3,7 @@
 if(isset($_POST['username'])||isset($_POST['email'])||isset($_POST['password'])){
 	// mySQL資料庫
 	session_start(); 
-	$currtimestr=date("Y-m-d h:i:s"); 
+	$currtimestr=date("Y-m-d H:i:s"); 
 	include_once("mysql_info.php");
 	$username=$_POST['username'];
 	$email=$_POST['email'];

@@ -93,7 +93,7 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
 		session_start();
 		$username=$_SESSION['MM_Username'];
 		$user_id=$_SESSION['MM_UserID'];
-		$currtimestr=date("Y-m-d h:i:s"); 
+		$currtimestr=date("Y-m-d H:i:s"); 
 		include_once("mysql_info.php");
 
 		// $sql = "select id from member where username = '$username'";

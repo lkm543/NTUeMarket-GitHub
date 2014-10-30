@@ -1,73 +1,10 @@
 <? include("header.php");?>
 <div id="main">
-  <center>
+  
     <div class="row">
       <div class="col-md-1">
       </div>
-      <div class="col-md-2" align="left">
-       <div id="search">
-
-
-        <?php
-        $sort=$_GET['sort'];
-        ?>
-        <form role="form" action="show_item.php" method="get">
-          <div class="form-group">
-            <label for="InputKeyword">關鍵字搜尋</label>
-            <input type="text" class="form-control" placeholder="關鍵字" size="10" name="keyword">  
-            <input type="hidden" name="sort" value="<?php echo $sort;?>">  
-          </div>
-          <p><button type="submit" class="btn btn-default">Submit</button></p>
-        </form>
-        <table class="table table-hover" width="100%" style="margin:0 0 0 0">
-          <tr><td class="active" onClick="location.href='show_item_wanted.php'"><center>需求總覽</center></td></tr>
-          <tr><td onClick="location.href='show_item.php'"><center>商品總覽</center></td></tr></table>
-          <table width="100%">
-            <tr><td>
-              <table class="table table-hover" width="100%" style="margin:0 0 0 0">
-                <tr><td <?php 
-                  if($sort=="life")
-                    echo "class=\"success\" ";
-                  ?>onClick="location.href='show_item.php?sort=life'"><center>生活用品</center></td></tr>
-                  <tr><td <?php 
-                    if($sort=="clothes")
-                      echo "class=\"success\" ";
-                    ?>onClick="location.href='show_item.php?sort=clothes'"><center>&nbsp;&nbsp;衣&nbsp;&nbsp;&nbsp;物&nbsp;&nbsp;</center></td></tr>
-                    <tr><td <?php 
-                      if($sort=="bike")
-                        echo "class=\"success\" ";
-                      ?>onClick="location.href='show_item.php?sort=bike'"><center>&nbsp;腳&nbsp;踏&nbsp;車&nbsp;</center></td></tr>
-                      <tr><td <?php 
-                        if($sort=="book")
-                          echo "class=\"success\" ";
-                        ?>onClick="location.href='show_item.php?sort=book'"><center>課外讀物</center></td></tr></table>
-                      </td>
-                      <td>
-                        <table class="table table-hover" width="100%" style="margin:0 0 0 0">
-                          <tr><td <?php 
-                            if($sort=="stationary")
-                              echo "class=\"success\" ";
-                            ?>onClick="location.href='show_item.php?sort=stationary'"><center>&nbsp;&nbsp;文&nbsp;&nbsp;&nbsp;具&nbsp;&nbsp;
-                          </center></td></tr>
-                          <tr><td <?php 
-                            if($sort=="3c")
-                              echo "class=\"success\" ";
-                            ?>onClick="location.href='show_item.php?sort=3c'"><center>&nbsp;&nbsp;3C產品&nbsp;</center></td></tr>
-                            <tr><td <?php 
-                              if($sort=="textbook")
-                                echo "class=\"success\" ";
-                              ?>onClick="location.href='show_item.php?sort=textbook'"><center>&nbsp;&nbsp;教科書&nbsp;&nbsp;</center></td></tr>
-                              <tr><td <?php 
-                                if($sort=="else")
-                                  echo "class=\"success\" ";
-                                ?>onClick="location.href='show_item.php?sort=else'"><center>&nbsp;&nbsp;其&nbsp;&nbsp;&nbsp;他&nbsp;&nbsp;</center></td></tr>
-                              </table>
-                            </td></tr></table>
-
-
-                          </div>
-                        </div>
-                        <div class="col-md-9">
+                        <div class="col-md-10">
                          <?php 
                          session_start();
                          $id=$_GET['id'];
@@ -76,8 +13,7 @@
 $result = mysqli_query($link,$sql); // 執行SQL查詢
 $row = mysqli_fetch_array($result);
 ?><center>
-<div class="row">
-  <div class="col-md-9 col-md-offset-1">
+
 
     <table id="item_info_table">
       <tr>
@@ -127,8 +63,8 @@ $row = mysqli_fetch_array($result);
               <input type="submit" value="加到興趣清單" class="btn btn-success" formaction="add_interested.php">&nbsp;&nbsp;
               <input type="submit" value="丟私人訊息" class="btn btn-info">
               <input type="submit" value="回報已成交/閒置" formaction="report_idle.php" class="btn btn-warning" style="margin:0px 5px;">
-            <button class="fb-share-button btn btn-primary" style="width:100px;height:33px;margin:0px 5px;" data-href="http://collegebazaar.tw/show_wanted_detail.php?id=<?php echo $row[id];?>"></button>
-            </center>
+            <div class="fb-share-button btn btn-primary" style="width:100px;height:33px;margin:0px 5px;" data-href="http://collegebazaar.tw/show_wanted_detail.php?id=<?php echo $row[id];?>"></div>
+            
           </form>
 
         </td>
@@ -136,12 +72,8 @@ $row = mysqli_fetch_array($result);
 
     </table>
     <div class="fb-comments" style="margin-top:10px;padding-bottom:10px;"data-href="http://collegebazaar.tw/show_wanted_detail.php?id=<?php echo $row[id];?>" data-width="500" data-numposts="10" data-colorscheme="light"></div>
-
-  </div>
-</div>
-</div>
-</div>
 </center>
+  </div>
+
 </div><!-- // end #main -->
-</div>
 <? include("footer.php");?>

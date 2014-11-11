@@ -65,7 +65,7 @@ ul.menu li a:hover, ul.menu li.active a { color: #70a3b4; text-decoration: none;
 
 #upload_table {font-size: 18px; text-align: left;}
 
-#upload_table td {vertical-align: top; padding:2px;}
+#upload_table td {vertical-align: top; border:5px; border-style:solid; border-color: rgb(240,240,189);}
 
 #item_info_table {font-size: 18px; text-align: left;}
 

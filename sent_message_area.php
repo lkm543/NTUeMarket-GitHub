@@ -68,8 +68,19 @@ if (isset($_SESSION['MM_Username'])){
                        $class='class="info" ';
                     }
 
-                    echo $class.'onClick="location.href=\'sent_message_area.php?id='.$row[id].'\'">
-                    <form action="delete_message.php" method="POST">
+                    if($row[receiver_status]==0){//未讀
+                      $class='class="success" ';
+                      echo 'style="font-weight: bold; font-size:16px;" ';
+                    }
+                    
+                    if ($id==$row[id]){
+                    echo $class.'onClick="location.href=\'sent_message_area.php\'">';
+                    }
+                    else{                    
+                    echo $class.'onClick="location.href=\'sent_message_area.php?id='.$row[id].'\'">';
+                    }
+
+                    echo '<form action="delete_message.php" method="POST">
                     <td class="col-md-2">'.$row[receiver].'</td>
                     <td class="col-md-6">'.$row[subject].'</td>
                     <td class="col-md-2">'.$row[date].'</td>

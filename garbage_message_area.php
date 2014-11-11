@@ -64,19 +64,25 @@ if (isset($_SESSION['MM_Username'])){
              if($row = mysqli_fetch_array($result)){
 
                 echo '<tr ';
-                $class = "";
+                    $class = "";
 
-                if($id==$row[id]){
-                   $class='class="info" ';
-                }
+                    if($id==$row[id]){
+                       $class='class="info" ';
+                    }
 
-                if($row[receiver_status]==0){//未讀
-                    $class='class="success" ';
-                    echo $class.'style="font-weight: bold; font-size:16px;" ';
-                }
+                    if($row[receiver_status]==0){//未讀
+                      $class='class="success" ';
+                      echo 'style="font-weight: bold; font-size:16px;" ';
+                    }
+                    
+                    if ($id==$row[id]){
+                    echo $class.'onClick="location.href=\'garbage_message_area.php\'">';
+                    }
+                    else{                    
+                    echo $class.'onClick="location.href=\'garbage_message_area.php?id='.$row[id].'\'">';
+                    }
 
-                echo $class.'onClick="location.href=\'garbage_message_area.php?id='.$row[id].'\'">
-                <form action="delete_message_ga.php" method="POST">
+                    echo '<form action="delete_message_ga.php" method="POST">
                 <td class="col-md-2">'.$row[sender].'</td>
                 <td class="col-md-2">'.$row[receiver].'</td>
                 <td class="col-md-4">'.$row[subject].'</td>

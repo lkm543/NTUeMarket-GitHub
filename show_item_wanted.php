@@ -18,7 +18,7 @@ $keyword=$_GET['keyword'];
           <input type="text" class="form-control" placeholder="關鍵字" size="10" name="keyword" <?php if($keyword!=NULL) echo "value=".$keyword;?>>
         </div>
         <div class="search_bar col-md-1"style="padding-left:5px;padding-right:0px;">
-          <select name="sort" id="sort" class="form-control">
+          <select name="sort" id="sort" class="form-control"  onchange="this.form.submit()">
             <option value="" <?php if($sort=='') echo 'selected=selected'; ?>>商品分類</option>
             <option value="life" <?php if($sort=='life') echo 'selected=selected'; ?>>生活用品</option>
             <option value="stationary" <?php if($sort=='stationary') echo 'selected=selected'; ?>>文具</option>
@@ -31,7 +31,7 @@ $keyword=$_GET['keyword'];
           </select>
         </div>
         <div class="search_bar col-md-2"style="padding-left:0px;padding-right:0px;">
-          <select name="sorting" id="sort" class="form-control" style="width:75%">
+          <select name="sorting" id="sort" class="form-control" style="width:75%"  onchange="this.form.submit()"> 
             <option value="" <?php if($sorting=='') echo 'selected=selected'; ?>>排序方式</option>
             <option value="date" <?php if($sorting=='date') echo 'selected=selected'; ?>>上架時間：近到遠</option>
             <option value="date_revert" <?php if($sorting=='date_revert') echo 'selected=selected'; ?>>上架時間：遠到近</option>

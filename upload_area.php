@@ -34,7 +34,7 @@
                     <table id="upload_table">
                       <tr>
                         <td>商品名稱</td>
-                        <td width="300"><input type="text" pattern=".{3,20}" name="name" id="name" class="form-control"></td>
+                        <td width="300"><input type="text" name="name" id="name" class="form-control" pattern=".{3,20}"></td>
                         <td>(3-20字)</td>
                       </tr>
                       <tr>

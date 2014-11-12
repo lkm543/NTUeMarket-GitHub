@@ -15,7 +15,17 @@
 <!-- Lastly, call the galleryView() function on your unordered list(s) -->
 <script type="text/javascript">
   $(function(){
-    $('#myGallery').galleryView({panel_width: 450, panel_height: 250, frame_width: 75,frame_height: 40,frame_gap: 0, transition_speed: 500,});
+    $('#myGallery').galleryView({
+      panel_width: 450, 
+      panel_height: 250,  
+      frame_width: 75,
+      frame_height: 40,
+      frame_gap: 0,
+      frame_scale:'fit', 
+      panel_scale:'fit', 
+      transition_speed: 500,
+
+      });
   });
 </script>
 
@@ -53,7 +63,7 @@ $row = mysqli_fetch_array($result);?>
         $number=$row[img_count];
         for($i=1;$i<=$number;$i++)
         {
-          echo '<li><img src="Picture/'.$row[filename].'_'.$i.'.jpg" /></li>';
+          echo '<li><img src="Picture/'.$row[filename].'_'.$i.'.jpg" width=75/></li>';
         }
         ?>
       </ul>

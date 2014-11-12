@@ -3,7 +3,7 @@
 //測試檔案
 
 
-$valid_formats = array("jpg", "png", "gif","JPG", "PNG", "GIF");
+$valid_formats = array("jpg","JPG","jpeg", "JPEG","png","PNG", "gif","GIF","BMP","bmp");
 $max_file_size = 1024*100; //100 kb
 $resized_img_width = 700; //700px
 $folderPath = "Picture/"; // Upload directory
@@ -95,15 +95,28 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
 		$user_id=$_SESSION['MM_UserID'];
 		$currtimestr=date("Y-m-d H:i:s"); 
 		include_once("mysql_info.php");
-		if ($_POST[name]==NULL)
-			$name="未命名";
-		else
-			$name=$_POST[name];
+
+
+//取得使用者ip
+if(!empty($_SERVER['HTTP_CLIENT_IP'])){
+   $ip = $_SERVER['HTTP_CLIENT_IP'];
+}else if(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+   $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+}else{
+   $ip= $_SERVER['REMOTE_ADDR'];
+}
+
+$log_now=$currtimestr.'['.$ip.']使用者'.$username."上傳商品".'<br>';
+mysqli_query ($link,"update Stastic set Log=CONCAT(Log,'$log_now'), Upload_sell=CONCAT(Upload_sell,'$log_now')");
+
 		// $sql = "select id from member where username = '$username'";
 		// $result = mysqli_query($link,$sql);
 		// $row = mysqli_fetch_array($result);
 		// $user_id = $row['id'];
-
+		if ($_POST[name]==NULL)
+			$name="未命名";
+		else
+			$name=$_POST[name];
 		$success = mysqli_query ($link,"insert into item_forsell(name,detail,price,method,sort,filename,img_count,date,owner,msg_welcome,phone,contact_email)
 
 			values('$name','$_POST[detail]','$_POST[price]','$_POST[method]','$_POST[sort]','$fileRenamed','$count','$currtimestr','$user_id','$_POST[message]','$_POST[phone]','$_POST[contact_email]')");
@@ -120,7 +133,7 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
 	else{
 		$checkmsg = sprintf("1.檔案格式：%s<hr>2.檔案大小：%s<hr>3.上傳檔案：%s ",$checkExt,$checkSize,$errorFiles);
 		header('Content-type: text/html; charset=utf-8');
-		printf("<b style='color:red;'>照片上傳失敗,請確認有選取照片，並洽系統管理員</b><hr>%s",$checkmsg);
+		printf("<b style='color:red;'>上傳失敗,請洽系統管理員</b><hr>%s",$checkmsg);
 	}
 
 }

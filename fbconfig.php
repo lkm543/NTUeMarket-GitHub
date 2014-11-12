@@ -7,8 +7,41 @@ function checkuser($fuid,$funame,$ffname,$femail){
   if ($check==0) { // if new user . Insert a new record   
   $query = "INSERT INTO member (username,email,nickname,active) VALUES ('$fuid','$femail','$ffname',1)";
   mysqli_query($link,$query); 
+
+
+      $username=$fuid;
+//後臺記錄
+$currtimestr=date("Y-m-d H:i:s");
+//取得使用者ip
+if(!empty($_SERVER['HTTP_CLIENT_IP'])){
+   $ip = $_SERVER['HTTP_CLIENT_IP'];
+}else if(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+   $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+}else{
+   $ip= $_SERVER['REMOTE_ADDR'];
+}
+
+include_once("mysql_info.php");
+$log_now=$currtimestr.'['.$ip.']使用者'.$username."使用臉書註冊".'<br>';
+mysqli_query ($link,"update Stastic set Log=CONCAT(Log,'$log_now'), Register=CONCAT(Register,'$log_now')");
+
+
+
   $success.="insert";
-  } else {   // If Returned user . update the user record   
+  } else {   // If Returned user . update the user record 
+  //後臺記錄
+$currtimestr=date("Y-m-d H:i:s");
+//取得使用者ip
+if(!empty($_SERVER['HTTP_CLIENT_IP'])){
+   $ip = $_SERVER['HTTP_CLIENT_IP'];
+}else if(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+   $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+}else{
+   $ip= $_SERVER['REMOTE_ADDR'];
+}
+$log_now=$currtimestr.'['.$ip.']使用者'.$fuid."使用臉書登入".'<br>';
+
+mysqli_query ($link,"update Stastic set Log=CONCAT(Log,'$log_now'), Login=CONCAT(Login,'$log_now')");  
   $query = "UPDATE member SET email='$femail' where username='$fuid'";
   $success=mysqli_query($link,$query);
   $success.="update";
@@ -23,7 +56,7 @@ $facebook = new Facebook(array(
   'appId'  => '748381258544691',   // Facebook App ID 
   'secret' => 'b71c13dd5fd34972cf52108efa47e8ef',  // Facebook App Secret
   'cookie' => true,	
-  'version' => 'v2.0'
+  'version' => 'v2.1'
 ));
 $user = $facebook->getUser();
 
@@ -40,6 +73,10 @@ if ($user) {
       $_SESSION['FULLNAME'] = $fbfullname;
 	    $_SESSION['EMAIL'] =  $femail;
       $_SESSION['MM_Username'] =  $fbid;
+
+      $username=$fbuname;
+
+
       //echo "hahahahahahahahahahahahahahahahahahahahahaha-";
       checkuser($fbid,$funame,$fbfullname,$femail);    // To update local DB
       //echo "-hahahahahahahahahahahahahahahahahahahahahaha";

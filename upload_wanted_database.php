@@ -13,6 +13,20 @@ values('$name','$_POST[detail]','$_POST[price]','$_POST[method]','$_POST[sort]',
 $success = mysqli_query ($link,$sql);
 
 if($success){
+
+
+//取得使用者ip
+if(!empty($_SERVER['HTTP_CLIENT_IP'])){
+   $ip = $_SERVER['HTTP_CLIENT_IP'];
+}else if(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+   $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+}else{
+   $ip= $_SERVER['REMOTE_ADDR'];
+}
+
+$log_now=$currtimestr.'['.$ip.']使用者'.$username."上傳需求".'<br>';
+mysqli_query ($link,"update Stastic set Log=CONCAT(Log,'$log_now'), Upload_wanted=CONCAT(Upload_wanted,'$log_now')");
+
 	header("Location: upload_wanted_succeed.php");
 }else{
 	echo $_POST[name].','.$_POST[detail].','.$_POST[price].','.$_POST[method].','.$_POST[sort].','.$currtimestr.','.$user_id.','.$_POST[message].','.$_POST[phone].','.$_POST[contact_email].'<br>';

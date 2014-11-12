@@ -7,13 +7,27 @@ $password=$_POST['password'];
 session_start(); 
 
 //MySQL連線
+//後臺記錄
+$currtimestr=date("Y-m-d H:i:s");
+//取得使用者ip
+if(!empty($_SERVER['HTTP_CLIENT_IP'])){
+   $ip = $_SERVER['HTTP_CLIENT_IP'];
+}else if(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+   $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+}else{
+   $ip= $_SERVER['REMOTE_ADDR'];
+}
 
 include_once("mysql_info.php");
+$log_now=$currtimestr.'['.$ip.']使用者'.$username."使用傳統方式登入".'<br>';
+mysqli_query ($link,"update Stastic set Log=CONCAT(Log,'$log_now'), Login=CONCAT(Login,'$log_now')");
+
+
+
+
 
 $sql = "select * from member where username='$username'"; 
-
 $result = mysqli_query($link,$sql); // 執行SQL查詢
-
 $row = mysqli_fetch_array($result);
 
 $message="";

@@ -24,7 +24,8 @@ if(!empty($_SERVER['HTTP_CLIENT_IP'])){
    $ip= $_SERVER['REMOTE_ADDR'];
 }
 
-$log_now=$currtimestr.'['.$ip.']使用者'.$username."上傳需求".'<br>';
+$count=file("counter.txt") ;
+$log_now=$currtimestr.'['.$ip.']使用者'.$username."上傳需求----瀏覽人次：".$count[0].'<br>';
 mysqli_query ($link,"update Stastic set Log=CONCAT(Log,'$log_now'), Upload_wanted=CONCAT(Upload_wanted,'$log_now')");
 
 	header("Location: upload_wanted_succeed.php");

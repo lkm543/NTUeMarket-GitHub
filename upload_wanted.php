@@ -50,14 +50,19 @@ if($row[active]==1){
       <td>商品類別</td>
       <td><label for="sort"></label>
         <select name="sort" id="sort" class="form-control">
-          <option value="life">生活用品</option>
-          <option value="stationary">文具</option>
-          <option value="clothes">衣物</option>
-          <option value="3c">3c產品</option>
-          <option value="bike">腳踏車</option>
-          <option value="book">課外讀物</option>
-          <option value="textbook">教科書</option>
-          <option value="else">其他</option>
+                            <option value="life">生活用品</option>
+                            <option value="sport">運動用品</option>
+                            <option value="3c">3C產品</option>
+                            <option value="transportation">交通工具</option>
+                            <option value="clothes">衣褲鞋帽</option>
+                            <option value="stationary">文具</option>
+                            <option value="book">課外讀物</option>
+                            <option value="textbook">教科書</option>
+                            <option value="makeup ">美妝保養</option>
+                            <option value="furniture">傢俱</option>
+                            <option value="games">各式遊戲</option>
+                            <option value="else">其他</option>
+                            <option value="giving">贈送</option>
           </select>
     </td>
     </tr>

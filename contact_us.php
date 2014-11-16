@@ -22,6 +22,9 @@
     <td><input type="submit" /></td>
     </tr></table>
     </form>
+
+    <p>或者直接聯繫我們：customer_service@collegebazaar.tw</p>
+
 </center>
 	</div>
 </div>

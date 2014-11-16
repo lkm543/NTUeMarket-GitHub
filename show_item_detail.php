@@ -34,9 +34,7 @@
 
   <div class="row">
 
-    <div class="col-md-5 col-md-offset-1">
-
-      <?php 
+        <?php 
 
       session_start();
 
@@ -52,7 +50,19 @@
 
 $result = mysqli_query($link,$sql); // 執行SQL查詢
 
-$row = mysqli_fetch_array($result);?>
+$row = mysqli_fetch_array($result);
+if($row['status']==2){
+echo '<center><p style="color:red;font-weight:bold;font-size:24px;">該商品已下架</p></center>';
+}
+elseif($row['status']==3){
+echo '<center><p style="color:red;font-weight:bold;font-size:24px;">該商品閒置中</p></center>';
+}
+?>
+    <div class="col-md-5 col-md-offset-1">
+
+
+
+
   <table>
     <tr>
       <td>
@@ -135,7 +145,7 @@ $row = mysqli_fetch_array($result);?>
 
     <td>交易方式</td>
 
-    <td><?php echo $row[method];?></td>
+    <td><?php if($row['status']==1){ echo $row[method];} ?></td>
 
   </tr>
 
@@ -143,7 +153,7 @@ $row = mysqli_fetch_array($result);?>
 
     <td>聯絡email</td>
 
-    <td><?php echo $row[contact_email];?></td>
+    <td><?php if($row['status']==1){ echo $row[contact_email];} ?></td>
 
   </tr>
 
@@ -151,7 +161,7 @@ $row = mysqli_fetch_array($result);?>
 
     <td>手機</td>
 
-    <td><?php echo $row[phone];?></td>
+    <td><?php if($row['status']==1){ echo $row[phone];} ?></td>
 
   </tr>
 

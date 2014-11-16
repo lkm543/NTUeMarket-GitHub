@@ -160,6 +160,23 @@ if (isset($_SESSION['MM_Username'])){
     ?> >會員註冊/登入</a></li>
 
 <?php }?>
+<?
+//訪客計數器-------------------------------
+if(!isset($_SESSION["counter"]))
+{
+ //如果 $_SESSION["counter"] 不存在
+ //讀取文字檔中的內容
+ $count=file("counter.txt") ;
+ $_SESSION["counter"]=$count[0] ;
+ $_SESSION["counter"]++ ;
+
+ //以寫入模式開啟文字檔
+ //並將資料寫回文字檔
+ $findex=fopen("counter.txt","w") ;
+ fwrite($findex,$_SESSION["counter"]) ;
+}
+
+?>
 </div>
 
 	</div><!-- // end #header -->

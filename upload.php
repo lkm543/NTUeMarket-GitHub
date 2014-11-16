@@ -2,7 +2,6 @@
 
 //測試檔案
 
-
 $valid_formats = array("jpg","JPG","jpeg", "JPEG","png","PNG", "gif","GIF","BMP","bmp");
 $max_file_size = 1024*100; //100 kb
 $resized_img_width = 700; //700px
@@ -105,8 +104,8 @@ if(!empty($_SERVER['HTTP_CLIENT_IP'])){
 }else{
    $ip= $_SERVER['REMOTE_ADDR'];
 }
-
-$log_now=$currtimestr.'['.$ip.']使用者'.$username."上傳商品".'<br>';
+$counter=file("counter.txt") ;
+$log_now=$currtimestr.'['.$ip.']使用者'.$username."上傳商品----瀏覽人次：".$counter[0].'<br>';
 mysqli_query ($link,"update Stastic set Log=CONCAT(Log,'$log_now'), Upload_sell=CONCAT(Upload_sell,'$log_now')");
 
 		// $sql = "select id from member where username = '$username'";

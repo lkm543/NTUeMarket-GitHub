@@ -1,10 +1,3 @@
-<?php
-session_start();
-$username=$_SESSION['MM_Username'];
-$user_id=$_SESSION['MM_UserID'];
-$current_page = basename($_SERVER['PHP_SELF']);
-?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
@@ -20,6 +13,8 @@ $current_page = basename($_SERVER['PHP_SELF']);
 
 <body>
 <?php
+$count=file("counter.txt") ;
+echo "瀏覽人次：".$count[0]."</br>" ;
 include_once("mysql_info.php");
 $sql = "select * from Stastic";
 $result = mysqli_query($link,$sql);

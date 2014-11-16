@@ -34,6 +34,9 @@ $message .="這封信是由『CollegeBazaar』發出，用以通知您在College
 $message .="<br>";
 $message .="訊息內容： $content<br>";
 $message .="<br>";
+$message .="請點以下連結讀取該訊息";
+$message .="<br>";
+$message .="http://collegebazaar.tw/message_inbox.php";
 
 require 'PHPMailer/PHPMailerAutoload.php';
 			require_once("PHPMailer/class.phpmailer.php"); //匯入PHPMailer類別 

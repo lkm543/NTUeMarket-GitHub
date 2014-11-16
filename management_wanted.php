@@ -61,14 +61,22 @@ echo '<table align=left>';
                         <td>分類</td>
                         <td>
           		            <select name="sort" id="sort" class="form-control">'; ?>
-                          <option value="life" <?php if ($row['sort']=="life") echo 'selected="selected"';?>>生活用品</option>
-                          <option value="stationary" <?php if ($row['sort']=="stationary") echo 'selected="selected"';?>>文具</option>
-                          <option value="clothes" <?php if ($row['sort']=="clothes") echo 'selected="selected"';?>>衣物</option>
-                          <option value="3c" <?php if ($row['sort']=="3c") echo 'selected="selected"';?>>3c產品</option>
-                          <option value="bike" <?php if ($row['sort']=="bike") echo 'selected="selected"';?>>腳踏車</option>
-                          <option value="book" <?php if ($row['sort']=="book") echo 'selected="selected"';?>>課外讀物</option>
-                          <option value="textbook" <?php if ($row['sort']=="textbook") echo 'selected="selected"';?>>教科書</option>
-                          <option value="else" <?php if ($row['sort']=="else") echo 'selected="selected"';?>>其他</option>
+                          
+                            <option value="" <?php if($row['sort']=='') echo 'selected=selected'; ?>>商品分類</option>
+                            <option value="life" <?php if($row['sort']=='life') echo 'selected=selected'; ?>>生活用品</option>
+                            <option value="sport" <?php if($row['sort']=='sport') echo 'selected=selected'; ?>>運動用品</option>
+                            <option value="3c" <?php if($row['sort']=='3c') echo 'selected=selected'; ?>>3C產品</option>
+                            <option value="transportation" <?php if($row['sort']=='transportation') echo 'selected=selected'; ?>>交通工具</option>
+                            <option value="clothes" <?php if($row['sort']=='clothes') echo 'selected=selected'; ?>>衣褲鞋帽</option>
+                            <option value="stationary" <?php if($row['sort']=='stationary') echo 'selected=selected'; ?>>文具</option>
+                            <option value="book" <?php if($row['sort']=='book') echo 'selected=selected'; ?>>課外讀物</option>
+                            <option value="textbook" <?php if($row['sort']=='textbook') echo 'selected=selected'; ?>>教科書</option>
+                            <option value="makeup" <?php if($row['sort']=='makeup') echo 'selected=selected'; ?>>美妝保養</option>
+                            <option value="furniture" <?php if($row['sort']=='furniture') echo 'selected=selected'; ?>>傢俱</option>
+                            <option value="games" <?php if($row['sort']=='games') echo 'selected=selected'; ?>>各式遊戲</option>
+                            <option value="else" <?php if($row['sort']=='else') echo 'selected=selected'; ?>>其他</option>
+                            <option value="giving" <?php if($row['sort']=='giving') echo 'selected=selected'; ?>>贈送</option>
+
                           <?php 
                     echo '</select>
                         </td>

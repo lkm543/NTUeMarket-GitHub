@@ -17,15 +17,20 @@ $keyword=$_GET['keyword'];
         </div>
         <div class="search_bar col-md-1"style="padding-left:5px;padding-right:0px;">
           <select name="sort" id="sort" class="form-control" onchange="this.form.submit()">
-            <option value="" <?php if($sort=='') echo 'selected=selected'; ?>>商品分類</option>
-            <option value="life" <?php if($sort=='life') echo 'selected=selected'; ?>>生活用品</option>
-            <option value="stationary" <?php if($sort=='stationary') echo 'selected=selected'; ?>>文具</option>
-            <option value="clothes" <?php if($sort=='clothes') echo 'selected=selected'; ?>>衣物</option>
-            <option value="3c" <?php if($sort=='3c') echo 'selected=selected'; ?>>3c產品</option>
-            <option value="bike" <?php if($sort=='bike') echo 'selected=selected'; ?>>腳踏車</option>
-            <option value="book" <?php if($sort=='book') echo 'selected=selected'; ?>>課外讀物</option>
-            <option value="textbook" <?php if($sort=='textbook') echo 'selected=selected'; ?>>教科書</option>
-            <option value="else" <?php if($sort=='else') echo 'selected=selected'; ?>>其他</option>
+                            <option value="" <?php if($sort=='') echo 'selected=selected'; ?>>商品分類</option>
+                            <option value="life" <?php if($sort=='life') echo 'selected=selected'; ?>>生活用品</option>
+                            <option value="sport" <?php if($sort=='sport') echo 'selected=selected'; ?>>運動用品</option>
+                            <option value="3c" <?php if($sort=='3c') echo 'selected=selected'; ?>>3C產品</option>
+                            <option value="transportation" <?php if($sort=='transportation') echo 'selected=selected'; ?>>交通工具</option>
+                            <option value="clothes" <?php if($sort=='clothes') echo 'selected=selected'; ?>>衣褲鞋帽</option>
+                            <option value="stationary" <?php if($sort=='stationary') echo 'selected=selected'; ?>>文具</option>
+                            <option value="book" <?php if($sort=='book') echo 'selected=selected'; ?>>課外讀物</option>
+                            <option value="textbook" <?php if($sort=='textbook') echo 'selected=selected'; ?>>教科書</option>
+                            <option value="makeup" <?php if($sort=='makeup') echo 'selected=selected'; ?>>美妝保養</option>
+                            <option value="furniture" <?php if($sort=='furniture') echo 'selected=selected'; ?>>傢俱</option>
+                            <option value="games" <?php if($sort=='games') echo 'selected=selected'; ?>>各式遊戲</option>
+                            <option value="else" <?php if($sort=='else') echo 'selected=selected'; ?>>其他</option>
+                            <option value="giving" <?php if($sort=='giving') echo 'selected=selected'; ?>>贈送</option>
           </select>
         </div>
         <div class="search_bar col-md-2"style="padding-left:0px;padding-right:0px;">

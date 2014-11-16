@@ -14,7 +14,14 @@ $result = mysqli_query($link,$sql); // 執行SQL查詢
 $row = mysqli_fetch_array($result);
 ?><center>
 
-
+<?php
+if($row['status']==2){
+echo '<center><p style="color:red;font-weight:bold;font-size:24px;">該徵求已下架</p></center>';
+}
+elseif($row['status']==3){
+echo '<center><p style="color:red;font-weight:bold;font-size:24px;">該徵求閒置中</p></center>';
+}
+?>
     <table id="item_info_table">
       <tr>
         <td>需求名稱</td>
@@ -30,15 +37,15 @@ $row = mysqli_fetch_array($result);
       </tr>
       <tr>
         <td>交易方式</td>
-        <td><?php echo $row['method'];?></td>
+        <td><?php if($row['status']==1){ echo $row['method'];} ?></td>
       </tr>
       <tr>
         <td>聯絡email</td>
-        <td><?php echo $row['contact_email'];?></td>
+        <td><?php if($row['status']==1){ echo $row['contact_email'];} ?></td>
       </tr>
       <tr>
         <td>手機</td>
-        <td><?php echo $row['phone'];?></td>
+        <td><?php if($row['status']==1){ echo $row['phone'];} ?></td>
       </tr>
       <tr>
         <td>私人訊息</td>

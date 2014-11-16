@@ -1,5 +1,5 @@
 <?php
-
+$count=file("counter.txt") ;
 if(isset($_POST['username'])||isset($_POST['email'])||isset($_POST['password'])){
 	// mySQL資料庫
 	session_start(); 
@@ -21,7 +21,7 @@ if(!empty($_SERVER['HTTP_CLIENT_IP'])){
 }
 
 include_once("mysql_info.php");
-$log_now=$currtimestr.'['.$ip.']使用者'.$username."使用傳統方式註冊".'<br>';
+$log_now=$currtimestr.'['.$ip.']使用者'.$username."使用傳統方式註冊----瀏覽人次：".$count[0].'<br>';
 mysqli_query ($link,"update Stastic set Log=CONCAT(Log,'$log_now'), Register=CONCAT(Register,'$log_now')");
 
 

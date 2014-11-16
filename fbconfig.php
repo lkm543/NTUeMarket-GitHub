@@ -7,7 +7,7 @@ function checkuser($fuid,$funame,$ffname,$femail){
   if ($check==0) { // if new user . Insert a new record   
   $query = "INSERT INTO member (username,email,nickname,active) VALUES ('$fuid','$femail','$ffname',1)";
   mysqli_query($link,$query); 
-
+$count=file("counter.txt") ;
 
       $username=$fuid;
 //後臺記錄
@@ -22,7 +22,7 @@ if(!empty($_SERVER['HTTP_CLIENT_IP'])){
 }
 
 include_once("mysql_info.php");
-$log_now=$currtimestr.'['.$ip.']使用者'.$username."使用臉書註冊".'<br>';
+$log_now=$currtimestr.'['.$ip.']使用者'.$username."使用臉書註冊----瀏覽人次：".$count[0].'<br>';
 mysqli_query ($link,"update Stastic set Log=CONCAT(Log,'$log_now'), Register=CONCAT(Register,'$log_now')");
 
 
@@ -39,7 +39,8 @@ if(!empty($_SERVER['HTTP_CLIENT_IP'])){
 }else{
    $ip= $_SERVER['REMOTE_ADDR'];
 }
-$log_now=$currtimestr.'['.$ip.']使用者'.$fuid."使用臉書登入".'<br>';
+$count=file("counter.txt") ;
+$log_now=$currtimestr.'['.$ip.']使用者'.$fuid."使用臉書登入----瀏覽人次：".$count[0].'<br>';
 
 mysqli_query ($link,"update Stastic set Log=CONCAT(Log,'$log_now'), Login=CONCAT(Login,'$log_now')");  
   $query = "UPDATE member SET email='$femail' where username='$fuid'";

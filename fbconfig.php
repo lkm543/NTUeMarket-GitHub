@@ -5,7 +5,7 @@ function checkuser($fuid,$funame,$ffname,$femail){
   $check = mysqli_query($link,"select * from member where username='$fuid'");
   $check = mysqli_num_rows($check);
   if ($check==0) { // if new user . Insert a new record   
-  $query = "INSERT INTO member (username,email,nickname,active) VALUES ('$fuid','$femail','$ffname',1)";
+  $query = "INSERT INTO member (username,email,nickname,active,contact_email) VALUES ('$fuid','$femail','$ffname',1,'$femail')";
   mysqli_query($link,$query); 
 $count=file("counter.txt") ;
 

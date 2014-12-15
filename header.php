@@ -20,7 +20,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
     <link href="bootstrap/css/style-ie.css" rel="stylesheet" type="text/css" />
     <link href="bootstrap/css/style.css" rel="stylesheet" type="text/css" />  
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />  
-
+    <link href="bootstrap/css/detail_hover.css" rel="stylesheet" type="text/css" />
     <!-- Bootstrap!-->
 
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -148,7 +148,7 @@ if (isset($_SESSION['MM_Username'])){
 
         <li><a href="message_inbox.php">私人訊息<?php if($num_notice[rows]!=0) echo '<span id="notification" style="background-color:#FF0000; vertical-align:top; font-size:14px; border-radius:10px; padding:1px 6px; color:#FFFFFF; -webkit-box-shadow:0 1px 1px rgba(0, 0, 0, .7)">'.$num_notice[rows].'</span>'?></a></li>
 
-        <li><a href="logout.php">登出</a></li></ul>
+        <li><a href="logout.php">登出</a></li></ul></li>
 
 <?php //尚未登入
 

@@ -149,10 +149,10 @@ $totalCount = ceil($number_of_row/4)*4;
     if($row = mysqli_fetch_array($result2)) {
       echo '<td class="col-xs-9 col-md-3 col-md-offset-1">
       <div class="item_wrapper">
+                <div><img src="images/pin.jpg"></div>
         <a href="show_wanted_detail.php?id='.$row['id'].'"><div class="item_title" style="min-height: 30px;">'.$row[name].'</div></a>
-        <div>需求描述：'.$row[detail].'</div>
-        <div class="item_value">徵求價格：$'.$row[price].'</div>
-        <div>上架日期：'.$row[date].'</div>
+        <div>'.$row[detail].'</div>
+        <div class="item_value">$'.$row['price'].'</div>
       </div></td>';
     }
     else {

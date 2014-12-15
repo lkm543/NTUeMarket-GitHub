@@ -137,13 +137,31 @@ $totalCount = ceil($number_of_row/4)*4;
         if($k%4 == 0) { echo '<tr class="row">'; }
 
         if($row = mysqli_fetch_array($result2)) {
-          echo '<td class="col-xs-9 col-md-3 col-md-offset-1">
+echo '<td class="col-xs-9 col-md-3 col-md-offset-1">
+          
           <div class="item_wrapper">
+                    <div><img src="images/pin.jpg"></div>
             <div class="item_title">'.$row[name].'</div>
-            <a href="show_item_detail.php?id='.$row[id].'"><div class="item_img_wrapper" style="background:url(Picture/'.$row[filename].'_1.jpg) no-repeat center center; background-size:contain;"></div></a>
-            <div class="item_value">出價金額: $'.$row[price].'</div>
-            <div>上架日期: '.$row[date].'</div>
-          </div></td>';
+              <a href="show_item_detail.php?id='.$row[id].'">
+              <div class="view view-first">
+     
+                
+
+                <img src="Picture/'.$row[filename].'_1.jpg"/ style="margin:auto;  " >
+
+                <div class="mask" style=" cursor: pointer;">
+                  <p>'.$row[detail].'</p>
+                </div>
+
+
+              </div>  
+                </a>
+            <center><div class="item_value">$'.$row['price'].'</div></center>
+          </div>
+
+
+
+                </td>';
         }
         else {
           echo '<td style="width:279px"></td>';
